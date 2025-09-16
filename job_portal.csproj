@@ -67,6 +67,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin\Admin_main.aspx" />
+    <Content Include="admin\admin_mainpage.aspx" />
+    <Content Include="admin\admin_profile.aspx" />
+    <Content Include="admin\admin_register.aspx" />
+    <Content Include="admin\Admin_registration.aspx" />
+    <Content Include="admin\Application.aspx" />
+    <Content Include="admin\Categories.aspx" />
+    <Content Include="admin\category.aspx" />
+    <Content Include="admin\Skill.aspx" />
+    <Content Include="admin\Skill1.aspx" />
+    <Content Include="App_Data\jobportal.mdf" />
+    <Content Include="App_Data\jobportal_log.ldf">
+      <DependentUpon>jobportal.mdf</DependentUpon>
+    </Content>
+    <Content Include="auth\forgot_pass.aspx" />
+    <Content Include="auth\login_page.aspx" />
+    <Content Include="auth\logout.aspx" />
+    <Content Include="auth\Registration.aspx" />
     <Content Include="Bootstrap\css\bootstrap-grid.css" />
     <Content Include="Bootstrap\css\bootstrap-grid.min.css" />
     <Content Include="Bootstrap\css\bootstrap-grid.rtl.css" />
@@ -89,6 +107,19 @@
     <Content Include="Bootstrap\js\bootstrap.esm.min.js" />
     <Content Include="Bootstrap\js\bootstrap.js" />
     <Content Include="Bootstrap\js\bootstrap.min.js" />
+    <Content Include="common\About_us.aspx" />
+    <Content Include="common\Contact_us.aspx" />
+    <Content Include="common\Main_page.aspx" />
+    <Content Include="common\Message.aspx" />
+    <Content Include="common\Privacy_policy.aspx" />
+    <Content Include="common\Terms_condition.aspx" />
+    <Content Include="company\Company.aspx" />
+    <Content Include="company\company_main.aspx" />
+    <Content Include="company\Company_profile.aspx" />
+    <Content Include="company\jobs.aspx" />
+    <Content Include="company\job_application.aspx" />
+    <Content Include="company\job_post.aspx" />
+    <Content Include="company\postedjob_list.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\1-removebg-preview.png" />
     <Content Include="Images\2-removebg-preview.png" />
@@ -153,11 +184,264 @@
     <Content Include="Images\white_linkedin_icon-removebg-preview.png" />
     <Content Include="Images\white_twitter_icon-removebg-preview.png" />
     <Content Include="Images\white_youtube_icon-removebg-preview.png" />
+    <Content Include="job_seeker\applied_job.aspx" />
+    <Content Include="job_seeker\Education_detail.aspx" />
+    <Content Include="job_seeker\Employee_profile.aspx" />
+    <Content Include="job_seeker\Employer.aspx" />
+    <Content Include="job_seeker\Employer_Registration.aspx" />
+    <Content Include="job_seeker\Finds_job.aspx" />
+    <Content Include="job_seeker\jobseeker_main.aspx" />
+    <Content Include="job_seeker\Job_seeker.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\Admin_main.aspx.cs">
+      <DependentUpon>Admin_main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Admin_main.aspx.designer.cs">
+      <DependentUpon>Admin_main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\admin_mainpage.aspx.cs">
+      <DependentUpon>admin_mainpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin_mainpage.aspx.designer.cs">
+      <DependentUpon>admin_mainpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\admin_profile.aspx.cs">
+      <DependentUpon>admin_profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin_profile.aspx.designer.cs">
+      <DependentUpon>admin_profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\admin_register.aspx.cs">
+      <DependentUpon>admin_register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin_register.aspx.designer.cs">
+      <DependentUpon>admin_register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Admin_registration.aspx.cs">
+      <DependentUpon>Admin_registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Admin_registration.aspx.designer.cs">
+      <DependentUpon>Admin_registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Application.aspx.cs">
+      <DependentUpon>Application.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Application.aspx.designer.cs">
+      <DependentUpon>Application.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Categories.aspx.cs">
+      <DependentUpon>Categories.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Categories.aspx.designer.cs">
+      <DependentUpon>Categories.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\category.aspx.cs">
+      <DependentUpon>category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\category.aspx.designer.cs">
+      <DependentUpon>category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Skill.aspx.cs">
+      <DependentUpon>Skill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Skill.aspx.designer.cs">
+      <DependentUpon>Skill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Skill1.aspx.cs">
+      <DependentUpon>Skill1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Skill1.aspx.designer.cs">
+      <DependentUpon>Skill1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="auth\forgot_pass.aspx.cs">
+      <DependentUpon>forgot_pass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="auth\forgot_pass.aspx.designer.cs">
+      <DependentUpon>forgot_pass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="auth\login_page.aspx.cs">
+      <DependentUpon>login_page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="auth\login_page.aspx.designer.cs">
+      <DependentUpon>login_page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="auth\logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="auth\logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="auth\Registration.aspx.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="auth\Registration.aspx.designer.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\About_us.aspx.cs">
+      <DependentUpon>About_us.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\About_us.aspx.designer.cs">
+      <DependentUpon>About_us.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\Contact_us.aspx.cs">
+      <DependentUpon>Contact_us.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\Contact_us.aspx.designer.cs">
+      <DependentUpon>Contact_us.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\Main_page.aspx.cs">
+      <DependentUpon>Main_page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\Main_page.aspx.designer.cs">
+      <DependentUpon>Main_page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\Message.aspx.cs">
+      <DependentUpon>Message.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\Message.aspx.designer.cs">
+      <DependentUpon>Message.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\Privacy_policy.aspx.cs">
+      <DependentUpon>Privacy_policy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\Privacy_policy.aspx.designer.cs">
+      <DependentUpon>Privacy_policy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\Terms_condition.aspx.cs">
+      <DependentUpon>Terms_condition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\Terms_condition.aspx.designer.cs">
+      <DependentUpon>Terms_condition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="company\Company.aspx.cs">
+      <DependentUpon>Company.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="company\Company.aspx.designer.cs">
+      <DependentUpon>Company.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="company\company_main.aspx.cs">
+      <DependentUpon>company_main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="company\company_main.aspx.designer.cs">
+      <DependentUpon>company_main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="company\Company_profile.aspx.cs">
+      <DependentUpon>Company_profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="company\Company_profile.aspx.designer.cs">
+      <DependentUpon>Company_profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="company\jobs.aspx.cs">
+      <DependentUpon>jobs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="company\jobs.aspx.designer.cs">
+      <DependentUpon>jobs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="company\job_application.aspx.cs">
+      <DependentUpon>job_application.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="company\job_application.aspx.designer.cs">
+      <DependentUpon>job_application.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="company\job_post.aspx.cs">
+      <DependentUpon>job_post.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="company\job_post.aspx.designer.cs">
+      <DependentUpon>job_post.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="company\postedjob_list.aspx.cs">
+      <DependentUpon>postedjob_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="company\postedjob_list.aspx.designer.cs">
+      <DependentUpon>postedjob_list.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="job_seeker\applied_job.aspx.cs">
+      <DependentUpon>applied_job.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="job_seeker\applied_job.aspx.designer.cs">
+      <DependentUpon>applied_job.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="job_seeker\Education_detail.aspx.cs">
+      <DependentUpon>Education_detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="job_seeker\Education_detail.aspx.designer.cs">
+      <DependentUpon>Education_detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="job_seeker\Employee_profile.aspx.cs">
+      <DependentUpon>Employee_profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="job_seeker\Employee_profile.aspx.designer.cs">
+      <DependentUpon>Employee_profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="job_seeker\Employer.aspx.cs">
+      <DependentUpon>Employer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="job_seeker\Employer.aspx.designer.cs">
+      <DependentUpon>Employer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="job_seeker\Employer_Registration.aspx.cs">
+      <DependentUpon>Employer_Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="job_seeker\Employer_Registration.aspx.designer.cs">
+      <DependentUpon>Employer_Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="job_seeker\Finds_job.aspx.cs">
+      <DependentUpon>Finds_job.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="job_seeker\Finds_job.aspx.designer.cs">
+      <DependentUpon>Finds_job.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="job_seeker\jobseeker_main.aspx.cs">
+      <DependentUpon>jobseeker_main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="job_seeker\jobseeker_main.aspx.designer.cs">
+      <DependentUpon>jobseeker_main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="job_seeker\Job_seeker.aspx.cs">
+      <DependentUpon>Job_seeker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="job_seeker\Job_seeker.aspx.designer.cs">
+      <DependentUpon>Job_seeker.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -194,7 +478,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
