@@ -10,6 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace job_portal.admin
 {
+
     public partial class admin_register : System.Web.UI.Page
     {
         SqlConnection con;
