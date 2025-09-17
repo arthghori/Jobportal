@@ -309,7 +309,6 @@
     </Compile>
     <Compile Include="common\Main_page.aspx.cs">
       <DependentUpon>Main_page.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="common\Main_page.aspx.designer.cs">
       <DependentUpon>Main_page.aspx</DependentUpon>

@@ -6,12 +6,3 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace job_portal.common
-{
-    public partial class Main_page : System.Web.UI.Page
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-    }
-}
