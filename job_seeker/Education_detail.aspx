@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Education_detail.aspx.cs" Inherits="job_portal.job_seeker.Education_detail" %>
 
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -279,4 +278,3 @@
     </form>
 </body>
 </html>
-

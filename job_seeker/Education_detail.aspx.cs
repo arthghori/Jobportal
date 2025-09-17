@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace job_portal.job_seeker
 {
-   
+   {
     public partial class Education_detail : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)

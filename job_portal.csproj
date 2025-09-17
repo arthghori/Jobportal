@@ -423,7 +423,6 @@
     </Compile>
     <Compile Include="job_seeker\Finds_job.aspx.cs">
       <DependentUpon>Finds_job.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="job_seeker\Finds_job.aspx.designer.cs">
       <DependentUpon>Finds_job.aspx</DependentUpon>
