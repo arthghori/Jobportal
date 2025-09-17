@@ -4,12 +4,358 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="Images/JOB FiNDER logo.png" />
+    <script src="Bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <title>job post</title>
+    <style type="text/css">
+
+
+
+        .auto-style1 {
+            width: 100%;
+            height: 570px;
+        }
+        #btnPost{
+            border-radius:18px;
+        }
+        .Textbox{
+            border-radius:8px;
+        }
+        .auto-style2 {
+            text-align: center;
+        }
+        .auto-style3 {
+            text-align: center;
+            height: 56px;
+        }
+               .nav-link{
+           color:#059669;
+         }
+        
+   .nav {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Moves Jobs, Messages, and Profile to the Right */
+.nav-right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;  /* Pushes it to the right */
+    gap: 20px; /* Space between items */
+}
+
+.nav-item {
+    margin: 0 15px;
+}
+
+.profile-dropdown {
+    position: relative;
+    cursor: pointer;
+}
+
+.profile-icon {
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 10px 0;
+    min-width: 150px;
+    display: none;
+    z-index: 1000;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px 15px;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #059669;
+    color: white;
+}
+
+/* Show dropdown on hover */
+.nav-item.dropdown:hover .dropdown-menu,
+.profile-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+   .bottom-bar {
+        margin-top: 25px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        text-align: center;
+        }
+
+   .bottom-bar a {
+      text-decoration: none;
+      color: white;
+   }
+
+   .footer a {
+     text-decoration: none;
+     color: white;
+    }
+   #ddlcampany{
+       border-radius:8px;
+   }
+   #ddlcategory{
+       border-radius:8px;
+   }
+
+        </style>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
+    <form id="job_post" runat="server">
+  
+               <header>
+    <ul class="nav nav-tabs" style="font-weight: bold; background-color: #FFFFFF; display: flex; align-items: center; padding: 10px;">
+        <li>
+            <img src="../Images/JOB FiNDER logo.png" alt="Logo" class="auto-style1" style="width: 100px; height: 100px;" />
+        </li>
+
+        <!-- RIGHT SIDE NAV ITEMS -->
+        <div class="nav-right">
+            <li class="nav-item">
+    <a class="nav-link" href="/company_main.aspx" style="color: #059669;">Home</a>
+</li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="#" style="color: #059669;" id="jobsDropdown">Jobs</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/job_post.aspx">Add job</a></li>
+                    <li><a class="dropdown-item" href="/postedjob_list.aspx">Posted jobs</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#" style="color: #059669;">Messages</a>
+            </li>
+
+            <li class="profile-dropdown">
+                <img src="../Images/log_out-removebg-preview.png" alt="Profile" class="profile-icon" />
+                <ul class="dropdown-menu">
+                    <li><a href="Company_profile.aspx">Profile</a></li>
+                    <li><a href="logout.aspx">Logout</a></li>
+                </ul>
+            </li>
         </div>
-    </form>
+    </ul>
+</header>
+       <div class="row" style="margin-left:300px">
+ <div class="col" style=" margin-top:100px;">
+      <div style="border:1px solid black;border-radius:4px; width:550px;height:990px;box-shadow : 5px 5px 15px grey;">
+           <table class="auto-style1" style="background-color:#F3F3F3">
+               <tr>
+                  <td style="font-family:Verdana,Verdana, Geneva, Tahoma, sans-serif; font-size: large; font-weight: bold;">&nbsp; job post</td>
+                 </tr>
+                    <tr>
+                        <td>
+                            &nbsp;&nbsp; 
+                            <br />&nbsp; Job Title:</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style2"><asp:TextBox ID="txtJobtitle" runat="server" Height="26px" Width="521px" CssClass="Textbox" placeholder="Jobtitle"></asp:TextBox>
+                            <br />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="job title is requried" ControlToValidate="txtJobtitle" ForeColor="Red"></asp:RequiredFieldValidator>
+                         </td>   
+</tr>
+                      
+                    <tr>
+                        <td>
+                            &nbsp;&nbsp; Company Name:</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style2">
+                            <asp:DropDownList ID="ddlcampany" runat="server" Width="523px">
+                            </asp:DropDownList>
+                            <br />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="please select a company name" ControlToValidate="txtJobtitle" ForeColor="Red"></asp:RequiredFieldValidator>
+                         </td>   
+</tr>
+                      
+                    
+                      
+                    <tr>
+                        <td>
+                            &nbsp;&nbsp; Description:</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style2"><asp:TextBox ID="txtDescription" runat="server" Height="49px" Width="522px" CssClass="Textbox" placeholder="Description"  TextMode="MultiLine"></asp:TextBox>
+                            <br />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="description is requried" ControlToValidate="txtDescription" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;&nbsp; Skill Requried:</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style2"><asp:TextBox ID="txtSkillRequried" runat="server" Height="26px" Width="523px" CssClass="Textbox" placeholder="Skill requried" TextMode="MultiLine"></asp:TextBox>
+                            <br />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage=" skill requried field  cannot be empty" ControlToValidate="txtSkillRequried" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;&nbsp; Location:</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style2"><asp:TextBox ID="txtLocation" runat="server" Height="26px" Width="523px" CssClass="Textbox"  TextMode="MultiLine" placeholder="Location"></asp:TextBox>
+                            <br />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="location is requried" ControlToValidate="txtLocation" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;&nbsp; Category:</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style3">
+                            <asp:DropDownList ID="ddlcategory" runat="server" Width="523px">
+                            </asp:DropDownList>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;&nbsp; Salary:</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style2"><asp:TextBox ID="txtSalary" runat="server" Height="26px" Width="523px" CssClass="Textbox"  placeholder="Salary" TextMode="Number"></asp:TextBox>
+                            <br />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="salary is requried" ControlToValidate="txtSalary" ForeColor="Red"></asp:RequiredFieldValidator>
+                              <asp:RegularExpressionValidator ID="revSalary" runat="server" ControlToValidate="txtSalary"  ValidationExpression="^\d+(\.\d{1,2})?$" ErrorMessage="Salary must be a valid number." ForeColor="Red"/>
+                        
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;&nbsp; Job Type:</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style2">&nbsp;<asp:DropDownList ID="ddlJobpost" runat="server" Height="30px" Width="525px" CssClass="Textbox">
+                                <asp:ListItem>---Select job--</asp:ListItem>
+                                  <asp:ListItem Text="Full-Time" Value="Full Time"></asp:ListItem>
+        <asp:ListItem Text="Part-Time" Value="Part Time"></asp:ListItem>
+        <asp:ListItem Text="Internship" Value="Internship"></asp:ListItem>
+        <asp:ListItem Text="Freelance" Value="Freelance"></asp:ListItem>
+    <asp:ListItem Text="Contract" Value="Contract"></asp:ListItem>
+                            </asp:DropDownList>
+                            &nbsp;<br />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Please select a job type" ControlToValidate="ddlJobpost" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;&nbsp; Post Date:</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style2"><asp:TextBox ID="txtPostdate" runat="server" Height="26px" Width="523px" TextMode="Date" CssClass="Textbox"></asp:TextBox>
+                            <br />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="post date is requried" ControlToValidate="txtPostdate" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;&nbsp; Application Deadline:</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style3"><asp:TextBox ID="txtDate" runat="server" Height="26px" Width="523px" TextMode="Date" CssClass="Textbox"></asp:TextBox>
+                            <br />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="application deadline is requried" ControlToValidate="txtDate" ForeColor="Red"></asp:RequiredFieldValidator>
+                             <asp:CompareValidator ID="cvDate" runat="server" ControlToValidate="txtDate" ControlToCompare="txtPostdate" Operator="GreaterThan" ErrorMessage="Deadline must be after the post date." ForeColor="Red"  />
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><br />
+                            &nbsp;
+                            <asp:Button ID="btnPost" runat="server" Text="POST" BackColor="#059669" ForeColor="White" Height="37px" Width="180px" OnClick="btnPost_Click"/>
+                        </td>
+                    </tr>
+                </table>
+</div>
+     </div>
+           <div class="col" style="margin-left:0px;margin-right:100px; margin-top:350px;">
+     <img src="Images/Static/Job_Posting_Page.51e6ab7c156a002d438b.png" alt="job post" class="auto-style3" style="height:280px;width:400px"/>
+ </div>
+       
+        </div>
+                        <div class="footer">
+      <div class="row  container-fluid" style="margin-top:300px;margin-left: 2px; background-color:#059669;color:white; text-align: center; height: 100%" >
+          
+      
+
+          <div class="col-md-4">
+                     <h5 style="margin-top:11px">Quick Links</h5>
+                     <ul class="nav flex-column">
+                         <li class="nav-item" ><a href="About_us.aspx" >About Us</a></li>
+                         <li class="nav-item"><a href="Contact_us.aspx" >Contact Us</a></li>
+                         <li class="nav-item"><a href="#" >Our Services</a></li>
+                         <li class="nav-item"><a href="Privacy_policy.aspx" >Privacy Policy</a></li>
+                         <li class="nav-item"><a href="#" >Terms & Conditions</a></li>
+                     </ul>
+                 </div>
+
+            
+                 <div class="col-md-4">
+                     <h5 style="margin-top:11px">Contact</h5>
+                    <p> <i class="bi bi-geo-alt-fill"></i> 123 Street, New York, USA</p>
+                     <p><i class="bi bi-telephone-fill"></i> +012 345 67890</p>
+                     <p><i class="bi bi-envelope-fill"></i> info@example.com</p> 
+
+           </div>
+<br />
+                       <div class="col-md-4">
+         <h5 style="margin-top:11px">Quick Links</h5>
+      <div >
+          <input type="text" placeholder="Name" /> <br />
+          <input type="email" placeholder="Email address" /><br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="text" placeholder="Message"/>&nbsp;
+         <input type="button" value="Send" style="background-color:white;color:#059669;border:0px;height:30px;"/>
+          <div>
+         &nbsp;</div>
+     </div>
+                     </div>
+           
+         
+             <div class="bottom-bar" >
+                 <p">© Your Site Name, All Rights Reserved. Designed by <a href="#">HTML Codex</a></p>
+                 <a href="#">Home</a> | 
+                 <a href="#">Cookies</a> | 
+                 <a href="#">Help</a> | 
+                 <a href="#">FAQs</a>
+
+             </div>
+       
+         </div>
+    </div>
+
+        </form>
 </body>
-</html>
+ </html>
+
+ 
+
+
+
