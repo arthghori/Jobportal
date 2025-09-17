@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +14,68 @@ namespace job_portal.company
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Username"] != null)
+            {
+                string userRole = Session["UserRole"].ToString();
+
+                if (userRole == "Jobseeker" || userRole == "Admin" || userRole == "Company")
+                {
+                    LoadVacancies();
+                }
+                else
+                {
+                    // Redirect unauthorized users
+                    Response.Redirect("~/unauthorized.aspx");
+                }
+            }
+            else
+            {
+                // Redirect to login page if session is not set
+                Response.Redirect("~/login_page.aspx");
+            }
+        }
+        private void LoadVacancies()
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                string query = "SELECT jobpostid AS JobID, jobtitle AS JobTitle, jobtype AS EmploymentType, " +
+                               "applicationdeadline AS ApplicationDeadline, status AS Published, 1 AS Views " +
+                               "FROM tbl_jobpost";
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                gvVacancies.DataSource = dt;
+                gvVacancies.DataBind();
+            }
+        }
+
+
+        protected void btnCreate_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/job_post.aspx");
 
         }
+
+
+        protected void btnView_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            int jobid = Convert.ToInt32(btn.CommandArgument);
+            Response.Redirect("~/job_application.aspx?jobpostid=" + jobid);
+        }
+
+        protected void btnApplications_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            int jobid = Convert.ToInt32(btn.CommandArgument);
+            Response.Redirect("~/Application.aspx?jobpostid=" + jobid);
+
+        }
+
+
+
+
+
     }
 }
