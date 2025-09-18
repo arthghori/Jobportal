@@ -11,7 +11,9 @@ namespace job_portal.auth
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session.Abandon();  // Destroy the session
+            Session.Clear();    // Clear session variables
+            Response.Redirect("login_page.aspx"); // Redirect to login
         }
     }
 }

@@ -4,12 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+        <title>Logging Out...</title>
+    <meta http-equiv="refresh" content="2;url=login_page.aspx" />
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
+      <h2>Logging out, please wait...</h2>
+
 </body>
 </html>
