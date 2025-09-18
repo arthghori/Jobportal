@@ -31,7 +31,7 @@ namespace job_portal.admin
             }
             else
             {
-                Response.Redirect("~/login_page.aspx");
+                Response.Redirect("~/auth/login_page.aspx");
             }
 
 
@@ -128,7 +128,7 @@ namespace job_portal.admin
         {
             Button btn = (Button)sender;
             int seekerid = Convert.ToInt32(btn.CommandArgument);
-            Response.Redirect("~/Employee/Employee_profile.aspx?seekerid=" + seekerid);
+            Response.Redirect("~/job_seeker/Employee_profile.aspx?seekerid=" + seekerid);
         }
 
     }

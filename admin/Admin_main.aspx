@@ -12,10 +12,7 @@
     <title>logo</title>
    
     <style>
-          
-
         
-            
           .bottom-bar {
             margin-top: 25px;
             padding-top: 10px;
@@ -67,8 +64,8 @@
             </li>
 
             <li class="nav-item col" style="margin-left: 850px; margin-top: 35px;margin-bottom: 30px; text-align:center;"><a class="nav-link" href="#"> Jobs </a></li>
-            <li class="nav-item col" style="margin-top: 35px;margin-bottom: 30px; text-align:center;"><a class="nav-link" href="Employer.aspx">Employers </a></li>
-            <li class="nav-item col" style="margin-top: 35px;margin-bottom: 30px; text-align:center;"><a class="nav-link"href="jobseeker.aspx">job Seekers </a></li>
+            <li class="nav-item col" style="margin-top: 35px;margin-bottom: 30px; text-align:center;"><a class="nav-link" href="/job_seeker/Employer.aspx">Employers </a></li>
+            <li class="nav-item col" style="margin-top: 35px;margin-bottom: 30px; text-align:center;"><a class="nav-link"href="/job_seeker/job_seeker.aspx">job Seekers </a></li>
             <li><a class="navbar-brand" href="#"><img src="Images/log_out-removebg-preview.png" alt="profile" style="width:100px;height:100px;margin-top: 15px;margin-bottom:15px""/></a></li>
           </ul>
         <div class="container mt-4"></div>

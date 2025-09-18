@@ -15,7 +15,7 @@ namespace job_portal.auth
             if (!IsPostBack)
             {
 
-                hlForgot.NavigateUrl = $"~/forgot_pass.aspx";
+                hlForgot.NavigateUrl = $"~/auth/forgot_pass.aspx";
 
             }
         }

@@ -118,15 +118,15 @@
                 <li class="nav-item"><a class="nav-link" href="/admin_mainpage.aspx" style="color: #059669;">Home</a></li>
 
       <li class="nav-item"><a class="nav-link" href="#" style="color: #059669;">Jobs</a></li>
-      <li class="nav-item"><a class="nav-link" href="Company.aspx" style="color: #059669;">Employers</a></li>
-      <li class="nav-item"><a class="nav-link" href="Job_seeker.aspx" style="color: #059669;">Job Seekers</a></li>
+      <li class="nav-item"><a class="nav-link" href="/common/Company.aspx" style="color: #059669;">Employers</a></li>
+      <li class="nav-item"><a class="nav-link" href="/job_seeker/Job_seeker.aspx" style="color: #059669;">Job Seekers</a></li>
 
     
       <li class="profile-dropdown">
           <img src="../Images/log_out-removebg-preview.png" alt="Profile" class="profile-icon" />
           <ul class="dropdown-menu">
               <li><a href="admin_profile.aspx">Profile</a></li>
-              <li><a href="logout.aspx">Logout</a></li>
+              <li><a href="/auth/logout.aspx">Logout</a></li>
           </ul>
       </li>
   </div>
