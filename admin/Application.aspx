@@ -204,13 +204,13 @@
         <!-- RIGHT SIDE NAV ITEMS -->
                 <div class="nav-right">
                         <li class="nav-item">
-    <a class="nav-link" href="/company_main.aspx" style="color: #059669;">Home</a>
+    <a class="nav-link" href="/company/company_main.aspx" style="color: #059669;">Home</a>
 </li>
         <div class="nav-right">
             <li class="nav-item dropdown">
                 <a class="nav-link" href="#" id="jobsDropdown">Jobs</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="job_post.aspx">Add job</a></li>
+                    <li><a class="dropdown-item" href="/company/job_post.aspx">Add job</a></li>
                     <li><a class="dropdown-item" href="#">Posted jobs</a></li>
                 </ul>
             </li>
@@ -222,8 +222,8 @@
             <li class="profile-dropdown">
                 <img src="../Images/log_out-removebg-preview.png" alt="Profile" class="profile-icon" />
                 <ul class="dropdown-menu">
-                    <li><a href="Company_profile.aspx">Profile</a></li>
-                    <li><a href="logout.aspx">Logout</a></li>
+                    <li><a href="/company/Company_profile.aspx">Profile</a></li>
+                    <li><a href="/auth/logout.aspx">Logout</a></li>
                 </ul>
             </li>
         </div>
@@ -271,11 +271,12 @@
       <div class="col-md-4">
                  <h5 style="margin-top:11px">Quick Links</h5>
                  <ul class="nav flex-column">
-                     <li class="nav-item" ><a href="About_us.aspx" >About Us</a></li>
-                     <li class="nav-item"><a href="Contact_us.aspx" >Contact Us</a></li>
+                    <li class="nav-item" ><a href="/common/About_us.aspx" >About Us</a></li>
+<li class="nav-item"><a href="/common/Contact_us.aspx" >Contact Us</a></li>
                      <li class="nav-item"><a href="#" >Our Services</a></li>
-                     <li class="nav-item"><a href="Privacy_policy.aspx" >Privacy Policy</a></li>
-                     <li class="nav-item"><a href="#" >Terms & Conditions</a></li>
+<li class="nav-item"><a href="/common/Privacy_policy.aspx" >Privacy Policy</a></li>
+<li class="nav-item"><a href="/common/Terms_condition.aspx" >Terms & Conditions</a></li>
+
                  </ul>
              </div>
 

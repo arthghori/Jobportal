@@ -21,13 +21,13 @@ namespace job_portal.admin
                 }
                 else
                 {
-                    Response.Redirect("~/login_page.aspx");
+                    Response.Redirect("~/auth/login_page.aspx");
                 }
             }
         }
         private void FetchAdminData(string username)
         {
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\job_portel\\App_Data\\jobportal.mdf;Integrated Security=True";
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\admin\\Documents\\project\\job_portal\\App_Data\\jobportal.mdf;Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -80,7 +80,7 @@ namespace job_portal.admin
             string newEmail = txtEmail.Text;
             string newContact = txtContact.Text;
 
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\job_portel\\App_Data\\jobportal.mdf;Integrated Security=True";
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\admin\\Documents\\project\\job_portal\\App_Data\\jobportal.mdf;Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -132,7 +132,7 @@ namespace job_portal.admin
 
             if (!string.IsNullOrEmpty(email))
             {
-                Response.Redirect("forgot_pass.aspx?email=" + email);
+                Response.Redirect("~/auth/forgot_pass.aspx?email=" + email);
             }
             else
             {
