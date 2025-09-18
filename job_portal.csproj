@@ -130,6 +130,7 @@
     <Content Include="Images\add_admin1-removebg-preview.png" />
     <Content Include="Images\anroid_icon.png" />
     <Content Include="Images\Background_img.jpg" />
+    <Content Include="Images\blue_logo.png" />
     <Content Include="Images\camera_icon.png" />
     <Content Include="Images\Categories-removebg-preview.png" />
     <Content Include="Images\clock_icon.png" />
@@ -446,7 +447,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\Static\default.webp" />
     <Content Include="Bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="Bootstrap\css\bootstrap-grid.min.css.map" />
     <Content Include="Bootstrap\css\bootstrap-grid.rtl.css.map" />
@@ -469,6 +469,7 @@
     <Content Include="Bootstrap\js\bootstrap.esm.min.js.map" />
     <Content Include="Bootstrap\js\bootstrap.js.map" />
     <Content Include="Bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Images\Static\default.webp" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
