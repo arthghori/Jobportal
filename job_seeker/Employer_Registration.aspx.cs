@@ -143,7 +143,7 @@ namespace job_portal.job_seeker
 
                 // Refresh grid or notify user
                 bindgrid();
-                Response.Redirect("~/company_main.aspx");
+                Response.Redirect("~/company/company_main.aspx");
 
             }
             catch (Exception com)

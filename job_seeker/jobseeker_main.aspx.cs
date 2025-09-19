@@ -23,7 +23,7 @@ namespace job_portal.job_seeker
             }
             else
             {
-                Response.Redirect("~/login_page.aspx");
+                Response.Redirect("~/auth/login_page.aspx");
             }
             if (!IsPostBack)
             {
