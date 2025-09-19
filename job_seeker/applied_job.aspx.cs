@@ -22,7 +22,7 @@ namespace job_portal.job_seeker
             }
             else
             {
-                Response.Redirect("~/login_page.aspx");
+                Response.Redirect("~/auth/login_page.aspx");
             }
             if (!IsPostBack)
             {
@@ -92,7 +92,7 @@ namespace job_portal.job_seeker
         }
         protected void btnApplyNew_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Jobs.aspx");
+            Response.Redirect("/company/Jobs.aspx");
         }
     }
 }

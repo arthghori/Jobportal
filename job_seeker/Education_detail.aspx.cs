@@ -22,7 +22,7 @@ namespace job_portal.job_seeker
             }
             else
             {
-                Response.Redirect("~/login_page.aspx");
+                Response.Redirect("~/auth/login_page.aspx");
             }
         }
 
@@ -85,7 +85,7 @@ namespace job_portal.job_seeker
                         if (rowsAffected > 0)
                         {
                             // Redirect to profile page after successful insertion
-                            Response.Redirect("~/Employee/Employee_profile.aspx");
+                            Response.Redirect("~/job_seeker/Employee_profile.aspx");
                         }
                         else
                         {

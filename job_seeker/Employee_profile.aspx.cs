@@ -13,7 +13,7 @@ namespace job_portal.job_seeker
 {
     public partial class Employee_profile : System.Web.UI.Page
     {
-        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\job_portel\\App_Data\\jobportal.mdf;Integrated Security=True";
+        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\admin\\Documents\\project\\job_portal\\App_Data\\jobportal.mdf;Integrated Security=True";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -61,7 +61,7 @@ namespace job_portal.job_seeker
             }
             else
             {
-                Response.Redirect("~/login_page.aspx");
+                Response.Redirect("~/auth/login_page.aspx");
             }
 
             if (!IsPostBack)
@@ -450,7 +450,7 @@ namespace job_portal.job_seeker
 
             if (!string.IsNullOrEmpty(email))
             {
-                Response.Redirect("~/forgot_pass.aspx?email=" + email);
+                Response.Redirect("~/auth/forgot_pass.aspx?email=" + email);
             }
             else
             {
@@ -492,7 +492,7 @@ namespace job_portal.job_seeker
 
         private void RemoveSkill(int seekerskillId)
         {
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\job_portel\\App_Data\\jobportal.mdf;Integrated Security=True";
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\admin\\Documents\\project\\job_portal\\App_Data\\jobportal.mdf;Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -533,7 +533,7 @@ namespace job_portal.job_seeker
             string username = Session["username"] as string;
             if (string.IsNullOrEmpty(username))
             {
-                Response.Redirect("Login.aspx");
+                Response.Redirect("~/auth/login_page.aspx");
                 return;
             }
 
@@ -608,7 +608,7 @@ namespace job_portal.job_seeker
             string username = Session["Username"] as string;
             if (string.IsNullOrEmpty(username))
             {
-                Response.Redirect("~/login_page.aspx");
+                Response.Redirect("~/auth/login_page.aspx");
                 return;
             }
 
