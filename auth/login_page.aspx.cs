@@ -30,21 +30,21 @@ namespace job_portal.auth
             {
                 Session["Username"] = username;
                 Session["UserRole"] = "Admin";
-                Response.Redirect("~/admin_mainpage.aspx");
+                Response.Redirect("~/admin/admin_mainpage.aspx");
             }
             // Check Jobseeker Login
             else if (ValidateLogin("tbl_jobseeker", username, password))
             {
                 Session["Username"] = username;
                 Session["UserRole"] = "Jobseeker";
-                Response.Redirect("~/Job seeker dashboard/jobseeker_main.aspx");
+                Response.Redirect("~/job_seeker/jobseeker_main.aspx");
             }
             // Check Company Login
             else if (ValidateLogin("tbl_company", username, password))
             {
                 Session["Username"] = username;
                 Session["UserRole"] = "Company";
-                Response.Redirect("~/company_main.aspx");
+                Response.Redirect("~/company/company_main.aspx");
             }
             else
             {
@@ -56,7 +56,7 @@ namespace job_portal.auth
         {
             bool isValid = false;
 
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\job_portel\\App_Data\\jobportal.mdf;Integrated Security=True";
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\admin\\Documents\\project\\job_portal\\App_Data\\jobportal.mdf;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string query = $"SELECT COUNT(1) FROM {tableName} WHERE username = @username AND password = @password";

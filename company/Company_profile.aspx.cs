@@ -10,7 +10,7 @@ namespace job_portal.company
 {
     public partial class Company_profile : System.Web.UI.Page
     {
-        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\job_portel\\App_Data\\jobportal.mdf;Integrated Security=True";
+        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\admin\\Documents\\project\\job_portal\\App_Data\\jobportal.mdf;Integrated Security=True";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,7 +23,7 @@ namespace job_portal.company
                 }
                 else
                 {
-                    Response.Redirect("~/login_page.aspx");
+                    Response.Redirect("~/auth/login_page.aspx");
                 }
             }
         }
@@ -159,7 +159,7 @@ namespace job_portal.company
             string newLocation = txtLocation.Text;
             string newDescription = txtDescription.Text;
 
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\job_portel\\App_Data\\jobportal.mdf;Integrated Security=True";
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\admin\\Documents\\project\\job_portal\\App_Data\\jobportal.mdf;Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -265,7 +265,7 @@ namespace job_portal.company
 
             if (!string.IsNullOrEmpty(email))
             {
-                Response.Redirect("forgot_pass.aspx?email=" + email);
+                Response.Redirect("/auth/forgot_pass.aspx?email=" + email);
             }
             else
             {

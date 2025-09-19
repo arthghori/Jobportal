@@ -24,7 +24,7 @@ namespace job_portal.company
             }
             else
             {
-                Response.Redirect("~/login_page.aspx");
+                Response.Redirect("~/auth/login_page.aspx");
             }
 
             if (!IsPostBack)

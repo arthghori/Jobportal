@@ -124,16 +124,16 @@
        <img src="../Images/JOB FiNDER logo.png" alt="Logo" class="auto-style1" style="width: 100px; height: 100px" />
     </li>
      <div style="display: flex; margin-left: auto; align-items: center; gap: 30px">
-          <li class="nav-item"><a class="nav-link" href="/admin_mainpage.aspx" style="color: #059669;">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/admin/admin_mainpage.aspx" style="color: #059669;">Home</a></li>
     <li class="nav-item"><a class="nav-link" href="#" style="color: #059669;">Jobs</a></li>
-    <li class="nav-item"><a class="nav-link" href="Company.aspx" style="color: #059669;">Employers</a></li>
-    <li class="nav-item"><a class="nav-link" href="Job_seeker.aspx" style="color: #059669;">Job Seekers</a></li>
+    <li class="nav-item"><a class="nav-link" href="/company/Company.aspx" style="color: #059669;">Employers</a></li>
+    <li class="nav-item"><a class="nav-link" href="/job_seeker/Job_seeker.aspx" style="color: #059669;">Job Seekers</a></li>
 
          <li class="profile-dropdown">
     <img src="../Images/log_out-removebg-preview.png" alt="Profile" class="profile-icon" />
     <ul class="dropdown-menu">
-        <li><a href="/admin_profile.aspx">Profile</a></li>
-        <li><a href="/logout.aspx">Logout</a></li>
+        <li><a href="/admin/admin_profile.aspx">Profile</a></li>
+        <li><a href="/auth/logout.aspx">Logout</a></li>
     </ul>
 </li>
 
@@ -175,10 +175,10 @@
       <div class="col-md-6">
                  <h5 style="margin-top:11px">Quick Links</h5>
                  <ul class="nav flex-column">
-                     <li class="nav-item" ><a href="About_us.aspx" >About Us</a></li>
-                     <li class="nav-item"><a href="Contact_us.aspx" >Contact Us</a></li>
+                     <li class="nav-item" ><a href="/common/About_us.aspx" >About Us</a></li>
+                     <li class="nav-item"><a href="/common/Contact_us.aspx" >Contact Us</a></li>
                      <li class="nav-item"><a href="#" >Our Services</a></li>
-                     <li class="nav-item"><a href="Privacy_policy.aspx" >Privacy Policy</a></li>
+                     <li class="nav-item"><a href="/common/Privacy_policy.aspx" >Privacy Policy</a></li>
                      <li class="nav-item"><a href="#" >Terms & Conditions</a></li>
                  </ul>
              </div>

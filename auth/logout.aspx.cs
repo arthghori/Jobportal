@@ -13,7 +13,7 @@ namespace job_portal.auth
         {
             Session.Abandon();  // Destroy the session
             Session.Clear();    // Clear session variables
-            Response.Redirect("login_page.aspx"); // Redirect to login
+            Response.Redirect("/auth/login_page.aspx"); // Redirect to login
         }
     }
 }

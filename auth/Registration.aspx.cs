@@ -588,7 +588,7 @@ namespace job_portal.auth
 
                 // Refresh grid or notify user
 
-                Response.Redirect("~/Job Seeker Dashboard/jobseeker_main.aspx");
+                Response.Redirect("~/job_seeker/jobseeker_main.aspx");
 
             }
             catch (Exception el)
