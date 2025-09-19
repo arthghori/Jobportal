@@ -153,12 +153,12 @@
                 <img src="C:\Users\admin\Documents\project\job_portal\Images\JOB FiNDER logo.png" alt="logo" class="auto-style1" style="width: 100px; height: 100px" />
             </li>            
             
-            <li class="nav-item col" style="margin-left: 745px; margin-top: 30px; text-align: center;"><a class="nav-link" href="Main_page.aspx" style="color: #059669;"> Home </a></li>
-            <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="Job seeker dashboard/jobs.aspx" style="color: #059669;">Finds Job </a></li>            
-            <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="About_us.aspx" style="color: #059669;">About Us </a></li>
-            <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="Contact_us.aspx" style="color: #059669;">Contact Us </a></li>
-            <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="login_page.aspx" style="color: #059669;">Log in </a></li>
-            <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="Employer_Registration.aspx" style="color: #059669;">Register </a></li>
+            <li class="nav-item col" style="margin-left: 745px; margin-top: 30px; text-align: center;"><a class="nav-link" href="/common/Main_page.aspx" style="color: #059669;"> Home </a></li>
+            <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="/company/jobs.aspx" style="color: #059669;">Finds Job </a></li>            
+            <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="/common/About_us.aspx" style="color: #059669;">About Us </a></li>
+            <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="/common/Contact_us.aspx" style="color: #059669;">Contact Us </a></li>
+            <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="/auth/login_page.aspx" style="color: #059669;">Log in </a></li>
+            <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="/job_seeker/Employer_Registration.aspx" style="color: #059669;">Register </a></li>
 
 
 
@@ -288,7 +288,7 @@
             Read reviews on over 30000+ companies worldwide.
         </div>
 
-        <div  style="float: right; margin-right: 10px;"><a href="Finds_job.aspx" style="color: #059669;">All Categories<img src="Images/Static/right_icon.png" style="width: 20px; height: 20px;" /></a></div>
+        <div  style="float: right; margin-right: 10px;"><a href="/job_seeker/Finds_job.aspx" style="color: #059669;">All Categories<img src="Images/Static/right_icon.png" style="width: 20px; height: 20px;" /></a></div>
        
         <div class="row" style="margin-top: 100px; margin-left: 200px; margin-right: 100px;">
             <div class="col">
@@ -307,27 +307,27 @@
 
             <div class="col">
                 <div class="img">
-                    <img src="Images/6-removebg-preview.png" id="imgSoftware" style="width: 75px; height: 75px;" />
+                    <img src="../Images/6-removebg-preview.png" id="imgSoftware" style="width: 75px; height: 75px;" />
                     <div>Software Development</div>
                 </div>
             </div>
             <div class="col ">
                 <div class="img">
-                    <img src="Images/4-removebg-preview.png" id="imgContent" style="width: 75px; height: 75px;" />
+                    <img src="../Images/4-removebg-preview.png" id="imgContent" style="width: 75px; height: 75px;" />
                     <div>Content creator</div>
                 </div>
 
             </div>
             <div class="col">
                 <div class="img">
-                    <img src="Images/5-removebg-preview.png" id="imgWriter" style="width: 75px; height: 75px;" />
+                    <img src="../Images/5-removebg-preview.png" id="imgWriter" style="width: 75px; height: 75px;" />
                     <div>Writer </div>
                 </div>
             </div>
 
             <div class="col">
                 <div class="img">
-                    <img src="Images/3-removebg-preview.png" img="Marketing" style="width: 75px; height: 75px;" />
+                    <img src="../Images/3-removebg-preview.png" img="Marketing" style="width: 75px; height: 75px;" />
                     <div>Sales & Marketing </div>
                 </div>
             </div>
@@ -382,10 +382,10 @@
                 <p style="font-weight:bolder;font-size:25px;">LEARN ABOUT US </p>
                 <div>
                     <ul class="nav flex-column">
-                        <li class="nav-item"><a class="nav-link" href="About_us.aspx" style="color: white;">About Us </a></li>
-                        <li class="nav-item"><a class="nav-link" href="Contact_us.aspx" style="color: white;">Contact Us </a></li>
-                        <li class="nav-item"><a class="nav-link" href="Privacy_policy.aspx" style="color: white;">Privacy Policy </a></li>
-                        <li class="nav-item"><a class="nav-link" href="Terms_condition.aspx" style="color: white;">Terms & Condition </a></li>
+                           <li class="nav-item"><a class="nav-link" href="/common/About_us.aspx" style="color: white;">About Us </a></li>
+                        <li class="nav-item"><a class="nav-link" href="/common/Contact_us.aspx" style="color: white;">Contact Us </a></li>
+                        <li class="nav-item"><a class="nav-link" href="/common/Privacy_policy.aspx" style="color: white;">Privacy Policy </a></li>
+                        <li class="nav-item"><a class="nav-link" href="/common/Terms_condition.aspx" style="color: white;">Terms & Condition </a></li>
                     </ul>
                 </div>
 

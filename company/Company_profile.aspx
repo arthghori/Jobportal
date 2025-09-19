@@ -212,9 +212,9 @@
             <li style="position: relative;">
                 <a href="#" style="color: #059669; text-decoration: none; padding: 10px; display: block;">Jobs</a>
                 <ul  style="position: absolute; top: 100%; left: 0; background-color: white; border: 1px solid #ddd; border-radius: 5px; padding: 10px; list-style: none; min-width: 150px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); display: none;">
-                    <li><a href="/company_main.aspx" style="display: block; padding: 10px; text-decoration: none; color: #333;">Home</a></li>
-                    <li><a href="job_post.aspx" style="display: block; padding: 10px; text-decoration: none; color: #333;">Add job</a></li>
-                    <li><a href="/postedjob_list.aspx" style="display: block; padding: 10px; text-decoration: none; color: #333;">Posted jobs</a></li>
+                    <li><a href="/company/company_main.aspx" style="display: block; padding: 10px; text-decoration: none; color: #333;">Home</a></li>
+                    <li><a href="/company/job_post.aspx" style="display: block; padding: 10px; text-decoration: none; color: #333;">Add job</a></li>
+                    <li><a href="/company/postedjob_list.aspx" style="display: block; padding: 10px; text-decoration: none; color: #333;">Posted jobs</a></li>
                 </ul>
             </li>
 
@@ -227,8 +227,8 @@
             <li style="position: relative;">
                 <img src="../Images/log_out-removebg-preview.png" alt="Profile" style="width: 90px; height: 90px; border-radius: 50%; cursor: pointer;" />
                 <ul style="position: absolute; top: 100%; right: 0; background-color: white; border: 1px solid #ddd; border-radius: 5px; padding: 10px; list-style: none; min-width: 150px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); display: none;">
-                    <li><a href="Company_profile.aspx" style="display: block; padding: 10px; text-decoration: none; color: #333;">Profile</a></li>
-                    <li><a href="logout.aspx" style="display: block; padding: 10px; text-decoration: none; color: #333;">Logout</a></li>
+                    <li><a href="/company/Company_profile.aspx" style="display: block; padding: 10px; text-decoration: none; color: #333;">Profile</a></li>
+                    <li><a href="/auth/logout.aspx" style="display: block; padding: 10px; text-decoration: none; color: #333;">Logout</a></li>
                 </ul>
             </li>
         </div>
@@ -316,10 +316,10 @@
                 <div class="col-md-4">
                     <h5>Quick Links</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item"><a href="About_us.aspx">About Us</a></li>
-                        <li class="nav-item"><a href="Contact_us.aspx">Contact Us</a></li>
+                        <li class="nav-item"><a href="/common/About_us.aspx">About Us</a></li>
+                        <li class="nav-item"><a href="/common/Contact_us.aspx">Contact Us</a></li>
                         <li class="nav-item"><a href="#">Our Services</a></li>
-                        <li class="nav-item"><a href="Privacy_policy.aspx">Privacy Policy</a></li>
+                        <li class="nav-item"><a href="/common/Privacy_policy.aspx">Privacy Policy</a></li>
                         <li class="nav-item"><a href="#">Terms & Conditions</a></li>
                     </ul>
                 </div>

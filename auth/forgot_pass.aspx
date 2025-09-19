@@ -65,12 +65,12 @@
                 <img src="Images/JOB FiNDER logo.png" alt="logo" class="auto-style1" style="width: 100px; height: 100px" />
             </li>
 
-            <li class="nav-item col" style="margin-left: 745px; margin-top: 30px; text-align: center;"><a class="nav-link" href="Main_page.aspx" style="color: #059669;">Home </a></li>
-            <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="Finds_job.aspx" style="color: #059669;">Finds Job </a></li>
-            <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="About_us.aspx" style="color: #059669;">About Us </a></li>
-            <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="Contact_us.aspx" style="color: #059669;">Contact Us </a></li>
-            <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="login_page.aspx" style="color: #059669;">Log in </a></li>
-            <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="Employer_Registration.aspx" style="color: #059669;">Register </a></li>
+            <li class="nav-item col" style="margin-left: 745px; margin-top: 30px; text-align: center;"><a class="nav-link" href="/common/Main_page.aspx" style="color: #059669;">Home </a></li>
+            <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="/job_seeker/Finds_job.aspx" style="color: #059669;">Finds Job </a></li>
+            <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="/common/About_us.aspx" style="color: #059669;">About Us </a></li>
+            <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="/common/Contact_us.aspx" style="color: #059669;">Contact Us </a></li>
+            <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="/auth/login_page.aspx" style="color: #059669;">Log in </a></li>
+            <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="/job_seeker/Employer_Registration.aspx" style="color: #059669;">Register </a></li>
 
 
 
@@ -132,10 +132,10 @@
                 <p style="font-weight:bolder;font-size:25px;">LEARN ABOUT US  </p>
                 
                     <ul class="nav flex-column">
-                        <li class="nav-item"><a class="nav-link" href="About_us.aspx" style="color: white;">About Us </a></li>
-                        <li class="nav-item"><a class="nav-link" href="Contact_us.aspx" style="color: white;">Contact Us </a></li>
-                        <li class="nav-item"><a class="nav-link" href="Privacy_policy.aspx" style="color: white;">Privacy Policy </a></li>
-                        <li class="nav-item"><a class="nav-link" href="Terms_condition.aspx" style="color: white;">Terms & Condition </a></li>
+                        <li class="nav-item"><a class="nav-link" href="/common/About_us.aspx" style="color: white;">About Us </a></li>
+                        <li class="nav-item"><a class="nav-link" href="/common/Contact_us.aspx" style="color: white;">Contact Us </a></li>
+                        <li class="nav-item"><a class="nav-link" href="/common/Privacy_policy.aspx" style="color: white;">Privacy Policy </a></li>
+                        <li class="nav-item"><a class="nav-link" href="/common/Terms_condition.aspx" style="color: white;">Terms & Condition </a></li>
                     </ul>
                 
 

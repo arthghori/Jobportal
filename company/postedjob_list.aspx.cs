@@ -25,13 +25,13 @@ namespace job_portal.company
                 else
                 {
                     // Redirect unauthorized users
-                    Response.Redirect("~/unauthorized.aspx");
+                    Response.Redirect("~/auth/login_page.aspx");
                 }
             }
             else
             {
                 // Redirect to login page if session is not set
-                Response.Redirect("~/login_page.aspx");
+                Response.Redirect("~/auth/login_page.aspx");
             }
         }
         private void LoadVacancies()
@@ -62,14 +62,14 @@ namespace job_portal.company
         {
             Button btn = (Button)sender;
             int jobid = Convert.ToInt32(btn.CommandArgument);
-            Response.Redirect("~/job_application.aspx?jobpostid=" + jobid);
+            Response.Redirect("~/company/job_application.aspx?jobpostid=" + jobid);
         }
 
         protected void btnApplications_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             int jobid = Convert.ToInt32(btn.CommandArgument);
-            Response.Redirect("~/Application.aspx?jobpostid=" + jobid);
+            Response.Redirect("~/admin/Application.aspx?jobpostid=" + jobid);
 
         }
 

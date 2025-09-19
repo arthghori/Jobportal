@@ -232,17 +232,17 @@
             </li>
              <div style="display: flex; margin-left: auto; align-items: center; gap: 30px">
                    
-              <li class="nav-item"><a class="nav-link" href="/Job seeker dashboard/jobseeker_main.aspx" style="color: #059669;">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="/Job seeker dashboard/jobs.aspx" style="color: #059669;">Jobs</a></li>
-            <li class="nav-item"><a class="nav-link" href="/Job seeker dashboard/applied_job.aspx" style="color: #059669;">Applied Jobs</a></li>
-            <li class="nav-item"><a class="nav-link" href="../Message.aspx" style="color: #059669;">Message</a></li>
+              <li class="nav-item"><a class="nav-link" href="/job_seeker/jobseeker_main.aspx" style="color: #059669;">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/job_seeker/jobs.aspx" style="color: #059669;">Jobs</a></li>
+            <li class="nav-item"><a class="nav-link" href="/job_seeker/applied_job.aspx" style="color: #059669;">Applied Jobs</a></li>
+            <li class="nav-item"><a class="nav-link" href="/common/Message.aspx" style="color: #059669;">Message</a></li>
 
           
             <li class="profile-dropdown">
                 <img src="../Images/log_out-removebg-preview.png" alt="Profile" class="profile-icon" />
                 <ul class="dropdown-menu">
-                    <li><a href="/Employee/Employee_profile.aspx">Profile</a></li>
-                    <li><a href="/logout.aspx">Logout</a></li>
+                    <li><a href="/job_seeker/Employee_profile.aspx">Profile</a></li>
+                    <li><a href="/auth/logout.aspx">Logout</a></li>
                 </ul>
             </li>
         </div>
@@ -349,10 +349,10 @@
                 <p style="font-weight: bolder; font-size: 25px;">LEARN ABOUT US </p>
                 <div>
                     <ul class="nav flex-column">
-                        <li class="nav-item"><a class="nav-link" href="About_us.aspx" style="color: white;">About Us </a></li>
-                        <li class="nav-item"><a class="nav-link" href="Contact_us.aspx" style="color: white;">Contact Us </a></li>
-                        <li class="nav-item"><a class="nav-link" href="Privacy_policy.aspx" style="color: white;">Privacy Policy </a></li>
-                        <li class="nav-item"><a class="nav-link" href="Terms_condition.aspx" style="color: white;">Terms & Condition </a></li>
+                         <li class="nav-item"><a class="nav-link" href="/common/About_us.aspx" style="color:white;">About Us </a></li>
+   <li class="nav-item"><a class="nav-link" href="/common/Contact_us.aspx" style="color:white;">Contact Us </a></li>
+   <li class="nav-item"><a class="nav-link" href="/common/Privacy_policy.aspx" style="color:white;">Privacy Policy </a></li>
+   <li class="nav-item"><a class="nav-link" href="/common/Terms_condition.aspx" style="color:white;">Terms & Condition </a></li>
                     </ul>
                 </div>
 

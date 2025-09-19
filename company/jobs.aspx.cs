@@ -31,7 +31,7 @@ namespace job_portal.company
                 }
                 else
                 {
-                    // Response.Redirect("~/login_page.aspx");
+                    //Response.Redirect("~/login_page.aspx");
                     LoadCategories();
                     LoadJobListings();
                 }
@@ -118,7 +118,7 @@ namespace job_portal.company
         {
             Button btn = (Button)sender;
             string jobId = btn.CommandArgument;
-            Response.Redirect("~/job_application.aspx?jobpostid=" + jobId);
+            Response.Redirect("~/company/job_application.aspx?jobpostid=" + jobId);
         }
 
 

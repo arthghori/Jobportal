@@ -115,7 +115,7 @@
          <img src="../Images/JOB FiNDER logo.png" alt="Logo" class="auto-style1" style="width: 100px; height: 100px" />
       </li>
        <div style="display: flex; margin-left: auto; align-items: center; gap: 30px">
-                <li class="nav-item"><a class="nav-link" href="/admin_mainpage.aspx" style="color: #059669;">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin/admin_mainpage.aspx" style="color: #059669;">Home</a></li>
 
       <li class="nav-item"><a class="nav-link" href="#" style="color: #059669;">Jobs</a></li>
       <li class="nav-item"><a class="nav-link" href="/common/Company.aspx" style="color: #059669;">Employers</a></li>
@@ -125,7 +125,7 @@
       <li class="profile-dropdown">
           <img src="../Images/log_out-removebg-preview.png" alt="Profile" class="profile-icon" />
           <ul class="dropdown-menu">
-              <li><a href="admin_profile.aspx">Profile</a></li>
+              <li><a href="/admin/admin_profile.aspx">Profile</a></li>
               <li><a href="/auth/logout.aspx">Logout</a></li>
           </ul>
       </li>

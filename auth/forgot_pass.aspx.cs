@@ -98,7 +98,7 @@ namespace job_portal.auth
                     lblMessage.Text = "✅ Password updated successfully!";
                     lblMessage.ForeColor = System.Drawing.Color.Green;
                     System.Threading.Thread.Sleep(3000); // Delays execution for 3 seconds
-                    Response.Redirect("~/login_page.aspx");
+                    Response.Redirect("~/auth/login_page.aspx");
                 }
                 else
                 {

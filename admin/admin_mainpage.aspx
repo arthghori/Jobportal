@@ -110,7 +110,7 @@
                <img src="../Images/JOB FiNDER logo.png" alt="Logo" class="auto-style1" style="width: 100px; height: 100px" />
             </li>
              <div style="display: flex; margin-left: auto; align-items: center; gap: 30px">
-                  <li class="nav-item"><a class="nav-link" href="/admin_mainpage.aspx" style="color: #059669;">Home</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/admin/admin_mainpage.aspx" style="color: #059669;">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="/company/jobs.aspx" style="color: #059669;">Jobs</a></li>
             <li class="nav-item"><a class="nav-link" href="/company/Company.aspx" style="color: #059669;">Employers</a></li>
             <li class="nav-item"><a class="nav-link" href="/job_seeker/Job_seeker.aspx" style="color: #059669;">Job Seekers</a></li>
@@ -119,7 +119,7 @@
             <li class="profile-dropdown">
                 <img src="../Images/log_out-removebg-preview.png" alt="Profile" class="profile-icon" />
                 <ul class="dropdown-menu">
-                    <li><a href="/admin_profile.aspx">Profile</a></li>
+                    <li><a href="/admin/admin_profile.aspx">Profile</a></li>
                     <li><a href="/auth/logout.aspx">Logout</a></li>
                 </ul>
             </li>
@@ -152,7 +152,7 @@
           <div class="card"  style="background-color:#059669">
               <div class="card-body" style="width:150px;height:150px">
                    <img src="../Images/Skills-removebg-preview.png" atl="image" style="width:30px;height:30px;"/>
-                  <div class="card-title"><a class="nav-link"href="Skill1.aspx"></a>Skills</div>
+                  <div class="card-title"><a class="nav-link"href="/admin/Skill1.aspx"></a>Skills</div>
               </div>
           </div>
         </div>
@@ -161,7 +161,7 @@
         <!-- <div class="gradient" style="background:linear-gradient(0deg,#059669,white)"></div>-->
          <div class="card-body"  style="width:150px;height:150px" >
               <img src="../Images/Categories-removebg-preview.png" atl="image" style="width:40px;height:40px;"/>
-             <div class="card-title"><a class="nav-link"href="category.aspx"></a>Categories</div>
+             <div class="card-title"><a class="nav-link"href="/admin/category.aspx"></a>Categories</div>
          </div>
      </div>
    </div>
@@ -170,7 +170,7 @@
      <div class="card" style="background-color:#059669">
          <div class="card-body" style="width:150px;height:150px">
               <img src="../Images/add_admin1-removebg-preview.png" atl="image" style="width:40px;height:40px;"/>
-             <div class="card-title"><a class="nav-link"href="admin_register.aspx"></a>Add Admin</div>
+             <div class="card-title"><a class="nav-link"href="/admin/admin_register.aspx"></a>Add Admin</div>
 
          </div>
      </div>
