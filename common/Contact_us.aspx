@@ -6,7 +6,7 @@
 <head runat="server">
      <meta name="viewport" content="width=device-width, initial-scale=1" />
  <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
- <link rel="icon" type="image/x-icon" href="Images/JOB FiNDER logo.png" />
+ <link rel="icon" type="image/x-icon" href="../Images/JOB FiNDER logo.png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>Contact Us Form</title>
@@ -34,7 +34,7 @@
     <form id="Contact_us" runat="server">
           <ul class="nav nav-item nav-tabs " style="font-weight: bold; font-size: 15px;background-color:white;">
       <li>
-          <img src="Images/JOB FiNDER logo.png" alt="logo" class="auto-style1" style="width: 100px; height: 100px" />
+          <img src="../Images/JOB FiNDER logo.png" alt="logo" class="auto-style1" style="width: 100px; height: 100px" />
       </li>            
       
       <li class="nav-item col" style="margin-left: 745px; margin-top: 30px; text-align: center;"><a class="nav-link" href="/common/Main_page.aspx" style="color: #059669;"> Home </a></li>
@@ -50,7 +50,7 @@
         <div>
 
             <div style="width:500px;height:500px;float:left;margin-left:100px;">
-                <img src="Images/contactus_form_img.svg" />
+                <img src="../Images/contactus_form_img.svg" />
             </div>
 
             <table style="background-color:#F3F3F3 ;margin-left:200px;padding-left:10px;padding-right:15px;margin-bottom:60px;margin-top:60px" class="auto-style1"  >

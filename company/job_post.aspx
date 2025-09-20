@@ -6,7 +6,7 @@
 <head runat="server">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="Images/JOB FiNDER logo.png" />
+    <link rel="icon" type="image/x-icon" href="../Images/JOB FiNDER logo.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -297,7 +297,7 @@
 </div>
      </div>
            <div class="col" style="margin-left:0px;margin-right:100px; margin-top:350px;">
-     <img src="Images/Static/Job_Posting_Page.51e6ab7c156a002d438b.png" alt="job post" class="auto-style3" style="height:280px;width:400px"/>
+     <img src="../Images/Static/Job_Posting_Page.51e6ab7c156a002d438b.png" alt="job post" class="auto-style3" style="height:280px;width:400px"/>
  </div>
        
         </div>

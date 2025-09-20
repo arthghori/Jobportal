@@ -4,7 +4,7 @@
 <html>
 <head runat="server">
         <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-        <link rel="icon" type="image/x-icon" href="Images/Static/white_logo.png" />
+        <link rel="icon" type="image/x-icon" href="../Images/Static/white_logo.png" />
        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -45,7 +45,7 @@
     <form id="registration" runat="server">
                <ul class="nav nav-item nav-tabs " style="font-weight: bold; font-size: 15px; background-color: white;">
     <li>
-        <img src="Images/JOB FiNDER logo.png" alt="logo" class="auto-style1" style="width: 100px; height: 100px" />
+        <img src="../Images/JOB FiNDER logo.png" alt="logo" class="auto-style1" style="width: 100px; height: 100px" />
     </li>
 
     <li class="nav-item col" style="margin-left: 745px; margin-top: 30px; text-align: center;"><a class="nav-link" href="/common/Main_page.aspx" style="color: #059669;">Home </a></li>
@@ -60,7 +60,7 @@
         <div class="container mt-5">
         <div class="row p-3 mb-5 bg-white rounded">
                <div class="col-md-4 bg-light text-center py-4 " style="width: 300px; height: 400px; margin-top:50px;" >
-                <img src="Images/Static/white-boy.a0d2814a.png"  alt="image" style="width: 210px; height: 210px" />
+                <img src="../Images/Static/white-boy.a0d2814a.png"  alt="image" style="width: 210px; height: 210px" />
                 <ul>
                 <li>
                     On registering, you can
@@ -155,6 +155,21 @@
                     <asp:TextBox ID="txtAddress" runat="server" Height="22px" Width="555px" placeholder="Address" CssClass="TextBox"></asp:TextBox>
                      &nbsp;&nbsp;&nbsp;&nbsp;
                      <asp:RequiredFieldValidator ID="rfvAddress" runat="server" ControlToValidate="txtAddress" InitialValue="" ErrorMessage="Address is required."   ForeColor="Red" Height="20px" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                     <br />
                 </td>
