@@ -7,7 +7,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="Images/JOB FiNDER logo.png" />
+    <link rel="icon" type="image/x-icon" href="../Images/JOB FiNDER logo.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -76,7 +76,7 @@
         <!--header-->
         <ul class="nav nav-item nav-tabs " style="font-weight: bold; font-size: 15px; background-color: white;">
             <li>
-                <img src="Images/JOB FiNDER logo.png" alt="logo" class="auto-style1" style="width: 100px; height: 100px" />
+                <img src="../Images/JOB FiNDER logo.png" alt="logo" class="auto-style1" style="width: 100px; height: 100px" />
             </li>
 
             <li class="nav-item col" style="margin-left: 745px; margin-top: 30px; text-align: center;"><a class="nav-link" href="Main_page.aspx" style="color: #059669;">Home </a></li>
@@ -91,7 +91,7 @@
         </ul>
 
         <div style="float: left; margin-left: 300px; margin-top: 50px">
-            <img src="Images/Static/eventsSwiperLeft-ot.png" alt="Login" style="width: 300px; height: 350px" />
+            <img src="../Images/Static/eventsSwiperLeft-ot.png" alt="Login" style="width: 300px; height: 350px" />
         </div>
         <div style="margin-left: 600px; margin-right: 600px; margin-top: 80px;margin-bottom:100px; box-shadow: 5px 5px 15px grey; width: 400px; height: 400px;">
 

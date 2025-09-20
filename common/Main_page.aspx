@@ -7,7 +7,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="Images/JOB FiNDER logo.png" />
+    <link rel="icon" type="image/x-icon" href="../Images/JOB FiNDER logo.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>Job Finder</title>
@@ -150,7 +150,7 @@
 
         <ul class="nav nav-item nav-tabs " style="font-weight: bold; font-size: 15px;background-color:white;">
             <li>
-                <img src="C:\Users\admin\Documents\project\job_portal\Images\JOB FiNDER logo.png" alt="logo" class="auto-style1" style="width: 100px; height: 100px" />
+                <img src="../Images/JOB FiNDER logo.png" alt="logo" class="auto-style1" style="width: 100px; height: 100px" />
             </li>            
             
             <li class="nav-item col" style="margin-left: 745px; margin-top: 30px; text-align: center;"><a class="nav-link" href="Main_page.aspx" style="color: #059669;"> Home </a></li>
@@ -184,20 +184,20 @@
 
                 <div class="col" style="margin-top: 10px; margin-bottom: 10px;">
                     <div>
-                        <img src="Images/location.png" style="width: 30px; height: 30px;" /><input type="text" placeholder="Location" />
+                        <img src="../Images/location.png" style="width: 30px; height: 30px;" /><input type="text" placeholder="Location" />
                     </div>
                 </div>
 
                 <div class="col" style="margin-top: 10px; margin-bottom: 10px;">
                     <div>
-                        <img src="Images/location.png" style="width: 30px; height: 30px;" />
+                        <img src="../Images/location.png" style="width: 30px; height: 30px;" />
                         <input type="text" placeholder="job type" />
                     </div>
                 </div>
 
                 <div class="col" style="margin-top: 10px; margin-bottom: 10px;">
                     <div>
-                        <img src="Images/location.png" style="width: 30px; height: 30px;" /><input type="text" placeholder="job" />
+                        <img src="../Images/location.png" style="width: 30px; height: 30px;" /><input type="text" placeholder="job" />
                     </div>
                 </div>
 
@@ -239,19 +239,19 @@
                 <div class="auto-style3" id="worksection1" style="padding-left: 3px; margin-left: 40px;width:15%;height:30%;">
                     <p style="font-weight: bolder; font-size: 15px;">Step 1 </p>
 
-                    <img src="Images/create_icon.png" style="width: 50px; height: 50px;" />
+                    <img src="../Images/create_icon.png" style="width: 50px; height: 50px;" />
                     <p>Create Account</p>
 
                 </div>
                 <div class="auto-style7" id="worksection2" style="padding-left: 3px; margin-left: 20px; margin-left: 40px;width:15%;height:30%;">
                     <p style="font-weight: bolder; font-size: 15px;">Step 2 </p>
-                    <img src="Images/watch_icon.png" style="width: 50px; height: 50px;" />
+                    <img src="../Images/watch_icon.png" style="width: 50px; height: 50px;" />
                     <p>Complete Your Profile</p>
 
                 </div>
                 <div class="auto-style7" id="worksection3" style="margin-left:30px;padding-left: 3px;width:15%;height:30%;">
                     <p style="font-weight: bolder; font-size: 15px;">Step 3 </p>
-                    <img src="Images/camera_icon.png" style="width: 50px; height: 50px;" />
+                    <img src="../Images/camera_icon.png" style="width: 50px; height: 50px;" />
                     <p>Apply Job or Hire</p>
 
                 </div>
@@ -263,16 +263,16 @@
         <!-- job contact us -->
         <div  style="margin-top: 100px;">
             <div style="float: left; margin-left: 300px;">
-                <img src="Images/Contact-Page.png" style="width: 400px; height: 400px;" />
+                <img src="../Images/Contact-Page.png" style="width: 400px; height: 400px;" />
             </div>
             <div>
                 <br /><br />
                 <p style="font-size:20px;font-weight:bolder;color:#059669;">Millions of jobs.Find the one that's right for you.</p><br />
                 <p style="color:#666666">Search all the open positions on the web. Get your own personalized salary estimate. <br />
                     Read reviews on over 30000+ companies worldwide.</p>
-                <div><img src="Images/tick_mark-removebg-preview.png" style="width:20px;height:20px;"/><span style="margin-left:10px;color:#666666">Digital Marketing Solutions for Tomorrow</span></div>
-                <div><img src="Images/tick_mark-removebg-preview.png" style="width:20px;height:20px;"/><span style="margin-left:10px;color:#666666">Our Talented & Experienced Marketing Agency</span></div>
-                <div><img src="Images/tick_mark-removebg-preview.png" style="width:20px;height:20px;"/><span style="margin-left:10px;color:#666666">Create your own skin to match your brand</span></div>
+                <div><img src="../Images/tick_mark-removebg-preview.png" style="width:20px;height:20px;"/><span style="margin-left:10px;color:#666666">Digital Marketing Solutions for Tomorrow</span></div>
+                <div><img src="../Images/tick_mark-removebg-preview.png" style="width:20px;height:20px;"/><span style="margin-left:10px;color:#666666">Our Talented & Experienced Marketing Agency</span></div>
+                <div><img src="../Images/tick_mark-removebg-preview.png" style="width:20px;height:20px;"/><span style="margin-left:10px;color:#666666">Create your own skin to match your brand</span></div>
 
                 <div><button style="background-color:#059669;color:white;padding:10px;margin-top:40px;">Contact Us</button></div>
             </div>
@@ -293,41 +293,41 @@
         <div class="row" style="margin-top: 100px; margin-left: 200px; margin-right: 100px;">
             <div class="col">
                 <div class="img">
-                    <img src="Images/1-removebg-preview.png" id="imgDev" style="width: 75px; height: 75px;" />
+                    <img src="../Images/1-removebg-preview.png" id="imgDev" style="width: 75px; height: 75px;" />
                     <div>Web Development </div>
                 </div>
             </div>
 
             <div class="col">
                 <div class="img">
-                    <img src="Images/2-removebg-preview.png" id="imgApp" style="width: 75px; height: 75px;" />
+                    <img src="../Images/2-removebg-preview.png" id="imgApp" style="width: 75px; height: 75px;" />
                     <div>Mobile Application </div>
                 </div>
             </div>
 
             <div class="col">
                 <div class="img">
-                    <img src="Images/6-removebg-preview.png" id="imgSoftware" style="width: 75px; height: 75px;" />
+                    <img src="../Images/6-removebg-preview.png" id="imgSoftware" style="width: 75px; height: 75px;" />
                     <div>Software Development</div>
                 </div>
             </div>
             <div class="col ">
                 <div class="img">
-                    <img src="Images/4-removebg-preview.png" id="imgContent" style="width: 75px; height: 75px;" />
+                    <img src="../Images/4-removebg-preview.png" id="imgContent" style="width: 75px; height: 75px;" />
                     <div>Content creator</div>
                 </div>
 
             </div>
             <div class="col">
                 <div class="img">
-                    <img src="Images/5-removebg-preview.png" id="imgWriter" style="width: 75px; height: 75px;" />
+                    <img src="../Images/5-removebg-preview.png" id="imgWriter" style="width: 75px; height: 75px;" />
                     <div>Writer </div>
                 </div>
             </div>
 
             <div class="col">
                 <div class="img">
-                    <img src="Images/3-removebg-preview.png" img="Marketing" style="width: 75px; height: 75px;" />
+                    <img src="../Images/3-removebg-preview.png" img="Marketing" style="width: 75px; height: 75px;" />
                     <div>Sales & Marketing </div>
                 </div>
             </div>
@@ -345,26 +345,26 @@
                     <div id="option1" style="padding-left: 3px; margin-left: 40px; width: 15%; height: 30%;">
                         <p style="font-weight: bolder; font-size: 15px;">Step 1 </p>
 
-                        <img src="Images/phone_icon-removebg-preview.png" style="width: 50px; height: 50px;" />
+                        <img src="../Images/phone_icon-removebg-preview.png" style="width: 50px; height: 50px;" />
                         <p>24/7 Support</p>
                     </div>
 
                     <div class="auto-style7" id="option2" style="padding-left: 3px; margin-left: 20px; margin-left: 40px; width: 15%; height: 30%;">
                         <p style="font-weight: bolder; font-size: 15px;">Step 2 </p>
-                        <img src="Images/startup_icon-removebg-preview.png" style="width: 50px; height: 50px;" />
+                        <img src="../Images/startup_icon-removebg-preview.png" style="width: 50px; height: 50px;" />
                         <p>Tech & Startup Jobs</p>
                     </div>
 
                     <div class="auto-style7" id="option3" style="padding-left: 3px; width: 15%; height: 30%;">
                         <p style="font-weight: bolder; font-size: 15px;">Step 3 </p>
-                        <img src="Images/quick_icon-removebg-preview.png" style="width: 50px; height: 50px;" />
+                        <img src="../Images/quick_icon-removebg-preview.png" style="width: 50px; height: 50px;" />
                         <p>Quick & Easy</p>
 
                     </div>
 
                     <div class="auto-style7" id="option4" style="padding-left: 3px; width: 15%; height: 30%;">
                         <p style="font-weight: bolder; font-size: 15px;">Step 3 </p>
-                        <img src="Images/timer_icon-removebg-preview.png" style="width: 50px; height: 50px;" />
+                        <img src="../Images/timer_icon-removebg-preview.png" style="width: 50px; height: 50px;" />
                         <p>Save Time</p>
 
                     </div>

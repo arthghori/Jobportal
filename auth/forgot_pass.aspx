@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<link rel="icon" type="image/x-icon" href="Images/JOB FiNDER logo.png" />
+<link rel="icon" type="image/x-icon" href="../Images/JOB FiNDER logo.png" />
     <title> Forgot Password </title>
     <style type="text/css">
         .auto-style1 {
@@ -62,7 +62,7 @@
         <!-- header-->
         <ul class="nav nav-item nav-tabs " style="font-weight: bold; font-size: 15px; background-color: white;">
             <li>
-                <img src="Images/JOB FiNDER logo.png" alt="logo" class="auto-style1" style="width: 100px; height: 100px" />
+                <img src="../Images/JOB FiNDER logo.png" alt="logo" class="auto-style1" style="width: 100px; height: 100px" />
             </li>
 
             <li class="nav-item col" style="margin-left: 745px; margin-top: 30px; text-align: center;"><a class="nav-link" href="Main_page.aspx" style="color: #059669;">Home </a></li>
@@ -77,7 +77,7 @@
         </ul>
 
         <div style="margin-left:145px;" class="auto-style4">
-            <img src="Images/Static/1.png" alt="girl_img" class="auto-style3" />
+            <img src="../Images/Static/1.png" alt="girl_img" class="auto-style3" />
         </div>
 <%--        i add code for forgot design--%>
       <div style="width: 350px; min-height: 350px; box-shadow: 5px 5px 15px grey; border: 1px solid black; border-radius: 10px; margin: 100px auto; padding: 20px; background-color: white;">

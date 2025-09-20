@@ -6,7 +6,7 @@
 <head runat="server">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="Images/JOB FiNDER logo.png" />
+    <link rel="icon" type="image/x-icon" href="../Images/JOB FiNDER logo.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -238,7 +238,7 @@
         <!-- 🔹 PROFILE SECTION -->
         <div class="container">
             <!-- Profile Picture -->
-            <asp:Image ID="CompanyLogo" CssClass="profile-image" runat="server" ImageUrl="/Images/profileicon.png" />
+            <asp:Image ID="CompanyLogo" CssClass="profile-image" runat="server" ImageUrl="../Images/profileicon.png" />
             <asp:FileUpload ID="fuCompanyLogo" runat="server" CssClass="form-control" />
             <asp:Button ID="btnUploadLogo" runat="server" Text="Upload Image" CssClass="btn-profile" OnClick="btnUploadLogo_Click"   />
 

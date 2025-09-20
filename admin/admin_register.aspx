@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-      <link rel="icon" type="image/x-icon" href="Images/JOB FiNDER logo.png" />
+      <link rel="icon" type="../image/x-icon" href="../Images/JOB FiNDER logo.png" />
     
     <style type="text/css">
 
@@ -177,7 +177,7 @@
       </table>
  </div>
         <div class="col" style="margin-left:0px; margin-top:100px;text-align:center;">
-            <img src="Images/Static/homePageJp.png"  alt="register" class="auto-style3"/>
+            <img src="../Images/Static/homePageJp.png"  alt="register" class="auto-style3"/>
         </div>
              </div>
       

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
         <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-     <link rel="icon" type="image/x-icon" href="Images/Static/white_logo.png" />
+     <link rel="icon" type="image/x-icon" href="../Images/Static/white_logo.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -60,13 +60,13 @@
         
         <ul class="nav nav-item nav-tabs " style=" background-color: #FFFFFF;">
             <li>
-               <img src="Images/Static/white_logo.png" alt="logo" class="auto-style1" style="width: 100px; height: 100px" />
+               <img src="../Images/Static/white_logo.png" alt="logo" class="auto-style1" style="width: 100px; height: 100px" />
             </li>
 
             <li class="nav-item col" style="margin-left: 850px; margin-top: 35px;margin-bottom: 30px; text-align:center;"><a class="nav-link" href="#"> Jobs </a></li>
             <li class="nav-item col" style="margin-top: 35px;margin-bottom: 30px; text-align:center;"><a class="nav-link" href="/job_seeker/Employer.aspx">Employers </a></li>
             <li class="nav-item col" style="margin-top: 35px;margin-bottom: 30px; text-align:center;"><a class="nav-link"href="/job_seeker/job_seeker.aspx">job Seekers </a></li>
-            <li><a class="navbar-brand" href="#"><img src="Images/log_out-removebg-preview.png" alt="profile" style="width:100px;height:100px;margin-top: 15px;margin-bottom:15px""/></a></li>
+            <li><a class="navbar-brand" href="#"><img src="../Images/log_out-removebg-preview.png" alt="profile" style="width:100px;height:100px;margin-top: 15px;margin-bottom:15px""/></a></li>
           </ul>
         <div class="container mt-4"></div>
         <div style="margin-left:75px;margin-top:50px"> <h3 >Hello Admin</h3>
@@ -76,7 +76,7 @@
        <div class="col"  style="display: inline-block; width: 150px; height: 200px;">
           <div class="card"  style="background-color:#059669" >
               <div class="card-body" style="width:150px;height:150px">
-                   <img src="Images/images1-removebg-preview.png" atl="image" style="width:30px;height:30px;"/>
+                   <img src="../Images/1-removebg-preview.png" atl="image" style="width:30px;height:30px;"/>
                   <div class="card-title"><a class="nav-link"href="Skill.aspx"></a>Skills</div>
               </div>
           </div>
@@ -86,7 +86,7 @@
      <div class="card" style="background-color:#059669">
         <!-- <div class="gradient" style="background:linear-gradient(0deg,#059669,white)"></div>-->
          <div class="card-body"  style="width:150px;height:150px" >
-              <img src="Images/cetegories-removebg-preview.png" atl="image" style="width:40px;height:40px;"/>
+              <img src="../Images/Categories-removebg-preview.png" atl="image" style="width:40px;height:40px;"/>
              <div class="card-title"><a class="nav-link"href="Categories.aspx"></a>Categories</div>
          </div>
              
@@ -95,7 +95,7 @@
             <div class="col" style="display: inline-block; width: 150px; height: 200px;">         
      <div class="card" style="background-color:#059669">
          <div class="card-body" style="width:150px;height:150px">
-              <img src="Images/add_admin1-removebg-preview.png" atl="image" style="width:40px;height:40px;"/>
+              <img src="../Images/add_admin1-removebg-preview.png" atl="image" style="width:40px;height:40px;"/>
              <div class="card-title"><a class="nav-link"href="Admin_registration.aspx"></a>Add Admin</div>
 
          </div>
@@ -106,7 +106,7 @@
        <div class="col" style="display: inline-block; width: 150px; height: 200px;">
           <div class="card" style="background-color:#059669">
               <div class="card-body" style="width:150px;height:150px">
-                   <img src="Images/jobseeker1-removebg-preview.png" atl="image" style="width:30px;height:30px;"/>
+                   <img src="../Images/jobseeker1-removebg-preview.png" atl="image" style="width:30px;height:30px;"/>
                   <div class="card-title"><a class="nav-link"href="jobseeker.aspx"></a>Job Seekers</div>
        
               </div>
@@ -116,7 +116,7 @@
                <div class="col" style="display: inline-block; width: 150px; height: 200px;">
      <div class="card" style="background-color:#059669">
          <div class="card-body"  style="width:150px;height:150px" >
-              <img src="Images/company-removebg-preview.png" atl="image" style="width:30px;height:30px;"/>
+              <img src="../Images/company-removebg-preview.png" atl="image" style="width:30px;height:30px;"/>
              <div class="card-title"><a class="nav-link"href="Employer.aspx"></a>Company</div>
        
          </div>
@@ -125,7 +125,7 @@
             <div class="col" style="display: inline-block; width: 150px; height: 200px;">
      <div class="card" style="background-color:#059669">
          <div class="card-body" style="width:150px;height:150px">
-             <div> <img src="Images/message-removebg-preview.png" atl="image" style="width:30px;height:30px;"/>
+             <div> <img src="../Images/message-removebg-preview.png" atl="image" style="width:30px;height:30px;"/>
              <div class="card-title"><a class="nav-link"href="#"></a>Messages</div></div>
          </div>
      </div>
