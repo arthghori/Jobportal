@@ -111,10 +111,11 @@ namespace job_portal.job_seeker
                     logo = GetFileBytes(fuFileupload.PostedFile);
 
                 }
-
                 string query = @"INSERT INTO tbl_company
-            ([companyname], [username], [email], [password], [contactphone], [website], [indutrytype], [address], [location], [description], [companylogo], [createdtime])
-            VALUES (@CompanyName, @Username, @Email, @Password, @ContactPhone, @Website, @IndustryType, @Address, @Location, @Description, @CompanyLogo, @CreatedTime)";
+([companyname], [username], [email], [password], [contactphone], [website], 
+[indutrytype], [address], [location], [description], [companylogo], [createdtime], [status])
+VALUES (@CompanyName, @Username, @Email, @Password, @ContactPhone, @Website, 
+@IndustryType, @Address, @Location, @Description, @CompanyLogo, @CreatedTime, 'Pending')";
 
                 using (SqlConnection con = new SqlConnection(strcon))
                 {

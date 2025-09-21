@@ -118,7 +118,7 @@
                 <li class="nav-item"><a class="nav-link" href="/admin/admin_mainpage.aspx" style="color: #059669;">Home</a></li>
 
       <li class="nav-item"><a class="nav-link" href="#" style="color: #059669;">Jobs</a></li>
-      <li class="nav-item"><a class="nav-link" href="/common/Company.aspx" style="color: #059669;">Employers</a></li>
+      <li class="nav-item"><a class="nav-link" href="/common/Company.aspx" style="color: #059669;">conpany</a></li>
       <li class="nav-item"><a class="nav-link" href="/job_seeker/Job_seeker.aspx" style="color: #059669;">Job Seekers</a></li>
 
     

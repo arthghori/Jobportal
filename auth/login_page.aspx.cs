@@ -14,64 +14,139 @@ namespace job_portal.auth
         {
             if (!IsPostBack)
             {
-
-                hlForgot.NavigateUrl = $"~/auth/forgot_pass.aspx";
-
+                hlForgot.NavigateUrl = "~/auth/forgot_pass.aspx";
             }
         }
+
+        int companyid;
+
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            string username = txtEmail.Text.Trim();
+            string password = txtPass.Text.Trim();
 
-            string username = txtEmail.Text;
-            string password = txtPass.Text;
-
-            // Check Admin Login
+            // Admin Login
             if (ValidateLogin("tbl_admin", username, password))
             {
                 Session["Username"] = username;
                 Session["UserRole"] = "Admin";
                 Response.Redirect("~/admin/admin_mainpage.aspx");
+                return;
             }
-            // Check Jobseeker Login
-            else if (ValidateLogin("tbl_jobseeker", username, password))
+
+            // Jobseeker Login
+            if (ValidateLogin("tbl_jobseeker", username, password))
             {
                 Session["Username"] = username;
                 Session["UserRole"] = "Jobseeker";
                 Response.Redirect("~/job_seeker/jobseeker_main.aspx");
+                return;
             }
-            // Check Company Login
-            else if (ValidateLogin("tbl_company", username, password))
+
+            // Company Login
+            if (ValidateLogin("tbl_company", username, password, out companyid))
             {
-                Session["Username"] = username;
-                Session["UserRole"] = "Company";
-                Response.Redirect("~/company/company_main.aspx");
+                string status = GetCompanyStatus(username, password, out companyid);
+
+                switch (status)
+                {
+                    case null:
+                        ShowAlert("Invalid username or password.");
+                        break;
+                    case "Inactive":
+                        ShowAlert("Company account is inactive.");
+                        break;
+                    case "Active":
+                        Session["Companyid"] = companyid;
+                        Session["Username"] = username;
+                        Session["UserRole"] = "Company";
+                        Response.Redirect("~/company/company_main.aspx");
+                        break;
+                    default:
+                        ShowAlert("Invalid company status.");
+                        break;
+                }
+
+                return;
             }
-            else
-            {
-                Response.Write("<script>alert('Invalid username or password');</script>");
-            }
+
+            // If none matched
+            ShowAlert("Invalid username or password.");
         }
 
-        private bool ValidateLogin(string tableName, string username, string password)
+        private void ShowAlert(string message)
         {
+            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", $"alert('{message}');", true);
+        }
+
+        private bool ValidateLogin(string tableName, string username, string password, out int id)
+        {
+            id = 0;
             bool isValid = false;
 
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\admin\\Documents\\project\\job_portal\\App_Data\\jobportal.mdf;Integrated Security=True";
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\jobportal.mdf;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = $"SELECT COUNT(1) FROM {tableName} WHERE username = @username AND password = @password";
+                string query = $"SELECT * FROM {tableName} WHERE username = @username AND password = @password";
                 SqlCommand cmd = new SqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@username", username);
                 cmd.Parameters.AddWithValue("@password", password);
 
                 connection.Open();
-                int count = Convert.ToInt32(cmd.ExecuteScalar());
-                isValid = (count > 0);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    isValid = true;
+
+                    switch (tableName)
+                    {
+                        case "tbl_company":
+                            id = Convert.ToInt32(dr["companyid"]);
+                            break;
+                        case "tbl_jobseeker":
+                            id = Convert.ToInt32(dr["seekerid"]);
+                            break;
+                        case "tbl_admin":
+                            id = Convert.ToInt32(dr["adminid"]);
+                            break;
+                    }
+                }
+                dr.Close();
             }
 
             return isValid;
         }
 
+        private bool ValidateLogin(string tableName, string username, string password)
+        {
+            return ValidateLogin(tableName, username, password, out _);
+        }
+
+        private string GetCompanyStatus(string username, string password, out int companyId)
+        {
+            companyId = 0;
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\jobportal.mdf;Integrated Security=True";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT companyid, status FROM tbl_company WHERE username=@username AND password=@password";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@password", password);
+
+                connection.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    companyId = Convert.ToInt32(dr["companyid"]);
+                    string status = dr["status"].ToString(); // Active or Inactive
+                    dr.Close();
+                    return status;
+                }
+                dr.Close();
+            }
+
+            return null; // Invalid login
+        }
     }
 }
-

@@ -27,7 +27,7 @@ namespace job_portal.admin
                 }
                 else
                 {
-                    Response.Redirect("~/auth/login_page.aspx");
+                  Response.Redirect("~/auth/login_page.aspx");
                 }
             }
 

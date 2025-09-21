@@ -8,7 +8,7 @@
 <head runat="server">
 
         <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-     <link rel="icon" type="../image/x-icon" href="Images/Static/white_logo.png" />
+     <link rel="icon" type="../image/x-icon" href="../Images/Static/white_logo.png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>logo</title>
@@ -112,7 +112,7 @@
              <div style="display: flex; margin-left: auto; align-items: center; gap: 30px">
                   <li class="nav-item"><a class="nav-link" href="/admin/admin_mainpage.aspx" style="color: #059669;">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="/company/jobs.aspx" style="color: #059669;">Jobs</a></li>
-            <li class="nav-item"><a class="nav-link" href="/company/Company.aspx" style="color: #059669;">Employers</a></li>
+            <li class="nav-item"><a class="nav-link" href="/company/Company.aspx" style="color: #059669;">Company</a></li>
             <li class="nav-item"><a class="nav-link" href="/job_seeker/Job_seeker.aspx" style="color: #059669;">Job Seekers</a></li>
 
           
@@ -144,66 +144,78 @@
         <div class="container mt-4"></div>
                       <h3 style="margin-left:120px">Hello <asp:Label ID="lblUsername" runat="server" Text="User"></asp:Label>,</h3>
 
-        <div style="margin-left:90px;margin-top:50px"> <h3 >Hello Admin</h3>
-        </div>
+        
 
-          <div class="row" style="margin-top: 30px; margin-left: 90px;margin-right:90px">
-       <div class="col"  style="display: inline-block; width: 150px; height: 200px;">
-          <div class="card"  style="background-color:#059669">
-              <div class="card-body" style="width:150px;height:150px">
-                   <img src="../Images/Skills-removebg-preview.png" atl="image" style="width:30px;height:30px;"/>
-                  <div class="card-title"><a class="nav-link"href="/admin/Skill1.aspx"></a>Skills</div>
-              </div>
-          </div>
-        </div>
-            <div class="col" style="display: inline-block; width: 150px; height: 200px;">
-     <div class="card" style="background-color:#059669">
-        <!-- <div class="gradient" style="background:linear-gradient(0deg,#059669,white)"></div>-->
-         <div class="card-body"  style="width:150px;height:150px" >
-              <img src="../Images/Categories-removebg-preview.png" atl="image" style="width:40px;height:40px;"/>
-             <div class="card-title"><a class="nav-link"href="/admin/category.aspx"></a>Categories</div>
-         </div>
-     </div>
-   </div>
+<div class="row" style="margin-top: 30px; margin-left: 90px;margin-right:90px">
+    <div class="col" style="display: inline-block; width: 150px; height: 200px;">
+        <a href="/admin/Skill1.aspx" style="text-decoration:none;">
+            <div class="card" style="background-color:#059669">
+                <div class="card-body" style="width:150px;height:150px">
+                    <img src="../Images/Skills-removebg-preview.png" alt="Skills" style="width:30px;height:30px;"/>
+                    <div class="card-title">Skills</div>
+                </div>
+            </div>
+        </a>
+    </div>
 
-                <div class="col" style="display: inline-block; width: 150px; height: 200px;">         
-     <div class="card" style="background-color:#059669">
-         <div class="card-body" style="width:150px;height:150px">
-              <img src="../Images/add_admin1-removebg-preview.png" atl="image" style="width:40px;height:40px;"/>
-             <div class="card-title"><a class="nav-link"href="/admin/admin_register.aspx"></a>Add Admin</div>
+    <div class="col" style="display: inline-block; width: 150px; height: 200px;">
+        <a href="/admin/category.aspx" style="text-decoration:none;">
+            <div class="card" style="background-color:#059669">
+                <div class="card-body" style="width:150px;height:150px">
+                    <img src="../Images/Categories-removebg-preview.png" alt="Categories" style="width:40px;height:40px;"/>
+                    <div class="card-title">Categories</div>
+                </div>
+            </div>
+        </a>
+    </div>
 
-         </div>
-     </div>
-   </div>
+    <div class="col" style="display: inline-block; width: 150px; height: 200px;">
+        <a href="/admin/admin_register.aspx" style="text-decoration:none;">
+            <div class="card" style="background-color:#059669">
+                <div class="card-body" style="width:150px;height:150px">
+                    <img src="../Images/add_admin1-removebg-preview.png" alt="Add Admin" style="width:40px;height:40px;"/>
+                    <div class="card-title">Add Admin</div>
+                </div>
+            </div>
+        </a>
+    </div>
 </div>
-                      <div class="row" style="margin-top: 1px; margin-left: 90px;margin-right:90px">
-       <div class="col" style="display: inline-block; width: 150px; height: 200px;">
-          <div class="card" style="background-color:#059669">
-              <div class="card-body" style="width:150px;height:150px">
-                   <img src="../Images/Jobseeker1-removebg-preview.png" atl="image" style="width:30px;height:30px;"/>
-                  <div class="card-title"><a class="nav-link"href="/job_seeker/Job_seeker.aspx"></a>Job Seekers</div>
-       
-              </div>
-          </div>
-        </div>
-                         <div class="col" style="display: inline-block; width: 150px; height: 200px;">
-     <div class="card" style="background-color:#059669">
-         <div class="card-body"  style="width:150px;height:150px" >
-              <img src="../Images/Company-removebg-preview.png" atl="image" style="width:30px;height:30px;"/>
-             <div class="card-title"><a class="nav-link"href="/company/Company.aspx"></a>Company</div>
-       
-         </div>
-     </div>
-   </div>
-               <div class="col" style="display: inline-block; width: 150px; height: 200px;">
-     <div class="card" style="background-color:#059669">
-         <div class="card-body" style="width:150px;height:150px">
-             <div> <img src="../Images/Message-removebg-preview.png" atl="image" style="width:30px;height:30px;"/>
-             <div class="card-title"><a class="nav-link"href="/common/Message.aspx"></a>Messages</div></div>
-         </div>
-     </div>
-   </div>
+
+<div class="row" style="margin-top: 1px; margin-left: 90px;margin-right:90px">
+    <div class="col" style="display: inline-block; width: 150px; height: 200px;">
+        <a href="/job_seeker/Job_seeker.aspx" style="text-decoration:none;">
+            <div class="card" style="background-color:#059669">
+                <div class="card-body" style="width:150px;height:150px">
+                    <img src="../Images/Jobseeker1-removebg-preview.png" alt="Job Seekers" style="width:30px;height:30px;"/>
+                    <div class="card-title">Job Seekers</div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col" style="display: inline-block; width: 150px; height: 200px;">
+        <a href="/company/Company.aspx" style="text-decoration:none;">
+            <div class="card" style="background-color:#059669">
+                <div class="card-body" style="width:150px;height:150px">
+                    <img src="../Images/Company-removebg-preview.png" alt="Company" style="width:30px;height:30px;"/>
+                    <div class="card-title">Company</div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col" style="display: inline-block; width: 150px; height: 200px;">
+        <a href="/common/Message.aspx" style="text-decoration:none;">
+            <div class="card" style="background-color:#059669">
+                <div class="card-body" style="width:150px;height:150px">
+                    <img src="../Images/Message-removebg-preview.png" alt="Messages" style="width:30px;height:30px;"/>
+                    <div class="card-title">Messages</div>
+                </div>
+            </div>
+        </a>
+    </div>
 </div>
+
                     </form>
 
 
