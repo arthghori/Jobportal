@@ -79,12 +79,21 @@ namespace job_portal.company
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+                // ✅ Existing logo handling
                 Image img = (Image)e.Row.FindControl("imgCompanyLogo");
                 object logo = DataBinder.Eval(e.Row.DataItem, "companylogo");
                 if (logo != DBNull.Value)
                     img.ImageUrl = "data:image/png;base64," + Convert.ToBase64String((byte[])logo);
                 else
-                    img.ImageUrl = "../Images/no-logo.png"; // default image
+                    img.ImageUrl = "../Images/no-logo.png";
+
+                // ✅ NEW: Hide Approve button if already Active
+                string status = DataBinder.Eval(e.Row.DataItem, "status").ToString();
+                Button btnApprove = (Button)e.Row.FindControl("btnApprove");
+                if (status.Equals("Active", StringComparison.OrdinalIgnoreCase))
+                {
+                    btnApprove.Visible = false;
+                }
             }
         }
     }

@@ -24,7 +24,7 @@ namespace job_portal.admin
                 {
                     //string username = Session["Username"].ToString();
                     Fndbconn();
-                    bindgrid();
+                    //bindgrid();
                 }
                 else
                 {
@@ -51,23 +51,23 @@ namespace job_portal.admin
 
         }
 
-        public void bindgrid()
-        {
-            SqlConnection con = new SqlConnection(strcon);
+        //public void bindgrid()
+        //{
+        //    SqlConnection con = new SqlConnection(strcon);
 
-            string query = "select * from tbl_admin";
-            con.Open();
+        //    string query = "select * from tbl_admin";
+        //    con.Open();
 
-            SqlDataAdapter adpt = new SqlDataAdapter(query, con);
-            DataSet dt = new DataSet();
+        //    SqlDataAdapter adpt = new SqlDataAdapter(query, con);
+        //    DataSet dt = new DataSet();
 
-            adpt.Fill(dt);
-            gvadmin.DataSource = dt;
-            gvadmin.DataBind();
-            con.Close();
+        //    adpt.Fill(dt);
+        //    //gvadmin.DataSource = dt;
+        //    gvadmin.DataBind();
+        //    con.Close();
 
-        }
-        // register button
+        //}
+        //// register button
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
@@ -99,7 +99,7 @@ namespace job_portal.admin
                         con.Close();
                     }
                 }
-                bindgrid();
+                //bindgrid();
             }
             catch (Exception els)
             {

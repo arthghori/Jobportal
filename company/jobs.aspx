@@ -204,7 +204,7 @@ h2 {
             <div style="display: flex; margin-left: auto; align-items: center; gap: 30px">
 
                 <li class="nav-item"><a class="nav-link" href="/job_seeker/jobseeker_main.aspx" style="color: #059669;">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="/job_seeker/jobs.aspx" style="color: #059669;">Jobs</a></li>
+                <li class="nav-item"><a class="nav-link" href="/company/jobs.aspx" style="color: #059669;">Jobs</a></li>
                 <li class="nav-item"><a class="nav-link" href="/job_seeker/applied_job.aspx" style="color: #059669;">Applied Jobs</a></li>
                 <li class="nav-item"><a class="nav-link" href="/common/Message.aspx" style="color: #059669;">Message</a></li>
 

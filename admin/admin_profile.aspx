@@ -117,8 +117,8 @@
        <div style="display: flex; margin-left: auto; align-items: center; gap: 30px">
                 <li class="nav-item"><a class="nav-link" href="/admin/admin_mainpage.aspx" style="color: #059669;">Home</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="#" style="color: #059669;">Jobs</a></li>
-      <li class="nav-item"><a class="nav-link" href="/common/Company.aspx" style="color: #059669;">conpany</a></li>
+      <li class="nav-item"><a class="nav-link" href="/company/Jobs.aspx" style="color: #059669;">Jobs</a></li>
+      <li class="nav-item"><a class="nav-link" href="/company/Company.aspx" style="color: #059669;">company</a></li>
       <li class="nav-item"><a class="nav-link" href="/job_seeker/Job_seeker.aspx" style="color: #059669;">Job Seekers</a></li>
 
     

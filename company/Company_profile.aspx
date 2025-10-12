@@ -210,15 +210,13 @@
         <div style="display: flex; align-items: center; margin-left: auto; gap: 30px;">
             <!-- Jobs Dropdown -->
             <li style="position: relative;">
-                <a href="#" style="color: #059669; text-decoration: none; padding: 10px; display: block;">Jobs</a>
-                <ul  style="position: absolute; top: 100%; left: 0; background-color: white; border: 1px solid #ddd; border-radius: 5px; padding: 10px; list-style: none; min-width: 150px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); display: none;">
-                    <li><a href="/company/company_main.aspx" style="display: block; padding: 10px; text-decoration: none; color: #333;">Home</a></li>
-                    <li><a href="/company/job_post.aspx" style="display: block; padding: 10px; text-decoration: none; color: #333;">Add job</a></li>
-                    <li><a href="/company/postedjob_list.aspx" style="display: block; padding: 10px; text-decoration: none; color: #333;">Posted jobs</a></li>
-                </ul>
+                
             </li>
 
             <!-- Messages -->
+            <li><a href="/company/company_main.aspx" style="display: block; padding: 10px; text-decoration: none; color: #059669;">Home</a></li>
+            <li><a href="/company/job_post.aspx" style="display: block; padding: 10px; text-decoration: none; color: #059669;">Add job</a></li>
+            <li><a href="/company/postedjob_list.aspx" style="display: block; padding: 10px; text-decoration: none; color: #059669;">Posted jobs</a></li>
             <li>
                 <a href="#" style="color: #059669; text-decoration: none; padding: 10px; display: block;">Messages</a>
             </li>
