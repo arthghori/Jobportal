@@ -48,7 +48,7 @@
           <div class="container mt-5">
   <div class="row p-3 mb-5 bg-white rounded">
          <div class="col-md-4 bg-light text-center py-4 " style="width: 300px; height: 400px; margin-top:50px;" >
-          <img src="Images/Static/white-boy.a0d2814a.png"  alt="image" style="width: 200px; height: 200px" />
+          <img src="../Images/Static/white-boy.a0d2814a.png"  alt="image" style="width: 200px; height: 200px" />
           <ul>
           <li>
               On registering, you can
@@ -193,8 +193,8 @@
                 </table>
       </div>
         </div>
-          <asp:GridView ID="gvcompany" runat="server">
-          </asp:GridView>
+          <%--<asp:GridView ID="gvcompany" runat="server">
+          </asp:GridView>--%>
 
         
                 <div class="row container-fluid" style="margin-top: 200px; margin-left: 2px; background-color: #059669; color:white ; text-align: center; height: 100%;">

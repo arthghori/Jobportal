@@ -21,7 +21,7 @@ namespace job_portal.job_seeker
             if (!Page.IsPostBack)
             {
                 fndbconn();
-                bindgrid();
+              //  bindgrid();
             }
 
         }
@@ -43,22 +43,22 @@ namespace job_portal.job_seeker
 
         }
 
-        public void bindgrid()
-        {
-            SqlConnection con = new SqlConnection(strcon);
+        //public void bindgrid()
+        //{
+        //    SqlConnection con = new SqlConnection(strcon);
 
-            string query = "select * from tbl_company";
-            con.Open();
+        //    string query = "select * from tbl_company";
+        //    con.Open();
 
-            SqlDataAdapter adpt = new SqlDataAdapter(query, con);
-            DataSet dt = new DataSet();
+        //    SqlDataAdapter adpt = new SqlDataAdapter(query, con);
+        //    DataSet dt = new DataSet();
 
-            adpt.Fill(dt);
-            gvcompany.DataSource = dt;
-            gvcompany.DataBind();
-            con.Close();
+        //    adpt.Fill(dt);
+        //    gvcompany.DataSource = dt;
+        //    gvcompany.DataBind();
+        //    con.Close();
 
-        }
+        //}
 
         //covent to binary
         private byte[] GetFileBytes(HttpPostedFile postedFile)
@@ -143,7 +143,7 @@ VALUES (@CompanyName, @Username, @Email, @Password, @ContactPhone, @Website,
                 }
 
                 // Refresh grid or notify user
-                bindgrid();
+               // bindgrid();
                 Response.Redirect("~/company/company_main.aspx");
 
             }
