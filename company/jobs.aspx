@@ -189,6 +189,19 @@ h2 {
     color: white;
 }
 
+.filter-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.filter-options {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
 
     </style>
 </head>
@@ -229,28 +242,34 @@ h2 {
 
                     <!-- 🔹 Filter Sidebar -->
                     <div class="filter-box">
-<h3>Apply Filter</h3>
+<h2>Apply Filter</h2>
 
-    <!-- Category Dropdown -->
-    <asp:DropDownList ID="ddlCategory" runat="server" CssClass="filter-options"></asp:DropDownList>
+<!-- Category Filter -->
+<h4 class="filter-title">Category</h4>
+<asp:DropDownList ID="ddlCategory" runat="server" CssClass="filter-options" AutoPostBack="true" OnSelectedIndexChanged="ddlCategory_SelectedIndexChanged"></asp:DropDownList>
+<!-- Skill Filter -->
+<h4 class="filter-title">Skill</h4>
+<asp:DropDownList ID="ddlSkill" runat="server" CssClass="filter-options" AutoPostBack="true" OnSelectedIndexChanged="ddlSkill_SelectedIndexChanged"></asp:DropDownList>
 
-    <!-- Experience Filter -->
-    <asp:RadioButtonList ID="rblExperience" runat="server" CssClass="filter-options">
-        <asp:ListItem Value="">All</asp:ListItem>
-        <asp:ListItem Value="Fresher">Fresher</asp:ListItem>
-        <asp:ListItem Value="1-3 Years">1-3 Years</asp:ListItem>
-        <asp:ListItem Value="3-5 Years">3-5 Years</asp:ListItem>
-        <asp:ListItem Value="More than 5 Years">More than 5 Years</asp:ListItem>
-    </asp:RadioButtonList>
+<!-- Experience Filter -->
+<h4 class="filter-title">Experience</h4>
+<asp:RadioButtonList ID="rblExperience" runat="server" CssClass="filter-options">
+    <asp:ListItem Value="">All</asp:ListItem>
+    <asp:ListItem Value="Fresher">Fresher</asp:ListItem>
+    <asp:ListItem Value="1-3 Years">1-3 Years</asp:ListItem>
+    <asp:ListItem Value="3-5 Years">3-5 Years</asp:ListItem>
+    <asp:ListItem Value="More than 5 Years">More than 5 Years</asp:ListItem>
+</asp:RadioButtonList>
 
-    <!-- Job Type Filter -->
-    <asp:RadioButtonList ID="rblJobType" runat="server" CssClass="filter-options">
-        <asp:ListItem Value="">All</asp:ListItem>
-        <asp:ListItem Value="Part Time">Part Time</asp:ListItem>
-        <asp:ListItem Value="Full Time">Full Time</asp:ListItem>
-        <asp:ListItem Value="Contract">Contract</asp:ListItem>
-        <asp:ListItem Value="Internship">Internship</asp:ListItem>
-    </asp:RadioButtonList>
+<!-- Job Type Filter -->
+<h4 class="filter-title">Job Type</h4>
+<asp:RadioButtonList ID="rblJobType" runat="server" CssClass="filter-options" OnSelectedIndexChanged="rblJobType_SelectedIndexChanged">
+    <asp:ListItem Value="">All</asp:ListItem>
+    <asp:ListItem Value="Part Time">Part Time</asp:ListItem>
+    <asp:ListItem Value="Full Time">Full Time</asp:ListItem>
+    <asp:ListItem Value="Contract">Contract</asp:ListItem>
+    <asp:ListItem Value="Internship">Internship</asp:ListItem>
+</asp:RadioButtonList>
 
     <!-- Apply Filter Button -->
     <asp:Button ID="btnFilter" runat="server" CssClass="btn-filter" Text="Apply Filter" OnClick="btnFilter_Click" />

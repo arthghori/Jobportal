@@ -162,145 +162,157 @@
         </div>
     </ul>
 </header>
-       <div class="row" style="margin-left:300px">
- <div class="col" style=" margin-top:100px;">
-      <div style="border:1px solid black;border-radius:4px; width:550px;height:990px;box-shadow : 5px 5px 15px grey;">
-           <table class="auto-style1" style="background-color:#F3F3F3">
-               <tr>
-                  <td style="font-family:Verdana,Verdana, Geneva, Tahoma, sans-serif; font-size: large; font-weight: bold;">&nbsp; job post</td>
-                 </tr>
-                    <tr>
-                        <td>
-                            &nbsp;&nbsp; 
-                            <br />&nbsp; Job Title:</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2"><asp:TextBox ID="txtJobtitle" runat="server" Height="26px" Width="521px" CssClass="Textbox" placeholder="Jobtitle"></asp:TextBox>
-                            <br />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="job title is requried" ControlToValidate="txtJobtitle" ForeColor="Red"></asp:RequiredFieldValidator>
-                         </td>   
+  
+               <div class="row" style="margin-left:300px">
+            <div class="col" style="margin-top:100px;">
+                <div style="border:1px solid black;border-radius:4px; width:550px;height:1050px;box-shadow:5px 5px 15px grey;">
+                    <table class="auto-style1" style="background-color:#F3F3F3">
+                        <tr>
+                            <td style="font-family:Verdana,Verdana, Geneva, Tahoma, sans-serif; font-size: large; font-weight: bold;">&nbsp; Job Post</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;&nbsp;<br />&nbsp; Job Title:</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style2">
+                                <asp:TextBox ID="txtJobtitle" runat="server" Height="26px" Width="521px" CssClass="Textbox" placeholder="Jobtitle"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Job title is required" ControlToValidate="txtJobtitle" ForeColor="Red"></asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;&nbsp; Company Name:</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style2">
+                                <asp:DropDownList ID="ddlcampany" runat="server" Width="523px" Enabled="false"></asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;&nbsp; Description:</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style2">
+                                <asp:TextBox ID="txtDescription" runat="server" Height="49px" Width="522px" CssClass="Textbox" placeholder="Description" TextMode="MultiLine"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Description is required" ControlToValidate="txtDescription" ForeColor="Red"></asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+
+                        <%--skill--%> 
+                      <tr>
+<tr>
+    <td>&nbsp;&nbsp; Skills Required:</td>
 </tr>
-                      
-                    <tr>
-                        <td>
-                            &nbsp;&nbsp; Company Name:</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">
-                            <asp:DropDownList ID="ddlcampany" runat="server" Width="523px">
-                            </asp:DropDownList>
-                            <br />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="please select a company name" ControlToValidate="txtJobtitle" ForeColor="Red"></asp:RequiredFieldValidator>
-                         </td>   
+<tr>
+    <td class="auto-style2">
+        <asp:DropDownList ID="ddlSkills" runat="server" Width="300px"></asp:DropDownList>
+        <asp:Button ID="btnAddSkill" runat="server" Text="Add Skill" OnClick="btnAddSkill_Click" CausesValidation="false" />
+    </td>
 </tr>
-                      
-                    
-                      
-                    <tr>
-                        <td>
-                            &nbsp;&nbsp; Description:</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2"><asp:TextBox ID="txtDescription" runat="server" Height="49px" Width="522px" CssClass="Textbox" placeholder="Description"  TextMode="MultiLine"></asp:TextBox>
-                            <br />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="description is requried" ControlToValidate="txtDescription" ForeColor="Red"></asp:RequiredFieldValidator>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;&nbsp; Skill Requried:</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2"><asp:TextBox ID="txtSkillRequried" runat="server" Height="26px" Width="523px" CssClass="Textbox" placeholder="Skill requried" TextMode="MultiLine"></asp:TextBox>
-                            <br />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage=" skill requried field  cannot be empty" ControlToValidate="txtSkillRequried" ForeColor="Red"></asp:RequiredFieldValidator>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;&nbsp; Location:</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2"><asp:TextBox ID="txtLocation" runat="server" Height="26px" Width="523px" CssClass="Textbox"  TextMode="MultiLine" placeholder="Location"></asp:TextBox>
-                            <br />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="location is requried" ControlToValidate="txtLocation" ForeColor="Red"></asp:RequiredFieldValidator>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;&nbsp; Category:</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style3">
-                            <asp:DropDownList ID="ddlcategory" runat="server" Width="523px">
-                            </asp:DropDownList>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;&nbsp; Salary:</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2"><asp:TextBox ID="txtSalary" runat="server" Height="26px" Width="523px" CssClass="Textbox"  placeholder="Salary" TextMode="Number"></asp:TextBox>
-                            <br />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="salary is requried" ControlToValidate="txtSalary" ForeColor="Red"></asp:RequiredFieldValidator>
-                              <asp:RegularExpressionValidator ID="revSalary" runat="server" ControlToValidate="txtSalary"  ValidationExpression="^\d+(\.\d{1,2})?$" ErrorMessage="Salary must be a valid number." ForeColor="Red"/>
+<tr>
+    <td>&nbsp;&nbsp; Selected Skills:</td>
+</tr>
+<tr>
+    <td class="auto-style2">
+        <asp:ListBox ID="lstSelectedSkills" runat="server" Width="300px" Height="100px"></asp:ListBox>
+    </td>
+</tr>
                         
+                        
+                        
+                        <tr>
+                            <td>&nbsp;&nbsp; Location:</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style2">
+                                <asp:TextBox ID="txtLocation" runat="server" Height="26px" Width="523px" CssClass="Textbox" placeholder="Location"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Location is required" ControlToValidate="txtLocation" ForeColor="Red"></asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;&nbsp; Category:</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style3">
+                                <asp:DropDownList ID="ddlcategory" runat="server" Width="523px"></asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;&nbsp; Salary:</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style2">
+                                <asp:TextBox ID="txtSalary" runat="server" Height="26px" Width="523px" CssClass="Textbox" placeholder="Salary"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Salary is required" ControlToValidate="txtSalary" ForeColor="Red"></asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="revSalary" runat="server" ControlToValidate="txtSalary" ValidationExpression="^\d+(\.\d{1,2})?$" ErrorMessage="Salary must be a valid number." ForeColor="Red"/>
+                            </td>
+                        </tr>
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;&nbsp; Job Type:</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">&nbsp;<asp:DropDownList ID="ddlJobpost" runat="server" Height="30px" Width="525px" CssClass="Textbox">
-                                <asp:ListItem>---Select job--</asp:ListItem>
-                                  <asp:ListItem Text="Full-Time" Value="Full Time"></asp:ListItem>
-        <asp:ListItem Text="Part-Time" Value="Part Time"></asp:ListItem>
-        <asp:ListItem Text="Internship" Value="Internship"></asp:ListItem>
-        <asp:ListItem Text="Freelance" Value="Freelance"></asp:ListItem>
-    <asp:ListItem Text="Contract" Value="Contract"></asp:ListItem>
-                            </asp:DropDownList>
-                            &nbsp;<br />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Please select a job type" ControlToValidate="ddlJobpost" ForeColor="Red"></asp:RequiredFieldValidator>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;&nbsp; Post Date:</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2"><asp:TextBox ID="txtPostdate" runat="server" Height="26px" Width="523px" TextMode="Date" CssClass="Textbox"></asp:TextBox>
-                            <br />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="post date is requried" ControlToValidate="txtPostdate" ForeColor="Red"></asp:RequiredFieldValidator>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;&nbsp; Application Deadline:</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style3"><asp:TextBox ID="txtDate" runat="server" Height="26px" Width="523px" TextMode="Date" CssClass="Textbox"></asp:TextBox>
-                            <br />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="application deadline is requried" ControlToValidate="txtDate" ForeColor="Red"></asp:RequiredFieldValidator>
-                             <asp:CompareValidator ID="cvDate" runat="server" ControlToValidate="txtDate" ControlToCompare="txtPostdate" Operator="GreaterThan" ErrorMessage="Deadline must be after the post date." ForeColor="Red"  />
+                          <tr>
+    <td>&nbsp;&nbsp; Experience Required:</td>
+</tr>
+<tr>
+    <td class="auto-style2">
+        <asp:DropDownList ID="ddlExperience" runat="server" Height="26px" Width="555px" CssClass="Textbox">
+            <asp:ListItem Text="Select Experience" Value=""></asp:ListItem>
+            <asp:ListItem Text="Fresher" Value="Fresher"></asp:ListItem>
+            <asp:ListItem Text="1-3 Years" Value="1-3 Years"></asp:ListItem>
+            <asp:ListItem Text="3-5 Years" Value="3-5 Years"></asp:ListItem>
+            <asp:ListItem Text="More than 5 Years" Value="More than 5 Years"></asp:ListItem>
+        </asp:DropDownList>
+        <asp:RequiredFieldValidator ID="rfvExperience" runat="server" 
+            ControlToValidate="ddlExperience" 
+            ErrorMessage="Experience is required."  
+            ForeColor="Red" Height="20px" />
+    </td>
+</tr>
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><br />
-                            &nbsp;
-                            <asp:Button ID="btnPost" runat="server" Text="POST" BackColor="#059669" ForeColor="White" Height="37px" Width="180px" OnClick="btnPost_Click"/>
-                        </td>
-                    </tr>
-                </table>
-</div>
-     </div>
-           <div class="col" style="margin-left:0px;margin-right:100px; margin-top:350px;">
-     <img src="../Images/Static/Job_Posting_Page.51e6ab7c156a002d438b.png" alt="job post" class="auto-style3" style="height:280px;width:400px"/>
- </div>
-       
+
+                        <tr>
+                            <td>&nbsp;&nbsp; Job Type:</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style2">
+                                <asp:DropDownList ID="ddlJobpost" runat="server" Height="30px" Width="525px" CssClass="Textbox">
+                                    <asp:ListItem>---Select job---</asp:ListItem>
+                                    <asp:ListItem Text="Full-Time" Value="Full Time"></asp:ListItem>
+                                    <asp:ListItem Text="Part-Time" Value="Part Time"></asp:ListItem>
+                                    <asp:ListItem Text="Internship" Value="Internship"></asp:ListItem>
+                                    <asp:ListItem Text="Freelance" Value="Freelance"></asp:ListItem>
+                                    <asp:ListItem Text="Contract" Value="Contract"></asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Please select a job type" ControlToValidate="ddlJobpost" ForeColor="Red"></asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;&nbsp; Post Date:</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style2">
+                                <asp:TextBox ID="txtPostdate" runat="server" Height="26px" Width="523px" TextMode="Date" CssClass="Textbox"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Post date is required" ControlToValidate="txtPostdate" ForeColor="Red"></asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;&nbsp; Application Deadline:</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style3">
+                                <asp:TextBox ID="txtDate" runat="server" Height="26px" Width="523px" TextMode="Date" CssClass="Textbox"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="Application deadline is required" ControlToValidate="txtDate" ForeColor="Red"></asp:RequiredFieldValidator>
+                                <asp:CompareValidator ID="cvDate" runat="server" ControlToValidate="txtDate" ControlToCompare="txtPostdate" Operator="GreaterThan" ErrorMessage="Deadline must be after the post date." ForeColor="Red"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><br />
+                                &nbsp;
+                                <asp:Button ID="btnPost" runat="server" Text="POST" BackColor="#059669" ForeColor="White" Height="37px" Width="180px" OnClick="btnPost_Click"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
+
                         <div class="footer">
       <div class="row  container-fluid" style="margin-top:300px;margin-left: 2px; background-color:#059669;color:white; text-align: center; height: 100%" >
           
@@ -357,6 +369,5 @@
  </html>
 
  
-
 
 

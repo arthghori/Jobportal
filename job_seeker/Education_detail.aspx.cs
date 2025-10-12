@@ -95,7 +95,7 @@ namespace job_portal.job_seeker
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //  lblMessage.Text = "Database Error: " + ex.Message;
                 //lblMessage.ForeColor = System.Drawing.Color.Red;

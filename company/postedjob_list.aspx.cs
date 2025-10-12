@@ -53,7 +53,7 @@ namespace job_portal.company
 
         protected void btnCreate_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/job_post.aspx");
+            Response.Redirect("~/company/job_post.aspx");
 
         }
 

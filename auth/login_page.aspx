@@ -80,7 +80,7 @@
             </li>
 
             <li class="nav-item col" style="margin-left: 745px; margin-top: 30px; text-align: center;"><a class="nav-link" href="/common/Main_page.aspx" style="color: #059669;">Home </a></li>
-            <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="/job_seeker/Finds_job.aspx" style="color: #059669;">Finds Job </a></li>
+            <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="/company/jobs.aspx" style="color: #059669;">Finds Job </a></li>
             <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="/common/About_us.aspx" style="color: #059669;">About Us </a></li>
             <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="/common/Contact_us.aspx" style="color: #059669;">Contact Us </a></li>
             <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="/auth/login_page.aspx" style="color: #059669;">Log in </a></li>
@@ -140,7 +140,7 @@
                 <tr>
                     <td style="text-align: center">
                         <br />
-                        Not a member?<asp:HyperLink ID="hlSign" runat="server" NavigateUrl="https://github.com/Fenilsheta/Job-Portal" Font-Bold="True" ForeColor="#059669">Sign Up Now</asp:HyperLink>
+                        Not a member?<asp:HyperLink ID="hlSign" runat="server" NavigateUrl="~/auth/Registration.aspx" Font-Bold="True" ForeColor="#059669">Sign Up Now</asp:HyperLink>
                     </td>
                 </tr>
             </table>
