@@ -38,7 +38,7 @@
     </li>
 
     <li class="nav-item col" style="margin-left: 745px; margin-top: 30px; text-align: center;"><a class="nav-link" href="/common/Main_page.aspx" style="color: #059669;">Home </a></li>
-    <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="/job_seeker/Finds_job.aspx" style="color: #059669;">Finds Job </a></li>
+    <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="/company/jobs.aspx" style="color: #059669;">Finds Job </a></li>
     <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="/common/About_us.aspx" style="color: #059669;">About Us </a></li>
     <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="/common/Contact_us.aspx" style="color: #059669;">Contact Us </a></li>
     <li class="nav-item col" style="margin-top: 30px; text-align: center;"><a class="nav-link" href="/auth/login_page.aspx" style="color: #059669;">Log in </a></li>
@@ -134,10 +134,152 @@
                         &nbsp;&nbsp;
                         <asp:DropDownList ID="ddlIndustryype" runat="server" Height="26px" Width="560px" placeholder="Industry Type" CssClass="TextBox">
                             <asp:ListItem>Select a Industry</asp:ListItem>
-                            <asp:ListItem>Infromation technology</asp:ListItem>
-                            <asp:ListItem>Banking and Insurance</asp:ListItem>
-                            <asp:ListItem>Car</asp:ListItem>
-
+                          <asp:ListItem>Accounting</asp:ListItem>
+    <asp:ListItem>Airlines and Aviation</asp:ListItem>
+    <asp:ListItem>Alternative Dispute Resolution</asp:ListItem>
+    <asp:ListItem>Alternative Medicine</asp:ListItem>
+    <asp:ListItem>Animation</asp:ListItem>
+    <asp:ListItem>Apparel & Fashion</asp:ListItem>
+    <asp:ListItem>Architecture & Planning</asp:ListItem>
+    <asp:ListItem>Arts and Crafts</asp:ListItem>
+    <asp:ListItem>Automotive</asp:ListItem>
+    <asp:ListItem>Aviation & Aerospace</asp:ListItem>
+    <asp:ListItem>Banking</asp:ListItem>
+    <asp:ListItem>Biotechnology</asp:ListItem>
+    <asp:ListItem>Broadcast Media</asp:ListItem>
+    <asp:ListItem>Building Materials</asp:ListItem>
+    <asp:ListItem>Business Supplies & Equipment</asp:ListItem>
+    <asp:ListItem>Capital Markets</asp:ListItem>
+    <asp:ListItem>Chemicals</asp:ListItem>
+    <asp:ListItem>Civic & Social Organization</asp:ListItem>
+    <asp:ListItem>Civil Engineering</asp:ListItem>
+    <asp:ListItem>Commercial Real Estate</asp:ListItem>
+    <asp:ListItem>Computer & Network Security</asp:ListItem>
+    <asp:ListItem>Computer Games</asp:ListItem>
+    <asp:ListItem>Computer Hardware</asp:ListItem>
+    <asp:ListItem>Computer Networking</asp:ListItem>
+    <asp:ListItem>Computer Software</asp:ListItem>
+    <asp:ListItem>Construction</asp:ListItem>
+    <asp:ListItem>Consumer Electronics</asp:ListItem>
+    <asp:ListItem>Consumer Goods</asp:ListItem>
+    <asp:ListItem>Consumer Services</asp:ListItem>
+    <asp:ListItem>Cosmetics</asp:ListItem>
+    <asp:ListItem>Dairy</asp:ListItem>
+    <asp:ListItem>Defense & Space</asp:ListItem>
+    <asp:ListItem>Design</asp:ListItem>
+    <asp:ListItem>Education Management</asp:ListItem>
+    <asp:ListItem>E-Learning</asp:ListItem>
+    <asp:ListItem>Electrical/Electronic Manufacturing</asp:ListItem>
+    <asp:ListItem>Entertainment</asp:ListItem>
+    <asp:ListItem>Environmental Services</asp:ListItem>
+    <asp:ListItem>Events Services</asp:ListItem>
+    <asp:ListItem>Executive Office</asp:ListItem>
+    <asp:ListItem>Facilities Services</asp:ListItem>
+    <asp:ListItem>Farming</asp:ListItem>
+    <asp:ListItem>Financial Services</asp:ListItem>
+    <asp:ListItem>Fine Art</asp:ListItem>
+    <asp:ListItem>Fishery</asp:ListItem>
+    <asp:ListItem>Food & Beverages</asp:ListItem>
+    <asp:ListItem>Food Production</asp:ListItem>
+    <asp:ListItem>Fund-Raising</asp:ListItem>
+    <asp:ListItem>Furniture</asp:ListItem>
+    <asp:ListItem>Gambling & Casinos</asp:ListItem>
+    <asp:ListItem>Glass, Ceramics & Concrete</asp:ListItem>
+    <asp:ListItem>Government Administration</asp:ListItem>
+    <asp:ListItem>Government Relations</asp:ListItem>
+    <asp:ListItem>Graphic Design</asp:ListItem>
+    <asp:ListItem>Health, Wellness and Fitness</asp:ListItem>
+    <asp:ListItem>Higher Education</asp:ListItem>
+    <asp:ListItem>Hospital & Health Care</asp:ListItem>
+    <asp:ListItem>Hospitality</asp:ListItem>
+    <asp:ListItem>Human Resources</asp:ListItem>
+    <asp:ListItem>Import and Export</asp:ListItem>
+    <asp:ListItem>Individual & Family Services</asp:ListItem>
+    <asp:ListItem>Industrial Automation</asp:ListItem>
+    <asp:ListItem>Information Services</asp:ListItem>
+    <asp:ListItem>Information Technology & Services</asp:ListItem>
+    <asp:ListItem>Insurance</asp:ListItem>
+    <asp:ListItem>International Affairs</asp:ListItem>
+    <asp:ListItem>International Trade & Development</asp:ListItem>
+    <asp:ListItem>Internet</asp:ListItem>
+    <asp:ListItem>Investment Banking</asp:ListItem>
+    <asp:ListItem>Investment Management</asp:ListItem>
+    <asp:ListItem>Judiciary</asp:ListItem>
+    <asp:ListItem>Law Enforcement</asp:ListItem>
+    <asp:ListItem>Law Practice</asp:ListItem>
+    <asp:ListItem>Legal Services</asp:ListItem>
+    <asp:ListItem>Legislative Office</asp:ListItem>
+    <asp:ListItem>Leisure, Travel & Tourism</asp:ListItem>
+    <asp:ListItem>Libraries</asp:ListItem>
+    <asp:ListItem>Logistics & Supply Chain</asp:ListItem>
+    <asp:ListItem>Luxury Goods & Jewelry</asp:ListItem>
+    <asp:ListItem>Machinery</asp:ListItem>
+    <asp:ListItem>Management Consulting</asp:ListItem>
+    <asp:ListItem>Maritime</asp:ListItem>
+    <asp:ListItem>Market Research</asp:ListItem>
+    <asp:ListItem>Marketing and Advertising</asp:ListItem>
+    <asp:ListItem>Mechanical or Industrial Engineering</asp:ListItem>
+    <asp:ListItem>Media Production</asp:ListItem>
+    <asp:ListItem>Medical Devices</asp:ListItem>
+    <asp:ListItem>Medical Practice</asp:ListItem>
+    <asp:ListItem>Mental Health Care</asp:ListItem>
+    <asp:ListItem>Military</asp:ListItem>
+    <asp:ListItem>Mining & Metals</asp:ListItem>
+    <asp:ListItem>Museums & Institutions</asp:ListItem>
+    <asp:ListItem>Music</asp:ListItem>
+    <asp:ListItem>Nanotechnology</asp:ListItem>
+    <asp:ListItem>Newspapers</asp:ListItem>
+    <asp:ListItem>Non-Profit Organization Management</asp:ListItem>
+    <asp:ListItem>Oil & Energy</asp:ListItem>
+    <asp:ListItem>Online Publishing</asp:ListItem>
+    <asp:ListItem>Outsourcing/Offshoring</asp:ListItem>
+    <asp:ListItem>Package/Freight Delivery</asp:ListItem>
+    <asp:ListItem>Packaging & Containers</asp:ListItem>
+    <asp:ListItem>Paper & Forest Products</asp:ListItem>
+    <asp:ListItem>Performing Arts</asp:ListItem>
+    <asp:ListItem>Pharmaceuticals</asp:ListItem>
+    <asp:ListItem>Philanthropy</asp:ListItem>
+    <asp:ListItem>Photography</asp:ListItem>
+    <asp:ListItem>Plastics</asp:ListItem>
+    <asp:ListItem>Political Organization</asp:ListItem>
+    <asp:ListItem>Primary/Secondary Education</asp:ListItem>
+    <asp:ListItem>Printing</asp:ListItem>
+    <asp:ListItem>Professional Training & Coaching</asp:ListItem>
+    <asp:ListItem>Program Development</asp:ListItem>
+    <asp:ListItem>Public Policy</asp:ListItem>
+    <asp:ListItem>Public Relations & Communications</asp:ListItem>
+    <asp:ListItem>Public Safety</asp:ListItem>
+    <asp:ListItem>Publishing</asp:ListItem>
+    <asp:ListItem>Railroad Manufacture</asp:ListItem>
+    <asp:ListItem>Ranching</asp:ListItem>
+    <asp:ListItem>Real Estate</asp:ListItem>
+    <asp:ListItem>Recreational Facilities & Services</asp:ListItem>
+    <asp:ListItem>Religious Institutions</asp:ListItem>
+    <asp:ListItem>Renewables & Environment</asp:ListItem>
+    <asp:ListItem>Research</asp:ListItem>
+    <asp:ListItem>Restaurants</asp:ListItem>
+    <asp:ListItem>Retail</asp:ListItem>
+    <asp:ListItem>Security and Investigations</asp:ListItem>
+    <asp:ListItem>Semiconductors</asp:ListItem>
+    <asp:ListItem>Shipbuilding</asp:ListItem>
+    <asp:ListItem>Sporting Goods</asp:ListItem>
+    <asp:ListItem>Sports</asp:ListItem>
+    <asp:ListItem>Staffing and Recruiting</asp:ListItem>
+    <asp:ListItem>Supermarkets</asp:ListItem>
+    <asp:ListItem>Telecommunications</asp:ListItem>
+    <asp:ListItem>Textiles</asp:ListItem>
+    <asp:ListItem>Think Tanks</asp:ListItem>
+    <asp:ListItem>Tobacco</asp:ListItem>
+    <asp:ListItem>Translation and Localization</asp:ListItem>
+    <asp:ListItem>Transportation/Trucking/Railroad</asp:ListItem>
+    <asp:ListItem>Utilities</asp:ListItem>
+    <asp:ListItem>Venture Capital & Private Equity</asp:ListItem>
+    <asp:ListItem>Veterinary</asp:ListItem>
+    <asp:ListItem>Warehousing</asp:ListItem>
+    <asp:ListItem>Wholesale</asp:ListItem>
+    <asp:ListItem>Wine and Spirits</asp:ListItem>
+    <asp:ListItem>Wireless</asp:ListItem>
+    <asp:ListItem>Writing and Editing</asp:ListItem>
                         </asp:DropDownList>  <br />
                         <asp:RequiredFieldValidator ID="rfvIndusrytype" runat="server"  ControlToValidate="ddlIndustryype" ErrorMessage="Industrytype is required." ForeColor="Red" />
                  </td>

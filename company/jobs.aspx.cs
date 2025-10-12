@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -18,24 +15,19 @@ namespace job_portal.company
         {
             if (!IsPostBack)
             {
-                if (Session["Username"] != null && Session["UserRole"].ToString() == "Jobseeker")
-                {
-                    string username = Session["Username"].ToString();
-                    LoadCategories();
-                    LoadJobListings();
-                }
-                else if (Session["Username"] != null && Session["UserRole"].ToString() == "Admin")
+                if (Session["Username"] != null && (Session["UserRole"].ToString() == "Jobseeker" || Session["UserRole"].ToString() == "Admin"))
                 {
                     LoadCategories();
+                    LoadSkills();
                     LoadJobListings();
                 }
                 else
                 {
-                    //Response.Redirect("~/login_page.aspx");
+                    //  Response.Redirect("~/login_page.aspx");
                     LoadCategories();
+                    LoadSkills();
                     LoadJobListings();
                 }
-
             }
         }
 
@@ -52,79 +44,115 @@ namespace job_portal.company
                 ddlCategory.DataTextField = "categoryname";
                 ddlCategory.DataValueField = "categoryid";
                 ddlCategory.DataBind();
-
-                ddlCategory.Items.Insert(0, new ListItem("All Categories", "0"));
+                ddlCategory.Items.Insert(0, new ListItem("-- All Categories --", ""));
             }
         }
 
-        private void LoadJobListings(string category = "", string jobType = "")
+        // Load Skill DropDown
+        private void LoadSkills()
         {
-            string query = @"SELECT jp.jobpostid, jp.jobtitle, jp.location, jp.salary, jp.jobtype, 
-                                jp.postdate, jp.applicationdeadline, c.companyname, c.companylogo
-                         FROM tbl_jobpost jp
-                         INNER JOIN tbl_company c ON jp.companyid = c.companyid
-                         WHERE (@category = '' OR jp.categoryid = @category)
-                         AND (@jobType = '' OR jp.jobtype = @jobType)";
-            //AND(@experience = '' OR jp.skillrequried = @experience) , string experience = ""
             using (SqlConnection con = new SqlConnection(connString))
             {
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@category", category == "0" ? "" : category);
-                    //      cmd.Parameters.AddWithValue("@experience", string.IsNullOrEmpty(experience) ? "" : experience);
-                    cmd.Parameters.AddWithValue("@jobType", string.IsNullOrEmpty(jobType) ? "" : jobType);
+                string query = "SELECT skillid, skillname FROM tbl_skill";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
-                    con.Open();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-
-
-
-                    rptJobListings.DataSource = dt;
-                    rptJobListings.DataBind();
-                }
+                ddlSkill.DataSource = dt;
+                ddlSkill.DataTextField = "skillname";
+                ddlSkill.DataValueField = "skillid";
+                ddlSkill.DataBind();
+                ddlSkill.Items.Insert(0, new ListItem("-- All Skills --", ""));
             }
         }
 
+        // Load Job Listings with optional filters
+        private void LoadJobListings(string categoryFilter = "", string skillFilter = "", string experienceFilter = "", string jobTypeFilter = "")
+        {
+            using (SqlConnection con = new SqlConnection(connString))
+            {
+                // Join tbl_jobpost_skill to filter by skills
+                string query = @"SELECT DISTINCT jp.jobpostid, jp.jobtitle, c.companyname, jp.location, jp.salary, 
+       jp.jobtype, jp.postdate, jp.applicationdeadline, c.companylogo
+FROM tbl_jobpost jp
+INNER JOIN tbl_company c ON jp.companyid = c.companyid
+LEFT JOIN tbl_jobpost_skill jps ON jp.jobpostid = jps.JobPostID
+WHERE (@CategoryID = '' OR jp.categoryid = @CategoryID)
+  AND (@SkillID = '' OR jps.SkillID = @SkillID)
+  AND (@JobType = '' OR jp.jobtype = @JobType)
+ORDER BY jp.postdate DESC";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@CategoryID", string.IsNullOrEmpty(categoryFilter) ? "" : categoryFilter);
+                cmd.Parameters.AddWithValue("@SkillID", string.IsNullOrEmpty(skillFilter) ? "" : skillFilter);
+                cmd.Parameters.AddWithValue("@Experience", string.IsNullOrEmpty(experienceFilter) ? "" : experienceFilter);
+                cmd.Parameters.AddWithValue("@JobType", string.IsNullOrEmpty(jobTypeFilter) ? "" : jobTypeFilter);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                rptJobListings.DataSource = dt;
+                rptJobListings.DataBind();
+            }
+        }
+
+        // Apply Filter Button
+        protected void btnFilter_Click(object sender, EventArgs e)
+        {
+            string categoryFilter = ddlCategory.SelectedValue;
+            string skillFilter = ddlSkill.SelectedValue;
+            string experienceFilter = rblExperience.SelectedValue;
+            string jobTypeFilter = rblJobType.SelectedValue;
+
+            LoadJobListings(categoryFilter, skillFilter, experienceFilter, jobTypeFilter);
+        }
+
+        // Show company logo in repeater
         protected void rptJobListings_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
-                Image imgCompanyLogo = (Image)e.Item.FindControl("imgcompanylogo");
+                Image img = (Image)e.Item.FindControl("imgcompanylogo");
+                DataRowView drv = (DataRowView)e.Item.DataItem;
+                string logoFile = drv["companylogo"]?.ToString();
+                string defaultImage = "~/Images/default_company.png";
 
-                DataRowView row = (DataRowView)e.Item.DataItem;
-                if (row["companylogo"] != DBNull.Value)
+                if (!string.IsNullOrEmpty(logoFile))
                 {
-                    byte[] imgBytes = (byte[])row["companylogo"];
-                    string base64String = Convert.ToBase64String(imgBytes);
-                    imgCompanyLogo.ImageUrl = "data:image/png;base64," + base64String;
+                    string serverPath = Server.MapPath("~/CompanyLogos/" + logoFile);
+                    img.ImageUrl = System.IO.File.Exists(serverPath) ? "~/CompanyLogos/" + logoFile : defaultImage;
+                }
+                else
+                {
+                    img.ImageUrl = defaultImage;
                 }
             }
         }
 
-        // Event handler for the Filter button click
-        protected void btnFilter_Click(object sender, EventArgs e)
+        // View Job Details
+        protected void rptJobListings_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            string category = ddlCategory.SelectedValue;
-            // string experience = rblExperience.SelectedValue;
-            string jobType = rblJobType.SelectedValue;
-
-            LoadJobListings(category, jobType);
+            if (e.CommandName == "ViewDetails")
+            {
+                string jobPostId = e.CommandArgument.ToString();
+                Response.Redirect("~/job_seeker/job_details.aspx?id=" + jobPostId);
+            }
         }
 
-        // Event handler for the "Details" button click
-        protected void btnDetails_Click(object sender, EventArgs e)
+        // Optional: filter on dropdown change
+        protected void ddlCategory_SelectedIndexChanged(object sender, EventArgs e) => btnFilter_Click(sender, e);
+        protected void ddlSkill_SelectedIndexChanged(object sender, EventArgs e) => btnFilter_Click(sender, e);
+        protected void rblExperience_SelectedIndexChanged(object sender, EventArgs e) => btnFilter_Click(sender, e);
+        protected void rblJobType_SelectedIndexChanged(object sender, EventArgs e) => btnFilter_Click(sender, e);
+
+
+         protected void btnDetails_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             string jobId = btn.CommandArgument;
-            Response.Redirect("~/company/job_application.aspx?jobpostid=" + jobId);
+            Response.Redirect("~/job_application.aspx?jobpostid=" + jobId);
         }
 
-
-        protected void rptJobListings_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-
-        }
     }
 }

@@ -4,7 +4,6 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -14,17 +13,23 @@ namespace job_portal.company
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) // Load only on first page load
+            // Check if company is logged in
+            if (Session["Username"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Company")
+            {
+                Response.Redirect("~/auth/login_page.aspx");
+            }
+
+            if (!IsPostBack)
             {
                 LoadCategories();
-                LoadCompanies();
+                LoadSkills();
+                LoadCompany();
             }
         }
 
         private void LoadCategories()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
-
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = "SELECT categoryid, categoryname FROM tbl_category";
@@ -36,8 +41,8 @@ namespace job_portal.company
                     da.Fill(dt);
 
                     ddlcategory.DataSource = dt;
-                    ddlcategory.DataTextField = "categoryname";  // Display category name
-                    ddlcategory.DataValueField = "categoryid";   // Store category ID
+                    ddlcategory.DataTextField = "categoryname";
+                    ddlcategory.DataValueField = "categoryid";
                     ddlcategory.DataBind();
 
                     ddlcategory.Items.Insert(0, new ListItem("--Select Category--", "0"));
@@ -45,26 +50,80 @@ namespace job_portal.company
             }
         }
 
-        private void LoadCompanies()
+        private void LoadSkills()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
-
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT companyid, companyname FROM tbl_company";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                string query = "SELECT skillid, skillname FROM tbl_skill";
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                ddlSkills.DataSource = dt;
+                ddlSkills.DataTextField = "skillname";
+                ddlSkills.DataValueField = "skillid";
+                ddlSkills.DataBind();
+
+                ddlSkills.Items.Insert(0, new ListItem("--Select Skill--", "0"));
+            }
+        }
+
+
+
+        private void LoadCompany()
+        {
+            // Get logged-in company ID from session
+            if (Session["Companyid"] != null)
+            {
+                int companyId = Convert.ToInt32(Session["Companyid"]);
+                string connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    conn.Open();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
+                    string query = "SELECT companyid, companyname FROM tbl_company WHERE companyid=@companyid";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@companyid", companyId);
+                        conn.Open();
+                        SqlDataReader dr = cmd.ExecuteReader();
+                        if (dr.Read())
+                        {
+                            ddlcampany.Items.Clear();
+                            ddlcampany.Items.Add(new ListItem(dr["companyname"].ToString(), dr["companyid"].ToString()));
+                            ddlcampany.SelectedIndex = 0;
+                            ddlcampany.Enabled = false; // disable dropdown so company cannot change
+                        }
+                        dr.Close();
+                    }
+                }
+            }
+        }
 
-                    ddlcampany.DataSource = dt;
-                    ddlcampany.DataTextField = "companyname";  // Display company name
-                    ddlcampany.DataValueField = "companyid";   // Store company ID
-                    ddlcampany.DataBind();
 
-                    ddlcampany.Items.Insert(0, new ListItem("--Select Company--", "0"));
+        private void ResetForm()
+        {
+            // Do not reset company as it is pre-selected
+            ddlcategory.SelectedIndex = 0;
+            ddlSkills.SelectedIndex = 0;
+            txtJobtitle.Text = "";
+            txtDescription.Text = "";
+            txtLocation.Text = "";
+            txtSalary.Text = "";
+            ddlJobpost.SelectedIndex = 0;
+            txtPostdate.Text = "";
+            txtDate.Text = "";
+        }
+
+        protected void btnAddSkill_Click(object sender, EventArgs e)
+        {
+            // Only add if a skill is selected
+            if (ddlSkills.SelectedIndex > 0)
+            {
+                // Prevent duplicate selection
+                if (!lstSelectedSkills.Items.Cast<ListItem>().Any(item => item.Value == ddlSkills.SelectedValue))
+                {
+                    lstSelectedSkills.Items.Add(new ListItem(ddlSkills.SelectedItem.Text, ddlSkills.SelectedValue));
                 }
             }
         }
@@ -75,44 +134,65 @@ namespace job_portal.company
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = @"INSERT INTO tbl_jobpost 
-                            (companyid, jobtitle, jobdescription, categoryid, skillrequried, location, salary, jobtype, postdate, applicationdeadline, status, createdtime) 
-                            VALUES 
-                            (@companyid, @jobtitle, @jobdescription, @categoryid, @skillrequried, @location, @salary, @jobtype, @postdate, @applicationdeadline, @status, GETDATE())";
+                conn.Open();
+                SqlTransaction transaction = conn.BeginTransaction(); // Ensure atomic operation
 
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@companyid", ddlcampany.SelectedValue); // Fetch selected company ID
-                    cmd.Parameters.AddWithValue("@jobtitle", txtJobtitle.Text);
-                    cmd.Parameters.AddWithValue("@jobdescription", txtDescription.Text);
-                    cmd.Parameters.AddWithValue("@categoryid", ddlcategory.SelectedValue); // Fetch selected category ID
-                    cmd.Parameters.AddWithValue("@skillrequried", txtSkillRequried.Text);
-                    cmd.Parameters.AddWithValue("@location", txtLocation.Text);
-                    cmd.Parameters.AddWithValue("@salary", txtSalary.Text);
-                    cmd.Parameters.AddWithValue("@jobtype", ddlJobpost.SelectedValue);
-                    cmd.Parameters.AddWithValue("@postdate", Convert.ToDateTime(txtPostdate.Text));
-                    cmd.Parameters.AddWithValue("@applicationdeadline", Convert.ToDateTime(txtDate.Text));
-                    cmd.Parameters.AddWithValue("@status", "Open"); // Default status
+                    // 1️⃣ Insert the job post
+                    string insertJobPostQuery = @"
+    INSERT INTO tbl_jobpost 
+        (companyid, jobtitle, jobdescription, categoryid, location, salary, jobtype, experience, postdate, applicationdeadline, status, createdtime)
+    VALUES 
+        (@companyid, @jobtitle, @jobdescription, @categoryid, @location, @salary, @jobtype, @experience, @postdate, @applicationdeadline, @status, GETDATE());
+    SELECT SCOPE_IDENTITY();"; // Returns inserted JobPostID
 
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
+
+                    SqlCommand cmdJobPost = new SqlCommand(insertJobPostQuery, conn, transaction);
+                    cmdJobPost.Parameters.AddWithValue("@companyid", ddlcampany.SelectedValue);
+                    cmdJobPost.Parameters.AddWithValue("@jobtitle", txtJobtitle.Text);
+                    cmdJobPost.Parameters.AddWithValue("@jobdescription", txtDescription.Text);
+                    cmdJobPost.Parameters.AddWithValue("@categoryid", ddlcategory.SelectedValue);
+                    cmdJobPost.Parameters.AddWithValue("@location", txtLocation.Text);
+                    cmdJobPost.Parameters.AddWithValue("@salary", txtSalary.Text);
+                    cmdJobPost.Parameters.AddWithValue("@jobtype", ddlJobpost.SelectedValue);
+                    cmdJobPost.Parameters.AddWithValue("@experience", ddlExperience.SelectedValue); // <-- new
+                    cmdJobPost.Parameters.AddWithValue("@postdate", Convert.ToDateTime(txtPostdate.Text));
+                    cmdJobPost.Parameters.AddWithValue("@applicationdeadline", Convert.ToDateTime(txtDate.Text));
+                    cmdJobPost.Parameters.AddWithValue("@status", "Open");
+
+
+                    // Execute and get JobPostID
+                    int jobPostId = Convert.ToInt32(cmdJobPost.ExecuteScalar());
+
+                    // 2️⃣ Insert all selected skills
+                    foreach (ListItem skill in lstSelectedSkills.Items)
+                    {
+                        string insertSkillQuery = "INSERT INTO tbl_jobpost_skill (JobPostID, SkillID) VALUES (@jobpostid, @skillid)";
+                        SqlCommand cmdSkill = new SqlCommand(insertSkillQuery, conn, transaction);
+                        cmdSkill.Parameters.AddWithValue("@jobpostid", jobPostId);
+                        cmdSkill.Parameters.AddWithValue("@skillid", skill.Value);
+                        cmdSkill.ExecuteNonQuery();
+                    }
+
+                    // Commit transaction
+                    transaction.Commit();
+
+                    // Clear form and listbox
+                    lstSelectedSkills.Items.Clear();
+                    ddlSkills.SelectedIndex = 0;
+                    ResetForm();
+
+                    // Optional: show success message
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Job posted successfully!');", true);
+                }
+                catch (Exception ex)
+                {
+                    // Rollback on error
+                    transaction.Rollback();
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", $"alert('Error: {ex.Message}');", true);
                 }
             }
-            ResetForm();
-        }
-
-        private void ResetForm()
-        {
-            ddlcampany.SelectedIndex = 0;
-            ddlcategory.SelectedIndex = 0;
-            txtJobtitle.Text = "";
-            txtDescription.Text = "";
-            txtSkillRequried.Text = "";
-            txtLocation.Text = "";
-            txtSalary.Text = "";
-            ddlJobpost.SelectedIndex = 0;
-            txtPostdate.Text = "";
-            txtDate.Text = "";
         }
     }
 }
