@@ -58,9 +58,9 @@
 
           <li>  Find a job and grow your career</li>
           </ul>
-          <center><a href="/common/Registration.aspx" style="color:#059669">Register as a job seeker</a></center>
+          <center><a href="/auth/Registration.aspx" style="color:#059669">Register as a job seeker</a></center>
       </div> 
-
+                
             <table  style="box-shadow : 5px 5px 15px grey;background-color:#F3F3F3 ;margin-left:auto;margin-right:auto;margin-top:50px;margin-bottom:50px" class="auto-style2"  >
                 <tr>
                     <td  style="font-family:Verdana,Verdana, Geneva, Tahoma, sans-serif; font-size: large; font-weight: bold;">&nbsp;Company registration<br />
