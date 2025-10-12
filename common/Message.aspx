@@ -134,8 +134,8 @@
          <li class="profile-dropdown">
     <img src="../Images/log_out-removebg-preview.png" alt="Profile" class="profile-icon" />
     <ul class="dropdown-menu">
-        <li><a href="/admin_profile.aspx">Profile</a></li>
-        <li><a href="/logout.aspx">Logout</a></li>
+        <li><a href="~/admin/admin_profile.aspx">Profile</a></li>
+        <li><a href="~/auth/logout.aspx">Logout</a></li>
     </ul>
 </li>
 
