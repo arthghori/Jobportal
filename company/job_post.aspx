@@ -243,7 +243,7 @@
                             <td class="auto-style2">
                                 <asp:TextBox ID="txtSalary" runat="server" Height="26px" Width="523px" CssClass="Textbox" placeholder="Salary"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Salary is required" ControlToValidate="txtSalary" ForeColor="Red"></asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator ID="revSalary" runat="server" ControlToValidate="txtSalary" ValidationExpression="^\d+(\.\d{1,2})?$" ErrorMessage="Salary must be a valid number." ForeColor="Red"/>
+                               
                             </td>
                         </tr>
 
