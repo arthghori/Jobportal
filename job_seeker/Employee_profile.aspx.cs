@@ -29,11 +29,14 @@ namespace job_portal.job_seeker
                 btnEdit.Visible = true;
                 btnAddSkill.Visible = true;
                 ddlSkills.Visible = true;
+                btnAddEducation.Visible = true;
 
                 if (!IsPostBack)
                 {
                     LoadAllSkills(); // Load skills dropdown
                     LoadSeekerSkills(); // Load seeker's current skills
+                    LoadEducationDetails(); // Load education details
+
                 }
             }
             else if (Session["Username"] != null && Session["UserRole"].ToString() == "Company")
@@ -52,10 +55,13 @@ namespace job_portal.job_seeker
                     btnForgotPassword.Visible = false;
                     btnEdit.Visible = false;
                     btnAddSkill.Visible = false;
+                    btnAddEducation.Visible = false;
 
                     if (!IsPostBack)
                     {
                         LoadSeekerSkills(seekerid); // Load skills for viewing
+                        LoadEducationDetails(seekerid); // Load education for viewing
+
                     }
                 }
             }
@@ -577,9 +583,85 @@ namespace job_portal.job_seeker
 
          }
 
+        // Education Methods
+        private void LoadEducationDetails(int? seekerId = null)
+        {
+            int currentSeekerId;
 
+            if (seekerId.HasValue)
+            {
+                currentSeekerId = seekerId.Value;
+            }
+            else
+            {
+                // Get current logged-in seeker's ID
+                string username = Session["Username"].ToString();
+                currentSeekerId = GetSeekerIdByUsername(username);
+            }
 
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"
+            SELECT educationid, university, degree, major, graduationyear, gpa 
+            FROM tbl_educationdetails 
+            WHERE seekerid = @SeekerId 
+            ORDER BY graduationyear DESC";
 
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@SeekerId", currentSeekerId);
 
+                conn.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    rptEducation.DataSource = dt;
+                    rptEducation.DataBind();
+                    lblNoEducation.Visible = false;
+                }
+                else
+                {
+                    rptEducation.DataSource = null;
+                    rptEducation.DataBind();
+                    lblNoEducation.Visible = true;
+                }
+            }
+        }
+
+        protected void btnAddEducation_Click(object sender, EventArgs e)
+        {
+            // Redirect to education details page
+            Response.Redirect("~/job_seeker/Education_detail.aspx");
+        }
+
+        protected void rptEducation_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "RemoveEducation")
+            {
+                int educationId = Convert.ToInt32(e.CommandArgument);
+                string username = Session["Username"].ToString();
+                int seekerId = GetSeekerIdByUsername(username);
+
+                RemoveEducation(seekerId, educationId);
+                LoadEducationDetails();
+
+            }
+        }
+
+        private void RemoveEducation(int seekerId, int educationId)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "DELETE FROM tbl_educationdetails WHERE educationid = @EducationId AND seekerid = @SeekerId";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@EducationId", educationId);
+                cmd.Parameters.AddWithValue("@SeekerId", seekerId);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }

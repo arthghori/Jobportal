@@ -377,7 +377,52 @@
 }
 
 
-  
+ /* 🔹 Education Section Styling */
+.education-list {
+    margin-top: 15px;
+}
+
+.education-item {
+    transition: all 0.3s ease;
+    border-left: 4px solid #059669 !important;
+}
+
+.education-item:hover {
+    background-color: #e9ecef !important;
+    transform: translateX(5px);
+}
+
+.education-details h5 {
+    color: #059669;
+    font-weight: bold;
+}
+
+.education-details p {
+    margin-bottom: 5px;
+    color: #495057;
+}
+
+/* 🔹 Button Styling */
+.btn-success {
+    background-color: #059669;
+    border-color: #059669;
+    font-weight: bold;
+}
+
+.btn-success:hover {
+    background-color: #047857;
+    border-color: #047857;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
 
     </style>
 </head>
@@ -557,7 +602,44 @@
 
 <%-- education section--%>
 
+<!-- 🔹 Education Details Section -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 mx-auto p-4" style="border: 1px solid black; border-radius: 10px; box-shadow: 5px 5px 15px grey;">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h4 class="mb-0">Education Details</h4>
+                <asp:Button ID="btnAddEducation" runat="server" Text="Add Education" 
+                          CssClass="btn btn-success" OnClick="btnAddEducation_Click" />
+            </div>
 
+            <!-- Education List -->
+            <div class="education-list">
+                <asp:Repeater ID="rptEducation" runat="server" OnItemCommand="rptEducation_ItemCommand">
+                    <ItemTemplate>
+                        <div class="education-item mb-3 p-3" style="border: 1px solid #ddd; border-radius: 8px; background-color: #f8f9fa;">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div class="education-details">
+                                    <h5 class="mb-1"><%# Eval("Degree") %> in <%# Eval("Major") %></h5>
+                                    <p class="mb-1"><strong>University:</strong> <%# Eval("University") %></p>
+                                    <p class="mb-1"><strong>Graduation Year:</strong> <%# Eval("GraduationYear") %></p>
+                                    <p class="mb-0"><strong>GPA:</strong> <%# Eval("GPA") %></p>
+                                </div>
+                                <asp:Button ID="btnRemoveEducation" runat="server" Text="Remove" 
+                                          CssClass="btn btn-danger btn-sm" 
+                                          CommandName="RemoveEducation" 
+                                          CommandArgument='<%# Eval("EducationID") %>' 
+                                         />
+                            </div>
+                        </div>
+                    </ItemTemplate>
+                </asp:Repeater>
+                
+                <asp:Label ID="lblNoEducation" runat="server" Text="No education details added yet." 
+                          Visible="false" CssClass="text-muted text-center d-block"></asp:Label>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
