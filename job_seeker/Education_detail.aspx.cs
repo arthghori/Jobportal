@@ -28,39 +28,33 @@ namespace job_portal.job_seeker
 
         protected void btnSubmittt_Click(object sender, EventArgs e)
         {
-            //if (Session["Username"] == null)
-            //{
-            //    Response.Redirect("~/login_page.aspx"); // Redirect if session data is missing
-            //    return;
-            //}
-
-            // Retrieve the username from session
-            string username = Session["Username"].ToString();
-            string seekerId = GetSeekerId(username); // Get seekerid from database
-
-            if (string.IsNullOrEmpty(seekerId))
+            // Ensure form is valid before processing
+            if (!Page.IsValid)
             {
-                Response.Write("Error fetching user details. Please log in again.");
-                // lblMessage.ForeColor = System.Drawing.Color.Red;
+                lblMessage.Text = "Please fill in all required fields correctly.";
+                lblMessage.CssClass = "error-message";
                 return;
             }
 
-            // Retrieve user input
+            // Retrieve username from session
+            string username = Session["Username"].ToString();
+            string seekerId = GetSeekerId(username);
+
+            if (string.IsNullOrEmpty(seekerId))
+            {
+                lblMessage.Text = "Error fetching user details. Please log in again.";
+                lblMessage.CssClass = "error-message";
+                return;
+            }
+
+            // Retrieve form inputs
             string university = ddlUniversity.SelectedValue;
             string field = ddlField.SelectedValue;
             string degree = ddlDegree.SelectedValue;
             string graduationYear = ddlYear.SelectedValue;
-            string ugpa = txtUgpa.Text;
+            string cgpa = txtUgpa.Text;
 
-            // Validate inputs
-            if (university == "---Select University" || field == "---Select Your Course" || degree == "---Select Degree")
-            {
-                Response.Write("Please select all required fields.");
-                // lblMessage.ForeColor = System.Drawing.Color.Red;
-                return;
-            }
-
-            // Database connection
+            // Database connection and insertion
             string connString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
 
             try
@@ -77,50 +71,63 @@ namespace job_portal.job_seeker
                         cmd.Parameters.AddWithValue("@degree", degree);
                         cmd.Parameters.AddWithValue("@major", field);
                         cmd.Parameters.AddWithValue("@graduationyear", graduationYear);
-                        cmd.Parameters.AddWithValue("@gpa", ugpa);
+                        cmd.Parameters.AddWithValue("@gpa", cgpa);
 
                         conn.Open();
                         int rowsAffected = cmd.ExecuteNonQuery();
 
                         if (rowsAffected > 0)
                         {
-                            // Redirect to profile page after successful insertion
+                            lblMessage.Text = "Education details added successfully!";
+                            lblMessage.CssClass = "success-message";
+                            // Redirect to profile page after a short delay or immediately
                             Response.Redirect("~/job_seeker/Employee_profile.aspx");
                         }
                         else
                         {
-                            Response.Write("Error inserting data. Please try again.");
-                            //lblMessage.ForeColor = System.Drawing.Color.Red;
+                            lblMessage.Text = "Error inserting data. Please try again.";
+                            lblMessage.CssClass = "error-message";
                         }
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //  lblMessage.Text = "Database Error: " + ex.Message;
-                //lblMessage.ForeColor = System.Drawing.Color.Red;
+                // Log the exception (in a real app, use logging framework)
+                lblMessage.Text = "An error occurred while saving your details. Please try again later.";
+                lblMessage.CssClass = "error-message";
+                // Optionally: System.Diagnostics.Debug.WriteLine(ex.Message);
             }
         }
 
         private string GetSeekerId(string username)
         {
-            string seekerId = "";
+            string seekerId = null;
             string connString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
 
-            using (SqlConnection conn = new SqlConnection(connString))
+            try
             {
-                string query = "SELECT seekerid FROM tbl_jobseeker WHERE username = @username";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlConnection conn = new SqlConnection(connString))
                 {
-                    cmd.Parameters.AddWithValue("@username", username);
-                    conn.Open();
-                    object result = cmd.ExecuteScalar();
-                    if (result != null)
+                    string query = "SELECT seekerid FROM tbl_jobseeker WHERE username = @username";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        seekerId = result.ToString();
+                        cmd.Parameters.AddWithValue("@username", username);
+                        conn.Open();
+                        object result = cmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            seekerId = result.ToString();
+                        }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                // Handle database errors gracefully
+                // System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+
             return seekerId;
         }
     }

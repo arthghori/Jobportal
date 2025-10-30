@@ -24,6 +24,15 @@ namespace job_portal.job_seeker
         protected global::System.Web.UI.WebControls.DropDownList ddlUniversity;
 
         /// <summary>
+        /// rfvUniversity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUniversity;
+
+        /// <summary>
         /// ddlField control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace job_portal.job_seeker
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlField;
+
+        /// <summary>
+        /// rfvField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvField;
 
         /// <summary>
         /// ddlDegree control.
@@ -42,6 +60,15 @@ namespace job_portal.job_seeker
         protected global::System.Web.UI.WebControls.DropDownList ddlDegree;
 
         /// <summary>
+        /// rfvDegree control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDegree;
+
+        /// <summary>
         /// ddlYear control.
         /// </summary>
         /// <remarks>
@@ -49,6 +76,15 @@ namespace job_portal.job_seeker
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlYear;
+
+        /// <summary>
+        /// rfvYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvYear;
 
         /// <summary>
         /// txtUgpa control.
@@ -60,13 +96,22 @@ namespace job_portal.job_seeker
         protected global::System.Web.UI.WebControls.TextBox txtUgpa;
 
         /// <summary>
-        /// RangeValidator1 control.
+        /// rfvCgpa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCgpa;
+
+        /// <summary>
+        /// rvCgpa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator rvCgpa;
 
         /// <summary>
         /// btnSubmittt control.
@@ -76,5 +121,14 @@ namespace job_portal.job_seeker
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubmittt;
+
+        /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
     }
 }

@@ -145,6 +145,12 @@ namespace job_portal.company
                         {
                             imgCompanyLogo.ImageUrl = "~/Images/default-company.png";
                         }
+                        lblCompanyName.Text = reader["companyname"].ToString();
+                        lblWebsite.Text = reader["website"].ToString();
+                        lblOfficialEmail.Text = reader["email"].ToString();
+                        lblPhoneNumber.Text = reader["contactphone"].ToString();
+                        lblCompanyDescription.Text = reader["companydescription"].ToString();
+
                     }
                     else
                     {

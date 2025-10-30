@@ -151,7 +151,7 @@ ORDER BY jp.postdate DESC";
         {
             Button btn = (Button)sender;
             string jobId = btn.CommandArgument;
-            Response.Redirect("~/job_application.aspx?jobpostid=" + jobId);
+            Response.Redirect("~/company/job_application.aspx?jobpostid=" + jobId);
         }
 
     }
