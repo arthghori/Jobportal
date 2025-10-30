@@ -124,6 +124,303 @@
        border-radius:8px;
    }
 
+   /* 🔹 Job Post Container */
+div[style*="border:1px solid black;border-radius:4px; width:550px;height:1050px;box-shadow:5px 5px 15px grey;"] {
+    background: white;
+    border: 1px solid black !important;
+    border-radius: 10px !important;
+    box-shadow: 5px 5px 15px grey !important;
+    padding: 20px;
+    margin: 20px auto;
+    width: 550px !important;
+    height: auto !important;
+    min-height: 1050px;
+}
+
+/* 🔹 Table Styling */
+.auto-style1 {
+    width: 100% !important;
+    border-collapse: collapse;
+    background-color: #F3F3F3 !important;
+}
+
+.auto-style1 tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.auto-style1 td {
+    padding: 12px 8px;
+    vertical-align: top;
+}
+
+.auto-style2, .auto-style3 {
+    padding: 8px !important;
+}
+
+/* 🔹 Header Styling */
+.auto-style1 tr:first-child td {
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    color: #333;
+    background-color: #059669 !important;
+    color: white !important;
+    padding: 15px !important;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+}
+
+/* 🔹 Label Styling */
+.auto-style1 tr td:first-child {
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+    padding-left: 15px !important;
+    padding-top: 15px !important;
+}
+
+/* 🔹 Textbox Styling */
+.Textbox {
+    width: 95% !important;
+    padding: 10px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 5px !important;
+    font-size: 14px !important;
+    transition: all 0.3s ease !important;
+    margin: 5px 0 !important;
+}
+
+.Textbox:focus {
+    border-color: #059669 !important;
+    box-shadow: 0 0 5px rgba(5, 150, 105, 0.5) !important;
+    outline: none !important;
+}
+
+/* 🔹 Dropdown Styling */
+select[id*="ddl"] {
+    width: 95% !important;
+    padding: 10px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 5px !important;
+    font-size: 14px !important;
+    background-color: white !important;
+    transition: all 0.3s ease !important;
+    margin: 5px 0 !important;
+}
+
+select[id*="ddl"]:focus {
+    border-color: #059669 !important;
+    box-shadow: 0 0 5px rgba(5, 150, 105, 0.5) !important;
+    outline: none !important;
+}
+
+/* 🔹 Skills Section Styling */
+#ddlSkills {
+    width: 200px !important;
+    display: inline-block !important;
+    margin-right: 10px !important;
+}
+
+#btnAddSkill, #btnRemoveSkill {
+    background-color: #059669 !important;
+    color: white !important;
+    border: none !important;
+    padding: 8px 15px !important;
+    border-radius: 5px !important;
+    font-size: 12px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    margin: 5px !important;
+    font-weight: bold !important;
+}
+
+#btnAddSkill:hover, #btnRemoveSkill:hover {
+    background-color: #047857 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+}
+
+#lstSelectedSkills {
+    width: 95% !important;
+    border: 1px solid #ccc !important;
+    border-radius: 5px !important;
+    padding: 5px !important;
+    background-color: white !important;
+    font-size: 14px !important;
+}
+
+/* 🔹 TextArea Styling */
+textarea.Textbox {
+    min-height: 80px !important;
+    resize: vertical !important;
+    font-family: Arial, sans-serif !important;
+    line-height: 1.5 !important;
+}
+
+/* 🔹 Button Styling */
+#btnPost {
+    background-color: #059669 !important;
+    color: white !important;
+    border: none !important;
+    padding: 12px 30px !important;
+    border-radius: 5px !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    display: block !important;
+    margin: 20px auto !important;
+    width: 200px !important;
+    height: 45px !important;
+}
+
+#btnPost:hover {
+    background-color: #047857 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2) !important;
+}
+
+/* 🔹 Required Field Validator Styling */
+.RequiredFieldValidator {
+    display: block !important;
+    margin-top: 5px !important;
+}
+
+span[style*="color:Red"] {
+    color: #dc3545 !important;
+    font-size: 12px !important;
+    display: block !important;
+    margin-top: 5px !important;
+    font-weight: normal !important;
+}
+
+/* 🔹 Compare Validator Styling */
+#cvDate {
+    display: block !important;
+    margin-top: 5px !important;
+}
+
+/* 🔹 Experience Dropdown Specific */
+#ddlExperience {
+    width: 95% !important;
+}
+
+/* 🔹 Job Type Dropdown Specific */
+#ddlJobpost {
+    width: 95% !important;
+}
+
+/* 🔹 Date Input Styling */
+input[type="date"] {
+    cursor: pointer !important;
+}
+
+input[type="date"]:focus {
+    border-color: #059669 !important;
+    box-shadow: 0 0 5px rgba(5, 150, 105, 0.5) !important;
+}
+
+/* 🔹 Responsive Design */
+@media (max-width: 600px) {
+    div[style*="border:1px solid black;border-radius:4px; width:550px;height:1050px;box-shadow:5px 5px 15px grey;"] {
+        width: 95% !important;
+        height: auto !important;
+        margin: 10px !important;
+        padding: 15px !important;
+    }
+    
+    .Textbox, select[id*="ddl"] {
+        width: 100% !important;
+    }
+    
+    #ddlSkills {
+        width: 100% !important;
+        margin-right: 0 !important;
+        margin-bottom: 10px !important;
+    }
+    
+    #btnAddSkill, #btnRemoveSkill {
+        width: 48% !important;
+        display: inline-block !important;
+        margin: 1% !important;
+    }
+    
+    .auto-style1 td {
+        padding: 8px 5px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    div[style*="border:1px solid black;border-radius:4px; width:550px;height:1050px;box-shadow:5px 5px 15px grey;"] {
+        padding: 10px !important;
+    }
+    
+    .auto-style1 tr:first-child td {
+        font-size: 18px !important;
+        padding: 12px !important;
+    }
+    
+    #btnAddSkill, #btnRemoveSkill {
+        width: 100% !important;
+        margin: 5px 0 !important;
+    }
+}
+
+/* 🔹 Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auto-style1 tr {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* 🔹 Focus States for Accessibility */
+.Textbox:focus,
+select[id*="ddl"]:focus,
+input[type="date"]:focus,
+#btnAddSkill:focus,
+#btnRemoveSkill:focus,
+#btnPost:focus {
+    outline: 2px solid #059669 !important;
+    outline-offset: 2px !important;
+}
+
+/* 🔹 Placeholder Styling */
+.Textbox::placeholder {
+    color: #999 !important;
+    font-style: italic !important;
+}
+
+/* 🔹 ListBox Styling */
+#lstSelectedSkills option {
+    padding: 5px !important;
+    border-bottom: 1px solid #eee !important;
+}
+
+#lstSelectedSkills option:hover {
+    background-color: #f8f9fa !important;
+}
+
+/* 🔹 Specific Element Margins */
+.auto-style1 tr td {
+    padding-bottom: 10px !important;
+}
+
+.auto-style1 tr:last-child td {
+    text-align: center !important;
+    padding-top: 20px !important;
+    border-bottom: none !important;
+}
+
+
         </style>
 </head>
 <body>

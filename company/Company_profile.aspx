@@ -195,6 +195,287 @@
     background-color: #059669;
     color: white;
 }
+
+
+/* 🔹 Company Profile Container */
+.container {
+    background: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px grey;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+/* 🔹 Company Profile Image */
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #059669;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+/* 🔹 Form Controls */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #059669;
+    box-shadow: 0 0 5px rgba(5, 150, 105, 0.5);
+}
+
+/* 🔹 Company Profile Buttons */
+.btn-profile {
+    background-color: #059669;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    display: inline-block;
+    margin: 5px;
+}
+
+.btn-profile:hover {
+    background-color: #047857;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* 🔹 Company Table Styling */
+table[style*="width:100%; text-align:left;"] {
+    width: 100% !important;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table[style*="width:100%; text-align:left;"] tr {
+    border-bottom: 1px solid #e9ecef;
+    transition: background-color 0.3s ease;
+}
+
+table[style*="width:100%; text-align:left;"] tr:hover {
+    background-color: #f8f9fa;
+}
+
+table[style*="width:100%; text-align:left;"] td {
+    padding: 12px 8px;
+    vertical-align: top;
+}
+
+table[style*="width:100%; text-align:left;"] tr:first-child td {
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+    padding-bottom: 5px;
+    border-bottom: none;
+}
+
+table[style*="width:100%; text-align:left;"] tr:last-child td {
+    padding-bottom: 15px;
+}
+
+/* 🔹 HR Styling */
+hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #059669, transparent);
+    margin: 25px 0;
+}
+
+/* 🔹 Forgot Password Button */
+#btnForgotPassword {
+    background-color: #059669 !important;
+    color: white !important;
+    padding: 10px 20px !important;
+    border: none !important;
+    border-radius: 5px !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    font-weight: bold !important;
+    margin: 5px !important;
+    display: inline-block !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+#btnForgotPassword:hover {
+    background-color: #047857 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+}
+
+/* 🔹 Button Container */
+.container .btn-profile,
+.container #btnForgotPassword {
+    margin: 10px 5px;
+}
+
+/* 🔹 Label Styling */
+b {
+    color: #333;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* 🔹 File Upload Section */
+#fuCompanyLogo {
+    margin: 10px 0;
+    padding: 8px;
+    border: 1px dashed #ccc;
+    background-color: #f8f9fa;
+}
+
+#fuCompanyLogo:focus {
+    border-color: #059669;
+    background-color: white;
+}
+
+/* 🔹 Text Area for Description */
+#txtDescription.form-control {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* 🔹 Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        padding: 20px;
+    }
+    
+    table[style*="width:100%; text-align:left;"] {
+        display: block;
+    }
+    
+    table[style*="width:100%; text-align:left;"] tr {
+        display: block;
+        margin-bottom: 15px;
+        padding: 15px 0;
+        border-bottom: 2px solid #e9ecef;
+    }
+    
+    table[style*="width:100%; text-align:left;"] td {
+        display: block;
+        width: 100% !important;
+        padding: 8px 0;
+    }
+    
+    table[style*="width:100%; text-align:left;"] tr:first-child td {
+        border-bottom: 1px solid #e9ecef;
+        padding-bottom: 8px;
+        margin-bottom: 5px;
+        font-size: 16px;
+    }
+    
+    .btn-profile,
+    #btnForgotPassword {
+        width: 100%;
+        margin: 5px 0 !important;
+    }
+    
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 15px;
+    }
+    
+    table[style*="width:100%; text-align:left;"] td {
+        padding: 10px 0;
+    }
+    
+    table[style*="width:100%; text-align:left;"] tr:first-child td {
+        font-size: 14px;
+    }
+}
+
+/* 🔹 Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+table[style*="width:100%; text-align:left;"] tr {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* 🔹 Focus States */
+.btn-profile:focus,
+.form-control:focus,
+#btnForgotPassword:focus {
+    outline: 2px solid #059669;
+    outline-offset: 2px;
+}
+
+/* 🔹 Button Group Alignment */
+.container .btn-profile,
+.container #btnForgotPassword {
+    vertical-align: middle;
+}
+
+/* 🔹 Specific Element Styling */
+#txtWebsite.form-control {
+    font-style: italic;
+    color: #059669;
+}
+
+#lblWebsite {
+    color: #059669;
+    font-weight: normal;
+}
+
+/* 🔹 Industry Type Styling */
+#lblIndustryType,
+#txtIndustryType {
+    font-weight: bold;
+    color: #495057;
+}
+
+/* 🔹 Description Styling */
+#lblDescription,
+#txtDescription {
+    line-height: 1.5;
+    color: #666;
+}
+
         </style>
 </head>
 <body>

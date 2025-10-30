@@ -23,7 +23,7 @@ namespace job_portal.job_seeker
                 FetchJobseekerData(username);
                 fujobseekerlogo.Visible = true;
                 btnUploadLogo.Visible = true;
-                btnUploadResume.Visible = true;
+                btnUploadResume.Visible = false;
                 fuResume.Visible = true;
                 btnForgotPassword.Visible = true;
                 btnEdit.Visible = true;
@@ -209,6 +209,11 @@ namespace job_portal.job_seeker
             lblState.Visible = false;
             lblDetailcity.Visible = false;
             lblDetailexperience.Visible = false;
+
+
+            btnUploadResume.Visible = true;
+            btnDownloadResume.Visible = false;
+
 
             txtFirstName.Visible = true;
             txtLastName.Visible = true;

@@ -424,6 +424,260 @@
     border-color: #bd2130;
 }
 
+/* 🔹 Profile Container */
+.container.mt-5 .row .col-md-6.mx-auto.p-4 {
+    background: white;
+    border: 1px solid black !important;
+    border-radius: 10px !important;
+    box-shadow: 5px 5px 15px grey !important;
+    padding: 30px !important;
+}
+
+/* 🔹 Profile Image */
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #059669;
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+/* 🔹 Form Controls */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #059669;
+    box-shadow: 0 0 5px rgba(5, 150, 105, 0.5);
+}
+
+/* 🔹 Profile Buttons */
+.btn-profile {
+    background-color: #059669;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    display: inline-block;
+    margin: 5px;
+}
+
+.btn-profile:hover {
+    background-color: #047857;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* 🔹 Table Styling */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.table tr {
+    border-bottom: 1px solid #e9ecef;
+    transition: background-color 0.3s ease;
+}
+
+.table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.table td {
+    padding: 15px 10px;
+    vertical-align: top;
+}
+
+.table td:first-child {
+    font-weight: bold;
+    color: #333;
+    width: 30%;
+    padding-right: 20px;
+    font-size: 14px;
+}
+
+.table td:last-child {
+    width: 70%;
+    color: #495057;
+}
+
+/* 🔹 HR Styling */
+hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #059669, transparent);
+    margin: 25px 0;
+}
+
+/* 🔹 Text Center */
+.text-center {
+    text-align: center;
+}
+
+/* 🔹 Forgot Password Button */
+#btnForgotPassword {
+    background-color: #059669 !important;
+    color: white !important;
+    padding: 8px 15px !important;
+    border: none !important;
+    border-radius: 5px !important;
+    font-size: 12px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    font-weight: bold !important;
+    margin-top: 10px !important;
+}
+
+#btnForgotPassword:hover {
+    background-color: #047857 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+}
+
+/* 🔹 Button Container */
+.text-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 🔹 Responsive Design */
+@media (max-width: 768px) {
+    .container.mt-5 .row .col-md-6.mx-auto.p-4 {
+        margin: 10px;
+        padding: 20px !important;
+    }
+    
+    .table td {
+        display: block;
+        width: 100% !important;
+        padding: 12px 0;
+    }
+    
+    .table td:first-child {
+        border-bottom: 1px solid #e9ecef;
+        padding-bottom: 8px;
+        margin-bottom: 5px;
+        font-size: 16px;
+        width: 100% !important;
+    }
+    
+    .table tr {
+        border-bottom: 2px solid #e9ecef;
+        padding: 15px 0;
+        display: block;
+    }
+    
+    .btn-profile {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    #btnForgotPassword {
+        width: auto !important;
+        margin-right: 0 !important;
+        margin-top: 10px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .container.mt-5 .row .col-md-6.mx-auto.p-4 {
+        padding: 15px !important;
+    }
+    
+    .table td {
+        padding: 10px 0;
+    }
+    
+    .table td:first-child {
+        font-size: 14px;
+    }
+}
+
+/* 🔹 Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container.mt-5 .row .col-md-6.mx-auto.p-4 {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.table tr {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* 🔹 Focus States */
+.btn-profile:focus,
+.form-control:focus {
+    outline: 2px solid #059669;
+    outline-offset: 2px;
+}
+
+/* 🔹 Dropdown Styling */
+.form-control[id*="ddlGender"] {
+    background-color: white;
+    cursor: pointer;
+}
+
+.form-control[id*="ddlGender"]:focus {
+    border-color: #059669;
+    box-shadow: 0 0 5px rgba(5, 150, 105, 0.5);
+}
+
+/* 🔹 File Upload Section */
+input[type="file"] {
+    padding: 8px;
+    border: 1px dashed #ccc;
+    background-color: #f8f9fa;
+}
+
+input[type="file"]:focus {
+    border-color: #059669;
+    background-color: white;
+}
+
+/* 🔹 Date Input Styling */
+input[type="date"] {
+    cursor: pointer;
+}
+
+input[type="date"]:focus {
+    border-color: #059669;
+    box-shadow: 0 0 5px rgba(5, 150, 105, 0.5);
+}
+
     </style>
 </head>
 <body>
