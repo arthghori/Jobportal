@@ -198,7 +198,6 @@
                         </tr>
 
                         <%--skill--%> 
-                      <tr>
 <tr>
     <td>&nbsp;&nbsp; Skills Required:</td>
 </tr>
@@ -206,6 +205,7 @@
     <td class="auto-style2">
         <asp:DropDownList ID="ddlSkills" runat="server" Width="300px"></asp:DropDownList>
         <asp:Button ID="btnAddSkill" runat="server" Text="Add Skill" OnClick="btnAddSkill_Click" CausesValidation="false" />
+        <asp:Button ID="btnRemoveSkill" runat="server" Text="Remove Skill" OnClick="btnRemoveSkill_Click" CausesValidation="false" Width="141px" />
     </td>
 </tr>
 <tr>
@@ -216,6 +216,7 @@
         <asp:ListBox ID="lstSelectedSkills" runat="server" Width="300px" Height="100px"></asp:ListBox>
     </td>
 </tr>
+
                         
                         
                         
@@ -243,7 +244,7 @@
                             <td class="auto-style2">
                                 <asp:TextBox ID="txtSalary" runat="server" Height="26px" Width="523px" CssClass="Textbox" placeholder="Salary"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Salary is required" ControlToValidate="txtSalary" ForeColor="Red"></asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator ID="revSalary" runat="server" ControlToValidate="txtSalary" ValidationExpression="^\d+(\.\d{1,2})?$" ErrorMessage="Salary must be a valid number." ForeColor="Red"/>
+                               
                             </td>
                         </tr>
 

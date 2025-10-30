@@ -211,10 +211,10 @@ namespace job_portal.job_seeker
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string query = @"
-                    SELECT s.SkillName, ss.seekerskillid
-                    FROM tbl_seekerskill ss
-                    INNER JOIN tbl_skill s ON ss.skillid = s.SkillID
-                    WHERE ss.seekerid = (SELECT seekerid FROM tbl_jobseeker WHERE username = @Username)";
+            SELECT s.SkillName, ss.seekerskillid, ss.seekerid
+            FROM tbl_seekerskill ss
+            INNER JOIN tbl_skill s ON ss.skillid = s.SkillID
+            WHERE ss.seekerid = (SELECT seekerid FROM tbl_jobseeker WHERE username = @Username)";
 
                 SqlCommand cmd = new SqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@Username", username);
@@ -233,10 +233,11 @@ namespace job_portal.job_seeker
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string query = @"
-            SELECT s.SkillName, ss.seekerskillid
-            FROM tbl_seekerskill ss
-            INNER JOIN tbl_skill s ON ss.skillid = s.SkillID
-            WHERE ss.seekerid = @SeekerID";
+    SELECT s.SkillName, ss.seekerskillid, ss.seekerid
+    FROM tbl_seekerskill ss
+    INNER JOIN tbl_skill s ON ss.skillid = s.SkillID
+    WHERE ss.seekerid = @SeekerID";
+
 
                 SqlCommand cmd = new SqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@SeekerID", seekerid);
@@ -599,7 +600,7 @@ namespace job_portal.job_seeker
 
         protected void btnManageEducation_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Employee/Education_detail.aspx"); // Change the filename if different
+            Response.Redirect("/job_seeker/Education_detail.aspx"); // Change the filename if different
 
         }
 

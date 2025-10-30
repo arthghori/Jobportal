@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="postedjob_list.aspx.cs" Inherits="job_portal.company.postedjob_list" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="postedjob_list.aspx.cs" Inherits="job_portal.company.postedjob_list"  %>
 
 
 <!DOCTYPE html>
@@ -171,7 +171,7 @@
             <h2>Vacancy List</h2>
             <asp:Button ID="btnCreate" runat="server" Text="Create New Vacancy" CssClass="btn btn-success" OnClick="btnCreate_Click" />
             <br /><br />
-            <asp:GridView ID="gvVacancies" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered">
+            <asp:GridView ID="gvVacancies" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered" OnSelectedIndexChanged="gvVacancies_SelectedIndexChanged">
                 <Columns>
                     <asp:BoundField DataField="JobID" HeaderText="Job ID" />
                     <asp:BoundField DataField="JobTitle" HeaderText="Job Title" />

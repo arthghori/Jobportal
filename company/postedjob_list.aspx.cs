@@ -20,17 +20,18 @@ namespace job_portal.company
 
                 if (userRole == "Jobseeker" || userRole == "Admin" || userRole == "Company")
                 {
-                    LoadVacancies();
+                    if (!IsPostBack)
+                    {
+                        LoadVacancies();
+                    }
                 }
                 else
                 {
-                    // Redirect unauthorized users
                     Response.Redirect("~/auth/login_page.aspx");
                 }
             }
             else
             {
-                // Redirect to login page if session is not set
                 Response.Redirect("~/auth/login_page.aspx");
             }
         }
@@ -62,7 +63,7 @@ namespace job_portal.company
         {
             Button btn = (Button)sender;
             int jobid = Convert.ToInt32(btn.CommandArgument);
-            Response.Redirect("~/company/job_application.aspx?jobpostid=" + jobid);
+            Response.Redirect("job_application.aspx?jobpostid=" + jobid);
         }
 
         protected void btnApplications_Click(object sender, EventArgs e)
@@ -73,9 +74,9 @@ namespace job_portal.company
 
         }
 
+        protected void gvVacancies_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-
-
-
+        }
     }
 }

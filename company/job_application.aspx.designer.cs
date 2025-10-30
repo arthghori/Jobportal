@@ -78,13 +78,40 @@ namespace job_portal.company
         protected global::System.Web.UI.WebControls.Label lblSkillsRequired;
 
         /// <summary>
-        /// txtSkillsRequired control.
+        /// ddlSkills control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSkillsRequired;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSkills;
+
+        /// <summary>
+        /// btnAddSkill control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddSkill;
+
+        /// <summary>
+        /// btnRemoveSkill control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRemoveSkill;
+
+        /// <summary>
+        /// lstSelectedSkills control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lstSelectedSkills;
 
         /// <summary>
         /// lblLocation control.
