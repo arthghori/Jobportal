@@ -21,9 +21,6 @@ namespace job_portal.job_seeker
             {
                 string username = Session["Username"].ToString();
                 FetchJobseekerData(username);
-                LoadAvailableSkills(); // Load skills from tbl_skill
-                LoadUserSkills();      // Load user's skills from tbl_seekerskill
-                LoadEducationDetails(); // Refresh the grid
                 fujobseekerlogo.Visible = true;
                 btnUploadLogo.Visible = true;
                 btnUploadResume.Visible = true;
@@ -31,21 +28,20 @@ namespace job_portal.job_seeker
                 btnForgotPassword.Visible = true;
                 btnEdit.Visible = true;
                 btnAddSkill.Visible = true;
-                btnManageEducation.Visible = true;
                 ddlSkills.Visible = true;
 
+                if (!IsPostBack)
+                {
+                    LoadAllSkills(); // Load skills dropdown
+                    LoadSeekerSkills(); // Load seeker's current skills
+                }
             }
             else if (Session["Username"] != null && Session["UserRole"].ToString() == "Company")
             {
-                //string username = Session["Username"].ToString();
-                //FetchJobseekerData(username);
-
                 if (Request.QueryString["seekerid"] != null)
                 {
                     int seekerid = Convert.ToInt32(Request.QueryString["seekerid"]);
                     FetchJobseekerData(seekerid);
-                    LoadUserSkillscom(seekerid); // Load skills for jobseeker profile
-                    LoadEducationDetails(seekerid); // Load education details for jobseeker profile
 
                     btnSave.Visible = false;
                     fujobseekerlogo.Visible = false;
@@ -56,7 +52,11 @@ namespace job_portal.job_seeker
                     btnForgotPassword.Visible = false;
                     btnEdit.Visible = false;
                     btnAddSkill.Visible = false;
-                    btnManageEducation.Visible = false;
+
+                    if (!IsPostBack)
+                    {
+                        LoadSeekerSkills(seekerid); // Load skills for viewing
+                    }
                 }
             }
             else
@@ -66,8 +66,6 @@ namespace job_portal.job_seeker
 
             if (!IsPostBack)
             {
-
-
                 if (Request.QueryString["seekerid"] != null)
                 {
                     int seekerid = Convert.ToInt32(Request.QueryString["seekerid"]);
@@ -75,6 +73,8 @@ namespace job_portal.job_seeker
                 }
             }
         }
+
+
         private void LoadSeekerProfile(int seekerid)
         {
             // Fetch job seeker data only if the current user has permission
@@ -186,184 +186,7 @@ namespace job_portal.job_seeker
             }
         }
 
-        //skilll 
-        private void LoadAvailableSkills()
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                string query = "SELECT SkillID, SkillName FROM tbl_skill ORDER BY SkillName";
-                SqlCommand cmd = new SqlCommand(query, connection);
-                connection.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                ddlSkills.DataSource = reader;
-                ddlSkills.DataTextField = "SkillName";
-                ddlSkills.DataValueField = "SkillID";
-                ddlSkills.DataBind();
-                ddlSkills.Items.Insert(0, new ListItem("-- Select Skill --", "")); // Default option
-            }
-        }
-
-        // **2️⃣ Load User's Skills from tbl_seekerskill**
-        private void LoadUserSkills()
-        {
-            string username = Session["Username"].ToString();
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                string query = @"
-            SELECT s.SkillName, ss.seekerskillid, ss.seekerid
-            FROM tbl_seekerskill ss
-            INNER JOIN tbl_skill s ON ss.skillid = s.SkillID
-            WHERE ss.seekerid = (SELECT seekerid FROM tbl_jobseeker WHERE username = @Username)
-            ORDER BY s.SkillName";
-
-                SqlCommand cmd = new SqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("@Username", username);
-                connection.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                rptSkills.DataSource = reader;
-                rptSkills.DataBind();
-            }
-        }
-
-        //for the company
-
-        private void LoadUserSkillscom(int seekerid)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                string query = @"
-            SELECT s.SkillName, ss.seekerskillid, ss.seekerid
-            FROM tbl_seekerskill ss
-            INNER JOIN tbl_skill s ON ss.skillid = s.SkillID
-            WHERE ss.seekerid = @SeekerID
-            ORDER BY s.SkillName";
-
-                SqlCommand cmd = new SqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("@SeekerID", seekerid);
-                connection.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                rptSkills.DataSource = reader;
-                rptSkills.DataBind();
-            }
-        }
-
-        protected void btnAddSkill_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(ddlSkills.SelectedValue))
-            {
-                Response.Write("<script>alert('Please select a skill to add.');</script>");
-                return;
-            }
-
-            string username = Session["Username"].ToString();
-            int skillId = int.Parse(ddlSkills.SelectedValue);
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-
-                    // Check if skill is already added
-                    string checkQuery = @"
-                SELECT COUNT(*) FROM tbl_seekerskill 
-                WHERE seekerid = (SELECT seekerid FROM tbl_jobseeker WHERE username = @Username) 
-                AND skillid = @SkillID";
-                    SqlCommand checkCmd = new SqlCommand(checkQuery, connection);
-                    checkCmd.Parameters.AddWithValue("@Username", username);
-                    checkCmd.Parameters.AddWithValue("@SkillID", skillId);
-                    int count = (int)checkCmd.ExecuteScalar();
-
-                    if (count > 0)
-                    {
-                        Response.Write("<script>alert('This skill is already added to your profile.');</script>");
-                        return;
-                    }
-
-                    // Insert new skill
-                    string insertQuery = @"
-                INSERT INTO tbl_seekerskill (seekerid, skillid) 
-                VALUES ((SELECT seekerid FROM tbl_jobseeker WHERE username = @Username), @SkillID)";
-                    SqlCommand insertCmd = new SqlCommand(insertQuery, connection);
-                    insertCmd.Parameters.AddWithValue("@Username", username);
-                    insertCmd.Parameters.AddWithValue("@SkillID", skillId);
-                    insertCmd.ExecuteNonQuery();
-
-                    Response.Write("<script>alert('Skill added successfully!');</script>");
-                    LoadUserSkills(); // Refresh skills
-                    LoadAvailableSkills(); // Refresh dropdown
-                }
-                catch (Exception ex)
-                {
-                    Response.Write("<script>alert('Error adding skill: " + ex.Message + "');</script>");
-                }
-            }
-        }
-
-        protected void rptSkills_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-            if (e.CommandName == "RemoveSkill")
-            {
-                int seekerskillId = Convert.ToInt32(e.CommandArgument);
-                RemoveSkill(seekerskillId);
-            }
-        }
-
-        private void RemoveSkill(int seekerskillId)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    string query = "DELETE FROM tbl_seekerskill WHERE seekerskillid = @seekerskillid";
-                    SqlCommand cmd = new SqlCommand(query, connection);
-                    cmd.Parameters.AddWithValue("@seekerskillid", seekerskillId);
-
-                    connection.Open();
-                    int rowsAffected = cmd.ExecuteNonQuery();
-
-                    if (rowsAffected > 0)
-                    {
-                        Response.Write("<script>alert('Skill removed successfully!');</script>");
-                        LoadUserSkills(); // Refresh skills
-                        LoadAvailableSkills(); // Refresh dropdown
-                    }
-                    else
-                    {
-                        Response.Write("<script>alert('Error removing skill.');</script>");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Response.Write("<script>alert('Error removing skill: " + ex.Message + "');</script>");
-                }
-            }
-        }
- 
-
-        //for company 
-        protected void rptSkills_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-
-            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-            {
-                Button btnRemoveSkill = (Button)e.Item.FindControl("btnRemoveSkill");
-
-                int rowSeekerID = Convert.ToInt32(DataBinder.Eval(e.Item.DataItem, "seekerid"));
-                int loggedInSeekerID = Convert.ToInt32(Session["SeekerID"] ?? "0");
-                string userRole = Session["UserRole"]?.ToString() ?? "";
-
-                // Hide "Remove" button if the user is a company or another job seeker
-                if (userRole == "Company" || rowSeekerID != loggedInSeekerID)
-                {
-                    btnRemoveSkill.Visible = false;
-                }
-            }
-        }
+      
 
 
         protected void btnEdit_Click(object sender, EventArgs e)
@@ -574,122 +397,8 @@ namespace job_portal.job_seeker
                 Response.Write("Email not available.");
             }
         }
-
-        //skil for use 
-        
-
-
-
-        //education
-        private void LoadEducationDetails()
-        {
-            string username = Session["username"] as string;
-            if (string.IsNullOrEmpty(username))
-            {
-                Response.Redirect("~/auth/login_page.aspx");
-                return;
-            }
-            string connStr = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
-            using (SqlConnection conn = new SqlConnection(connStr))
-            {
-                conn.Open();
-                // Get seekerid using username
-                string seekerQuery = "SELECT seekerid FROM tbl_jobseeker WHERE username = @username";
-                SqlCommand seekerCmd = new SqlCommand(seekerQuery, conn);
-                seekerCmd.Parameters.AddWithValue("@username", username);
-                object result = seekerCmd.ExecuteScalar();
-                if (result == null)
-                {
-                    Response.Write("User not found!");
-                    return;
-                }
-                int seekerid = Convert.ToInt32(result);
-                // Get education details using seekerid
-                string eduQuery = "SELECT educationid, university, degree, major, graduationyear, gpa FROM tbl_educationdetails WHERE seekerid = @seekerid";
-                SqlDataAdapter da = new SqlDataAdapter(eduQuery, conn);
-                da.SelectCommand.Parameters.AddWithValue("@seekerid", seekerid);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                gvEducation.DataSource = dt;
-                gvEducation.DataBind();
-            }
-        }
-
-        //for the company
-
-        private void LoadEducationDetails(int seekerid)
-        {
-            string connStr = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
-            using (SqlConnection conn = new SqlConnection(connStr))
-            {
-                conn.Open();
-                // Get education details using seekerid
-                string eduQuery = @"
-        SELECT educationid, university, degree, major, graduationyear, gpa 
-        FROM tbl_educationdetails 
-        WHERE seekerid = @seekerid";
-                SqlDataAdapter da = new SqlDataAdapter(eduQuery, conn);
-                da.SelectCommand.Parameters.AddWithValue("@seekerid", seekerid);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                gvEducation.DataSource = dt;
-                gvEducation.DataBind();
-            }
-        }
-
-        protected void btnManageEducation_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/job_seeker/Education_detail.aspx"); // Change the filename if different
-
-        }
-
-        protected void gvEducation_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            string username = Session["Username"] as string;
-            if (string.IsNullOrEmpty(username))
-            {
-                Response.Redirect("~/auth/login_page.aspx");
-                return;
-            }
-            // Get the selected education ID
-            int educationid = Convert.ToInt32(gvEducation.DataKeys[e.RowIndex].Value);
-            string connStr = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
-            using (SqlConnection conn = new SqlConnection(connStr))
-            {
-                conn.Open();
-                // Delete education record where seekerid matches the logged-in user
-                string deleteQuery = "DELETE FROM tbl_educationdetails WHERE educationid = @educationid";
-                using (SqlCommand deleteCmd = new SqlCommand(deleteQuery, conn))
-                {
-                    deleteCmd.Parameters.AddWithValue("@educationid", educationid);
-                    deleteCmd.ExecuteNonQuery();
-                }
-            }
-            // Refresh education list after deletion
-            LoadEducationDetails();
-
-        }
-
-
-        //for company 
-
-        protected void gvEducation_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                LinkButton lnkRemove = (LinkButton)e.Row.FindControl("lnkRemove");
-                int rowSeekerID = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "educationid"));
-                int loggedInSeekerID = Convert.ToInt32(Session["SeekerID"] ?? "0");
-                string userRole = Session["UserRole"]?.ToString() ?? "";
-                // Hide "Remove" button if the user is a company or another job seeker
-                if (userRole == "Company" || rowSeekerID != loggedInSeekerID)
-                {
-                    lnkRemove.Visible = false;
-                }
-            }
-        }
-
-      
+ 
+       
 
 
 
@@ -700,10 +409,176 @@ namespace job_portal.job_seeker
 
         }
 
-        protected void gvEducation_SelectedIndexChanged(object sender, EventArgs e)
+        //skilllll 
+        private void LoadAllSkills()
         {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT SkillID, SkillName FROM tbl_skill ORDER BY SkillName";
+                SqlCommand cmd = new SqlCommand(query, conn);
 
+                conn.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                ddlSkills.DataSource = dt;
+                ddlSkills.DataTextField = "SkillName";
+                ddlSkills.DataValueField = "SkillID";
+                ddlSkills.DataBind();
+
+                // Add default item
+                ddlSkills.Items.Insert(0, new ListItem("-- Select Skill --", "0"));
+            }
         }
+
+        private void LoadSeekerSkills(int? seekerId = null)
+        {
+            int currentSeekerId;
+
+            if (seekerId.HasValue)
+            {
+                currentSeekerId = seekerId.Value;
+            }
+            else
+            {
+                // Get current logged-in seeker's ID
+                string username = Session["Username"].ToString();
+                currentSeekerId = GetSeekerIdByUsername(username);
+            }
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"
+            SELECT s.SkillID, s.SkillName 
+            FROM tbl_skill s
+            INNER JOIN tbl_seekerskill ss ON s.SkillID = ss.skillid
+            WHERE ss.seekerid = @SeekerId
+            ORDER BY s.SkillName";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@SeekerId", currentSeekerId);
+
+                conn.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    rptSkills.DataSource = dt;
+                    rptSkills.DataBind();
+                    lblNoSkills.Visible = false;
+                }
+                else
+                {
+                    rptSkills.DataSource = null;
+                    rptSkills.DataBind();
+                    lblNoSkills.Visible = true;
+                }
+            }
+        }
+
+        private int GetSeekerIdByUsername(string username)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT seekerid FROM tbl_jobseeker WHERE username = @Username";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Username", username);
+
+                conn.Open();
+                object result = cmd.ExecuteScalar();
+                return result != null ? Convert.ToInt32(result) : 0;
+            }
+        }
+
+        protected void btnAddSkill_Click(object sender, EventArgs e)
+        {
+            if (ddlSkills.SelectedValue != "0")
+            {
+                int skillId = Convert.ToInt32(ddlSkills.SelectedValue);
+                string username = Session["Username"].ToString();
+                int seekerId = GetSeekerIdByUsername(username);
+
+                if (!SkillExistsForSeeker(seekerId, skillId))
+                {
+                    AddSkillToSeeker(seekerId, skillId);
+                    LoadSeekerSkills();
+                    ddlSkills.SelectedIndex = 0; // Reset dropdown
+                }
+                else
+                {
+                    Response.Write("<script>alert('This skill is already added to your profile.');</script>");
+                }
+            }
+            else
+            {
+                Response.Write("<script>alert('Please select a skill to add.');</script>");
+            }
+        }
+
+        private bool SkillExistsForSeeker(int seekerId, int skillId)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM tbl_seekerskill WHERE seekerid = @SeekerId AND skillid = @SkillId";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@SeekerId", seekerId);
+                cmd.Parameters.AddWithValue("@SkillId", skillId);
+
+                conn.Open();
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                return count > 0;
+            }
+        }
+
+        private void AddSkillToSeeker(int seekerId, int skillId)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "INSERT INTO tbl_seekerskill (seekerid, skillid) VALUES (@SeekerId, @SkillId)";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@SeekerId", seekerId);
+                cmd.Parameters.AddWithValue("@SkillId", skillId);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+
+            
+        }
+
+        protected void rptSkills_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "RemoveSkill")
+            {
+                int skillId = Convert.ToInt32(e.CommandArgument);
+                string username = Session["Username"].ToString();
+                int seekerId = GetSeekerIdByUsername(username);
+
+                RemoveSkillFromSeeker(seekerId, skillId);
+                LoadSeekerSkills();
+            }
+        }
+
+        private void RemoveSkillFromSeeker(int seekerId, int skillId)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "DELETE FROM tbl_seekerskill WHERE seekerid = @SeekerId AND skillid = @SkillId";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@SeekerId", seekerId);
+                cmd.Parameters.AddWithValue("@SkillId", skillId);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+
+         }
+
+
+
 
 
     }

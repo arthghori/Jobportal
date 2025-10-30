@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Employee_profile.aspx.cs" Inherits="job_portal.job_seeker.Employee_profile" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Employee_profile.aspx.cs" Inherits="job_portal.job_seeker.Employee_profile" EnableEventValidation="false" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -17,38 +17,8 @@
             width: 100%;
         }
 
-        .skill-list {
-    list-style-type: none;
-    padding: 0;
-}
-.skill-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #f4f4f4;
-    padding: 8px 12px;
-    margin-bottom: 6px;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-.skill-item:hover {
-    background: #e0e0e0;
-}
-.btn-delete {
-    background-color: #ff4d4d;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    line-height: 25px;
-}
-.btn-delete:hover {
-    background-color: #cc0000;
-}
+ 
+ 
 
         /* 🔹 Profile Image Styling */
         .profile-image {
@@ -202,348 +172,213 @@
 }
  
 
-/* 🔹 Skills Section Styling */
+
+ /* 🔹 Skills Section Styling */
 .skills-container {
-    width: 60%;
-    margin: 30px auto;
     background: white;
-    padding: 20px;
+    border: 1px solid black;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    box-shadow: 5px 5px 15px grey;
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
-/* 🔹 Skill List Styling */
-.skill-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 10px;
+.skills-header {
+    font-size: 24px;
+    font-weight: bold;
     text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.add-skill-section {
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.skill-input-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.skill-dropdown {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: white;
+}
+
+.add-skill-btn {
+    background-color: #059669;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    white-space: nowrap;
+}
+
+.add-skill-btn:hover {
+    background-color: #047857;
+    transform: translateY(-2px);
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+    min-height: 50px;
+    align-items: center;
 }
 
 .skill-item {
-    display: inline-block;
-    background: #059669;
-    color: white;
-    font-size: 14px;
-    padding: 8px 12px;
+    background-color: #e9ecef;
+    padding: 8px 15px;
     border-radius: 20px;
-    margin: 5px;
-    position: relative;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #dee2e6;
+    transition: all 0.3s ease;
 }
 
-/* 🔹 Delete Button (X) */
-.btn-delete {
-    background: red;
-    color: white;
+.skill-item:hover {
+    background-color: #dee2e6;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.skill-name {
+    font-weight: 500;
+    color: #495057;
+}
+
+.remove-skill-btn {
+    background: none;
     border: none;
-    padding: 4px 8px;
-    font-size: 12px;
+    color: #dc3545;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    cursor: pointer;
-    margin-left: 8px;
-    transition: 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 16px;
 }
 
-.btn-delete:hover {
-    background: darkred;
-}
-
-/* 🔹 Add Skill Button */
-.btn-profile {
-    background: #059669;
+.remove-skill-btn:hover {
+    background-color: #dc3545;
     color: white;
-    font-weight: bold;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
 }
 
-.btn-profile:hover {
-    background: #037a55;
-}
-
-/* 🔹 Responsive Design */
-@media (max-width: 768px) {
-    .skills-container {
-        width: 90%;
-        padding: 15px;
-    }
-    
-    .skill-item {
-        font-size: 12px;
-        padding: 6px 10px;
-    }
-
-    .btn-delete {
-        font-size: 10px;
-        padding: 3px 6px;
-    }
-
-    .btn-profile {
-        font-size: 12px;
-        padding: 8px 12px;
-    }
-}
-
-
-
-/* eduction
-*/
-
-/* 🔹 Education Section Styling */
-.education-container {
-    width: 60%;
-    margin: 30px auto;
-    background: white;
+.no-skills-message {
+    text-align: center;
+    color: #6c757d;
+    font-style: italic;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-/* 🔹 GridView Table Styling */
-.edu-table {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background: white;
-}
-
-.edu-table th, .edu-table td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: center;
-    font-size: 14px;
-}
-
-.edu-table th {
-    background: #059669;
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-/* 🔹 Delete Button Styling */
-.delete-btn {
-    background: red;
-    color: white;
-    padding: 6px 12px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 12px;
-    transition: 0.3s ease-in-out;
-}
-
-.delete-btn:hover {
-    background: darkred;
-}
-
-/* 🔹 Manage Education Button */
-.manage-btn {
-    background: #059669;
-    color: white;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: 0.3s ease-in-out;
-}
-
-.manage-btn:hover {
-    background: #037a55;
 }
 
 /* 🔹 Responsive Design */
 @media (max-width: 768px) {
-    .education-container {
-        width: 90%;
-        padding: 15px;
+    .skill-input-group {
+        flex-direction: column;
+        gap: 10px;
     }
     
-    .edu-table th, .edu-table td {
-        font-size: 12px;
-        padding: 8px;
+    .skill-dropdown {
+        width: 100%;
     }
-
-    .delete-btn, .manage-btn {
-        font-size: 12px;
-        padding: 8px 12px;
+    
+    .add-skill-btn {
+        width: 100%;
+    }
+    
+    .skills-list {
+        justify-content: center;
     }
 }
 
-/* 🔹 Education Section Styling */
-.education-container {
-    width: 60%;
-    margin: 30px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+/* 🔹 Animation for skill items */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* 🔹 GridView Table Styling */
-.edu-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background: white;
+.skill-item {
+    animation: fadeIn 0.3s ease-in-out;
 }
 
-.edu-table th, .edu-table td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: center;
+/* 🔹 Form controls consistency */
+.skills-container .form-control {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
     font-size: 14px;
+    margin-bottom: 0;
 }
 
-.edu-table th {
-    background: #059669;
-    color: white;
+.skills-container .btn {
     font-weight: bold;
-    text-transform: uppercase;
-}
-
-/* 🔹 Delete Button Styling */
-.delete-btn {
-    background: red;
-    color: white;
-    padding: 6px 12px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 12px;
     transition: 0.3s ease-in-out;
 }
 
-.delete-btn:hover {
-    background: darkred;
+/* 🔹 Matching existing profile styling */
+.skills-container {
+    font-family: inherit;
 }
 
-/* 🔹 Manage Education Button */
-.manage-btn {
-    background: #059669;
-    color: white;
+.skills-container h4 {
+    color: #333;
     font-weight: bold;
-    padding: 10px 20px;
-    border: none;
+    margin-bottom: 20px;
+}
+
+/* 🔹 Success/Error message styling */
+.skill-message {
+    padding: 10px;
     border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: 0.3s ease-in-out;
-}
-
-.manage-btn:hover {
-    background: #037a55;
-}
-
-/* 🔹 Responsive Design */
-@media (max-width: 768px) {
-    .education-container {
-        width: 90%;
-        padding: 15px;
-    }
-    
-    .edu-table th, .edu-table td {
-        font-size: 12px;
-        padding: 8px;
-    }
-
-    .delete-btn, .manage-btn {
-        font-size: 12px;
-        padding: 8px 12px;
-    }
-}
-/* 🔹 Education Section Styling */
-.education-container {
-    width: 60%;
-    margin: 30px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
     text-align: center;
-}
-
-/* 🔹 GridView Table Styling */
-.edu-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background: white;
-}
-
-.edu-table th, .edu-table td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: center;
-    font-size: 14px;
-}
-
-.edu-table th {
-    background: #059669;
-    color: white;
     font-weight: bold;
-    text-transform: uppercase;
 }
 
-/* 🔹 Delete Button Styling */
-.delete-btn {
-    background: red;
-    color: white;
-    padding: 6px 12px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 12px;
-    transition: 0.3s ease-in-out;
+.skill-success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
 }
 
-.delete-btn:hover {
-    background: darkred;
+.skill-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
 }
 
-/* 🔹 Manage Education Button */
-.manage-btn {
-    background: #059669;
-    color: white;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: 0.3s ease-in-out;
-}
 
-.manage-btn:hover {
-    background: #037a55;
-}
+  
 
-/* 🔹 Responsive Design */
-@media (max-width: 768px) {
-    .education-container {
-        width: 90%;
-        padding: 15px;
-    }
-    
-    .edu-table th, .edu-table td {
-        font-size: 12px;
-        padding: 8px;
-    }
-
-    .delete-btn, .manage-btn {
-        font-size: 12px;
-        padding: 8px 12px;
-    }
-}
     </style>
 </head>
 <body>
@@ -677,66 +512,51 @@
      </div>
         
 
-<div class="skills-container">
-    <div class="skills-section">
-        <h4 class="text-center">Your Skills</h4>
+    <!-- 🔹 Skills Section -->
+ 
+  <div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto p-4" style="border: 1px solid black; border-radius: 10px; box-shadow: 5px 5px 15px grey;">
+            <h4 class="text-center mb-4">Your Skills</h4>
+            
+            <!-- Add Skill Section -->
+            <div class="add-skill-section mb-4">
+                <div class="row">
+                    <div class="col-md-8">
+                        <asp:DropDownList ID="ddlSkills" runat="server" CssClass="form-control" DataTextField="SkillName" DataValueField="SkillID">
+                        </asp:DropDownList>
+                    </div>
+                    <div class="col-md-4">
+                        <asp:Button ID="btnAddSkill" runat="server" Text="Add Skill" CssClass="btn btn-success w-100" OnClick="btnAddSkill_Click" />
+                    </div>
+                </div>
+            </div>
 
-        <!-- Skill Selection Dropdown -->
-        <div class="text-center">
-            <asp:DropDownList ID="ddlSkills" runat="server" CssClass="form-control" Visible="false">
-                <asp:ListItem Text="-- Select Skill --" Value="" />
-            </asp:DropDownList>
-            <asp:Button ID="btnAddSkill" runat="server" Text="Add Skill" CssClass="btn-profile mt-3" OnClick="btnAddSkill_Click" Visible="false" />
+            <!-- Skills List -->
+            <div class="skills-list">
+                <asp:Repeater ID="rptSkills" runat="server" OnItemCommand="rptSkills_ItemCommand">
+                    <ItemTemplate>
+                        <div class="skill-item" style="background-color: #e9ecef; padding: 8px 12px; border-radius: 20px; margin: 5px; display: inline-block;">
+                            <span><%# Eval("SkillName") %></span>
+                            <asp:Button ID="btnRemove" runat="server" Text="×" 
+                                      CssClass="btn btn-sm btn-danger" 
+                                      CommandName="RemoveSkill" 
+                                      CommandArgument='<%# Eval("SkillID") %>' 
+                                     />
+                        </div>
+                    </ItemTemplate>
+                </asp:Repeater>
+                
+                <asp:Label ID="lblNoSkills" runat="server" Text="No skills added yet." Visible="false" CssClass="text-muted"></asp:Label>
+            </div>
         </div>
-
-        <hr />
-
-        <!-- Display Existing Skills -->
-        <h5 class="text-center">Added Skills:</h5>
-        <ul class="skill-list">
-            <asp:Repeater ID="rptSkills" runat="server" OnItemCommand="rptSkills_ItemCommand" OnItemDataBound="rptSkills_ItemDataBound">
-                <ItemTemplate>
-                    <li class="skill-item">
-                        <%# Eval("SkillName") %>
-                        <asp:Button ID="btnRemoveSkill" runat="server" CssClass="btn-delete" Text="X" 
-                            CommandName="RemoveSkill" CommandArgument='<%# Eval("seekerskillid") %>' 
-                            OnClientClick="return confirm('Are you sure you want to remove this skill?');" />
-                    </li>
-                </ItemTemplate>
-            </asp:Repeater>
-        </ul>
     </div>
 </div>
 
 
 
-<div class="education-container">
-    <h2>Your Education Details</h2>
+<%-- education section--%>
 
-    <asp:GridView ID="gvEducation" runat="server" AutoGenerateColumns="False" CssClass="edu-table" 
-        DataKeyNames="educationid" OnRowDeleting="gvEducation_RowDeleting" OnRowDataBound="gvEducation_RowDataBound">
-        <Columns>
-            <asp:BoundField DataField="university" HeaderText="University" />
-            <asp:BoundField DataField="degree" HeaderText="Degree" />
-            <asp:BoundField DataField="major" HeaderText="Major" />
-            <asp:BoundField DataField="graduationyear" HeaderText="Graduation Year" />
-            <asp:BoundField DataField="gpa" HeaderText="GPA" />
-            <asp:TemplateField HeaderText="Action">
-                <ItemTemplate>
-                    <asp:LinkButton runat="server" CssClass="delete-btn"
-                        CommandName="Delete" CommandArgument='<%# Eval("educationid") %>' ID="lnkRemove">
-                        Remove
-                    </asp:LinkButton>
-                </ItemTemplate>
-            </asp:TemplateField>
-        </Columns>
-    </asp:GridView>
-
-    <!-- OnClientClick="return confirm('Are you sure you want to delete this education record?');-->
-    <!-- Redirect Button to Manage Education Page -->
-    <br />
-    <asp:Button ID="btnManageEducation" runat="server" CssClass="manage-btn" Text="Manage Education" OnClick="btnManageEducation_Click" Visible="false"/>
-</div>
 
 
 
