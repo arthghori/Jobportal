@@ -28,6 +28,290 @@
         #btnRegister{
            border-radius:20px;
   }
+
+        /* 🔹 Company Registration Table Container */
+table.auto-style2 {
+    background-color: #FFFFFF !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+    margin: 40px auto !important;
+    padding: 0;
+    width: 90% !important;
+    max-width: 650px;
+    border-collapse: collapse !important;
+    border: 1px solid #e0e0e0 !important;
+    overflow: hidden;
+}
+
+/* 🔹 Header Styling */
+.auto-style2 tr:first-child td {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+    color: white !important;
+    padding: 30px 20px !important;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+/* 🔹 Table Rows and Cells */
+.auto-style2 tr {
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.3s ease;
+}
+
+.auto-style2 tr:hover {
+    background-color: #fafafa;
+}
+
+.auto-style2 td {
+    padding:9px 4px !important;
+    vertical-align: top !important;
+}
+
+/* 🔹 Label Styling */
+.auto-style2 label {
+    font-weight: 600 !important;
+    color: #2d3748 !important;
+    font-size: 14px !important;
+    display: block !important;
+    margin-bottom: 8px !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 0.3px;
+}
+
+/* 🔹 Textbox Styling */
+.TextBox {
+    width: 100% !important;
+    padding: 14px 16px !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    font-size: 15px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    margin: 4px 0 !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+.TextBox:focus {
+    border-color: #059669 !important;
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1) !important;
+    outline: none !important;
+    transform: translateY(-1px);
+}
+
+.TextBox::placeholder {
+    color: #a0aec0 !important;
+    font-weight: 400;
+}
+
+/* 🔹 Dropdown Styling */
+select.TextBox {
+    background-color: white !important;
+    cursor: pointer !important;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23595959'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+    padding-right: 40px !important;
+}
+
+/* 🔹 TextArea Styling */
+textarea.TextBox {
+    min-height: 80px !important;
+    resize: vertical !important;
+    line-height: 1.5 !important;
+}
+
+/* 🔹 File Upload Styling */
+input[type="file"] {
+    padding: 36px  16px 51px !important;
+    border: 2px dashed #e2e8f0 !important;
+    border-radius: 8px !important;
+    background-color: #f8fafc !important;
+    width: 100% !important;
+    margin: 4px 0 !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+input[type="file"]:hover {
+    border-color: #059669 !important;
+    background-color: #f0fff4 !important;
+}
+
+input[type="file"]:focus {
+    border-color: #059669 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1) !important;
+}
+
+/* 🔹 Button Styling */
+#btnRegister {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+    color: white !important;
+    border: none !important;
+    padding: 16px 40px !important;
+    border-radius: 10px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    display: block !important;
+    margin: 30px auto 20px !important;
+    width: 220px !important;
+    height: 52px !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+}
+
+#btnRegister:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 25px rgba(5, 150, 105, 0.4) !important;
+    background: linear-gradient(135deg, #047857 0%, #035c3f 100%) !important;
+}
+
+#btnRegister:active {
+    transform: translateY(-1px) !important;
+}
+
+/* 🔹 Validation Error Styling */
+.RequiredFieldValidator,
+.RegularExpressionValidator,
+.CompareValidator {
+    display: block !important;
+    margin-top: 6px !important;
+    font-size: 12px !important;
+    color: #e53e3e !important;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 🔹 Number Input Styling */
+input[type="number"] {
+    -moz-appearance: textfield !important;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+}
+
+/* 🔹 Responsive Design */
+@media (max-width: 768px) {
+    table.auto-style2 {
+        width: 95% !important;
+        margin: 20px auto !important;
+        border-radius: 10px !important;
+    }
+    
+    .TextBox, input[type="file"] {
+        width: 100% !important;
+    }
+    
+    .auto-style2 tr:first-child td {
+        font-size: 24px !important;
+        padding: 25px 20px !important;
+    }
+    
+    .auto-style2 td {
+        padding: 15px 20px !important;
+    }
+    
+    #btnRegister {
+        width: 90% !important;
+        margin: 25px auto 15px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    table.auto-style2 {
+        margin: 15px auto !important;
+        border-radius: 8px !important;
+    }
+    
+    .auto-style2 td {
+        padding: 12px 15px !important;
+    }
+    
+    .TextBox {
+        padding: 12px 14px !important;
+        font-size: 16px !important;
+    }
+    
+    .auto-style2 tr:first-child td {
+        font-size: 22px !important;
+        padding: 20px 15px !important;
+    }
+    
+    #btnRegister {
+        width: 100% !important;
+        margin: 20px auto 10px !important;
+    }
+}
+
+/* 🔹 Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auto-style2 {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.auto-style2 tr {
+    animation: fadeInUp 0.4s ease-out;
+}
+
+/* 🔹 Focus States for Accessibility */
+.TextBox:focus,
+select:focus,
+input[type="file"]:focus,
+#btnRegister:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2) !important;
+}
+
+/* 🔹 Form Section Spacing */
+.auto-style2 tr:last-child {
+    border-bottom: none;
+}
+
+/* 🔹 Professional Spacing Adjustments */
+.auto-style2 br {
+    display: none;
+}
+
+.auto-style2 td:first-child {
+    padding-left: 25px !important;
+}
+
+/* 🔹 Industry Dropdown Specific */
+#ddlIndustryype {
+    margin: 8px 0 4px 0 !important;
+}
+
+/* 🔹 Remove inline spacing and use CSS instead */
+.auto-style2 td {
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+}
+
     </style>
 </head>
 <body>
