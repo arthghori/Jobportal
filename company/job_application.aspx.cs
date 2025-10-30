@@ -28,33 +28,46 @@ namespace job_portal.company
                 btnApply.Visible = false;
                 btnUpdate.Visible = false;
                 btnEdit.Visible = false;
-
             }
             else if (Session["Username"] != null && Session["UserRole"].ToString() == "Company")
             {
                 btnApply.Visible = false;
-                btnUpdate.Visible = true;
+                btnUpdate.Visible = false;
                 btnEdit.Visible = true;
-
             }
             else
             {
                 Response.Redirect("~/auth/login_page.aspx");
             }
-
             if (!IsPostBack)
             {
                 if (Request.QueryString["jobpostid"] != null && int.TryParse(Request.QueryString["jobpostid"], out int jobpostid))
                 {
                     LoadJobDetails(jobpostid);
                     LoadCategories();
-
+                    LoadSkills();
                 }
                 else
                 {
                     lblMessage.Text = "Invalid Job ID.";
                     lblMessage.ForeColor = System.Drawing.Color.Red;
                 }
+            }
+        }
+
+        private void LoadSkills()
+        {
+            using (SqlConnection con = new SqlConnection(connString))
+            {
+                string query = "SELECT skillid, skillname FROM tbl_skill";
+                SqlCommand cmd = new SqlCommand(query, con);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                ddlSkills.DataSource = reader;
+                ddlSkills.DataTextField = "skillname";
+                ddlSkills.DataValueField = "skillid";
+                ddlSkills.DataBind();
+                ddlSkills.Items.Insert(0, new ListItem("--Select Skill--", "0"));
             }
         }
 
@@ -66,7 +79,6 @@ namespace job_portal.company
                 SqlCommand cmd = new SqlCommand(query, con);
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
-
                 ddlCategory.DataSource = reader;
                 ddlCategory.DataTextField = "categoryname";
                 ddlCategory.DataValueField = "categoryid";
@@ -74,10 +86,12 @@ namespace job_portal.company
                 ddlCategory.Items.Insert(0, new ListItem("Select Category", "0"));
             }
         }
+
+
         private void LoadJobDetails(int jobpostid)
         {
             string query = @"
-            SELECT jp.jobtitle, jp.jobdescription, cat.categoryid, cat.categoryname, jp.skillrequried, 
+            SELECT jp.jobtitle, jp.jobdescription, cat.categoryid, cat.categoryname, 
                    jp.location, jp.salary, jp.jobtype, jp.postdate, jp.applicationdeadline, jp.status,
                    c.companyname, c.website, c.email, c.contactphone, c.description AS companydescription, 
                    c.companylogo
@@ -102,7 +116,6 @@ namespace job_portal.company
                         lblJobTitle.Text = reader["jobtitle"].ToString();
                         lblDescription.Text = reader["jobdescription"].ToString();
                         lblCategory.Text = reader["categoryname"].ToString();
-                        lblSkillsRequired.Text = reader["skillrequried"].ToString();
                         lblLocation.Text = reader["location"].ToString();
                         lblSalary.Text = reader["salary"].ToString();
                         lblJobType.Text = reader["jobtype"].ToString();
@@ -113,7 +126,6 @@ namespace job_portal.company
                         // Textboxes (for editing)
                         txtJobTitle.Text = reader["jobtitle"].ToString();
                         txtDescription.Text = reader["jobdescription"].ToString();
-                        txtSkillsRequired.Text = reader["skillrequried"].ToString();
                         txtLocation.Text = reader["location"].ToString();
                         txtSalary.Text = reader["salary"].ToString();
                         ddlJobType.SelectedValue = reader["jobtype"].ToString();
@@ -141,7 +153,34 @@ namespace job_portal.company
                     }
                 }
             }
+
+            // Load existing skills for the job
+            string skillsQuery = @"
+            SELECT s.skillname, s.skillid
+            FROM tbl_jobpost_skill jps
+            INNER JOIN tbl_skill s ON jps.skillid = s.skillid
+            WHERE jps.jobpostid = @jobpostid";
+
+            using (SqlConnection con = new SqlConnection(connString))
+            {
+                using (SqlCommand cmd = new SqlCommand(skillsQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@jobpostid", jobpostid);
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    lstSelectedSkills.Items.Clear();
+                    string skillsText = "";
+                    while (reader.Read())
+                    {
+                        lstSelectedSkills.Items.Add(new ListItem(reader["skillname"].ToString(), reader["skillid"].ToString()));
+                        skillsText += reader["skillname"].ToString() + ", ";
+                    }
+                    lblSkillsRequired.Text = skillsText.TrimEnd(',', ' ');
+                }
+            }
         }
+
 
         protected void btnApply_Click(object sender, EventArgs e)
         {
@@ -209,6 +248,7 @@ namespace job_portal.company
             }
         }
 
+
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             if (Session["Username"] == null || Session["UserRole"].ToString() != "Company")
@@ -225,43 +265,61 @@ namespace job_portal.company
                 return;
             }
 
-            string query = @"
-                UPDATE tbl_jobpost 
-                SET jobtitle = @jobtitle, jobdescription = @jobdescription, 
-                    categoryid = @categoryid, skillrequried = @skillrequried, 
-                    location = @location, salary = @salary, 
-                    jobtype = @jobtype, applicationdeadline = @applicationdeadline, 
-                    status = @status 
-                WHERE jobpostid = @jobpostid";
-
             using (SqlConnection con = new SqlConnection(connString))
             {
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@jobtitle", txtJobTitle.Text);
-                    cmd.Parameters.AddWithValue("@jobdescription", txtDescription.Text);
-                    cmd.Parameters.AddWithValue("@categoryid", ddlCategory.SelectedValue);
-                    cmd.Parameters.AddWithValue("@skillrequried", txtSkillsRequired.Text);
-                    cmd.Parameters.AddWithValue("@location", txtLocation.Text);
-                    cmd.Parameters.AddWithValue("@salary", txtSalary.Text);
-                    cmd.Parameters.AddWithValue("@jobtype", ddlJobType.SelectedValue);
-                    cmd.Parameters.AddWithValue("@applicationdeadline", Convert.ToDateTime(txtApplicationDeadline.Text));
-                    cmd.Parameters.AddWithValue("@status", txtStatus.Text);
-                    cmd.Parameters.AddWithValue("@jobpostid", jobpostid);
+                con.Open();
+                SqlTransaction transaction = con.BeginTransaction();
 
-                    con.Open();
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    if (rowsAffected > 0)
+                try
+                {
+                    // Update job post details
+                    string updateJobQuery = @"
+                        UPDATE tbl_jobpost 
+                        SET jobtitle = @jobtitle, jobdescription = @jobdescription, 
+                            categoryid = @categoryid, 
+                            location = @location, salary = @salary, 
+                            jobtype = @jobtype, applicationdeadline = @applicationdeadline, 
+                            status = @status 
+                        WHERE jobpostid = @jobpostid";
+
+                    SqlCommand cmdJob = new SqlCommand(updateJobQuery, con, transaction);
+                    cmdJob.Parameters.AddWithValue("@jobtitle", txtJobTitle.Text);
+                    cmdJob.Parameters.AddWithValue("@jobdescription", txtDescription.Text);
+                    cmdJob.Parameters.AddWithValue("@categoryid", ddlCategory.SelectedValue);
+                    cmdJob.Parameters.AddWithValue("@location", txtLocation.Text);
+                    cmdJob.Parameters.AddWithValue("@salary", txtSalary.Text);
+                    cmdJob.Parameters.AddWithValue("@jobtype", ddlJobType.SelectedValue);
+                    cmdJob.Parameters.AddWithValue("@applicationdeadline", Convert.ToDateTime(txtApplicationDeadline.Text));
+                    cmdJob.Parameters.AddWithValue("@status", txtStatus.Text);
+                    cmdJob.Parameters.AddWithValue("@jobpostid", jobpostid);
+                    cmdJob.ExecuteNonQuery();
+
+                    // Delete existing skills for the job
+                    string deleteSkillsQuery = "DELETE FROM tbl_jobpost_skill WHERE jobpostid = @jobpostid";
+                    SqlCommand cmdDelete = new SqlCommand(deleteSkillsQuery, con, transaction);
+                    cmdDelete.Parameters.AddWithValue("@jobpostid", jobpostid);
+                    cmdDelete.ExecuteNonQuery();
+
+                    // Insert new skills
+                    foreach (ListItem skill in lstSelectedSkills.Items)
                     {
-                        lblMessage.Text = "Job details updated successfully!";
-                        lblMessage.ForeColor = System.Drawing.Color.Green;
-                        Response.Redirect(Request.RawUrl);
+                        string insertSkillQuery = "INSERT INTO tbl_jobpost_skill (jobpostid, skillid) VALUES (@jobpostid, @skillid)";
+                        SqlCommand cmdSkill = new SqlCommand(insertSkillQuery, con, transaction);
+                        cmdSkill.Parameters.AddWithValue("@jobpostid", jobpostid);
+                        cmdSkill.Parameters.AddWithValue("@skillid", skill.Value);
+                        cmdSkill.ExecuteNonQuery();
                     }
-                    else
-                    {
-                        lblMessage.Text = "Failed to update job details.";
-                        lblMessage.ForeColor = System.Drawing.Color.Red;
-                    }
+
+                    transaction.Commit();
+                    lblMessage.Text = "Job details updated successfully!";
+                    lblMessage.ForeColor = System.Drawing.Color.Green;
+                    Response.Redirect(Request.RawUrl);
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    lblMessage.Text = "Error updating job: " + ex.Message;
+                    lblMessage.ForeColor = System.Drawing.Color.Red;
                 }
             }
         }
@@ -271,13 +329,16 @@ namespace job_portal.company
             txtJobTitle.Visible = true;
             txtDescription.Visible = true;
             ddlCategory.Visible = true;
-            txtSkillsRequired.Visible = true;
+            ddlSkills.Visible = true;
+            btnAddSkill.Visible = true;
+            lstSelectedSkills.Visible = true;
             txtLocation.Visible = true;
             txtSalary.Visible = true;
             ddlJobType.Visible = true;
             txtPostDate.Visible = true;
             txtApplicationDeadline.Visible = true;
             txtStatus.Visible = true;
+            btnUpdate.Visible = true;
 
             lblJobTitle.Visible = false;
             lblDescription.Visible = false;
@@ -289,6 +350,47 @@ namespace job_portal.company
             lblPostDate.Visible = false;
             lblApplicationDeadline.Visible = false;
             lblStatus.Visible = false;
+
+            ddlSkills.Visible = true;
+            btnAddSkill.Visible = true;
+            btnRemoveSkill.Visible = true;  // Added: Show remove button when editing
+            lstSelectedSkills.Visible = true;
+        }
+
+        protected void btnAddSkill_Click(object sender, EventArgs e)
+        {
+            // Only add if a skill is selected
+            if (ddlSkills.SelectedIndex > 0)
+            {
+                // Prevent duplicate selection
+                if (!lstSelectedSkills.Items.Cast<ListItem>().Any(item => item.Value == ddlSkills.SelectedValue))
+                {
+                    lstSelectedSkills.Items.Add(new ListItem(ddlSkills.SelectedItem.Text, ddlSkills.SelectedValue));
+                }
+            }
+        }
+
+        protected void lstSelectedSkills_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ddlSkills_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnRemoveSkill_Click(object sender, EventArgs e)
+        {
+            if (lstSelectedSkills.SelectedIndex >= 0)
+            {
+                lstSelectedSkills.Items.RemoveAt(lstSelectedSkills.SelectedIndex);
+            }
+            else
+            {
+                lblMessage.Text = "Please select a skill to remove.";
+                lblMessage.ForeColor = System.Drawing.Color.Red;
+            }
         }
     }
 }

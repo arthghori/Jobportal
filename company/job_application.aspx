@@ -274,10 +274,20 @@
     <asp:DropDownList ID="ddlCategory" runat="server" CssClass="input-box" Visible="false"></asp:DropDownList>
 </p>
     
-    <p><strong>Skills Required:</strong> 
+   <%-- <p><strong>Skills Required:</strong> 
         <asp:Label ID="lblSkillsRequired" runat="server" />
         <asp:TextBox ID="txtSkillsRequired" runat="server" CssClass="input-box" Visible="false" />
-    </p>
+    </p>--%>
+
+      <p><strong>Skills Required:</strong> 
+    <asp:Label ID="lblSkillsRequired" runat="server" />
+    <!-- Skill editing controls (visible only when editing) -->
+    <asp:DropDownList ID="ddlSkills" runat="server" Width="200px" Visible="false"></asp:DropDownList>
+    <asp:Button ID="btnAddSkill" runat="server" Text="Add Skill" OnClick="btnAddSkill_Click" CausesValidation="false" Visible="false" />
+    <asp:Button ID="btnRemoveSkill" runat="server" Text="Remove Skill" OnClick="btnRemoveSkill_Click" CausesValidation="false" Visible="false" />
+    <br />
+    <asp:ListBox ID="lstSelectedSkills" runat="server" Width="200px" Height="100px" Visible="false"></asp:ListBox>
+</p>
     
     <p><strong>Location:</strong> 
         <asp:Label ID="lblLocation" runat="server" />

@@ -194,5 +194,17 @@ namespace job_portal.company
                 }
             }
         }
+
+        protected void btnRemoveSkill_Click(object sender, EventArgs e)
+        {
+            if (lstSelectedSkills.SelectedIndex >= 0)
+            {
+                lstSelectedSkills.Items.RemoveAt(lstSelectedSkills.SelectedIndex);
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Please select a skill to remove.');", true);
+            }
+        }
     }
 }

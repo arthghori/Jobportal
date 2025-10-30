@@ -307,7 +307,7 @@ h2 {
                         <p>
                             <span>👥 Applicants: <%# Eval("ApplicantCount") %></span>
                         </p>
-                        <asp:HyperLink ID="lnkApplications" runat="server" NavigateUrl='<%# "Application.aspx?jobpostid=" + Eval("jobpostid") %>' CssClass="btn btn-primary">Applications</asp:HyperLink>
+                        <asp:HyperLink ID="lnkApplications" runat="server" NavigateUrl='<%# "~/admin/Application.aspx?jobpostid=" + Eval("jobpostid") %>' CssClass="btn btn-primary">Applications</asp:HyperLink>
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
