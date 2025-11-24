@@ -505,7 +505,7 @@ td[colspan="2"] {
             </div> 
                    <table style="box-shadow : 5px 5px 15px grey ;margin-left:auto;background-color:#F3F3F3;margin-right:auto;margin-top:50px;margin-bottom:50px" class="auto-style1">
             <tr>
-                <td  style="font-family:Verdana,Verdana, Geneva, Tahoma, sans-serif; font-size: large; font-weight: bold;" colspan="2">Registration<br />
+                <td  style="font-family:Verdana,Verdana, Geneva, Tahoma, sans-serif; font-size: large; font-weight: bold;" colspan="2">Job Seeker Registration<br />
                 </td>
             </tr>
             <tr>

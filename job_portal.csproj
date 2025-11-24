@@ -139,6 +139,7 @@
     <Content Include="Images\contactus_form_img.svg" />
     <Content Include="Images\contact_img_mainpage.png" />
     <Content Include="Images\create_icon.png" />
+    <Content Include="Images\dci.png" />
     <Content Include="Images\facebook-removebg-preview.png" />
     <Content Include="Images\facebook_icon.png" />
     <Content Include="Images\github-removebg-preview.png" />
