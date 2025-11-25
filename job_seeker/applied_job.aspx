@@ -425,7 +425,7 @@
                 <ItemTemplate>
                     <div class="job-card">
                         <h4>
-                            <asp:HyperLink ID="lnkJobTitle" runat="server" NavigateUrl='<%# "job_application.aspx?jobpostid=" + Eval("jobpostid") %>'><%# Eval("jobtitle") %></asp:HyperLink>
+                            <asp:HyperLink ID="lnkJobTitle" runat="server" NavigateUrl='<%# "~/company/job_application.aspx?jobpostid=" + Eval("jobpostid") %>'><%# Eval("jobtitle") %></asp:HyperLink>
                         </h4>
                         <p>Applied Date: <%# Eval("applicationdate", "{0:dd-MM-yyyy}") %></p>
                         <p>Status: <span class='<%# Eval("status").ToString() == "Approved" ? "approved" : "pending" %>'><%# Eval("status") %></span></p>

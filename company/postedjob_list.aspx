@@ -123,8 +123,129 @@
     background-color: #2d6d59; /* Blue */
 }
 
-.btn-info:hover {
-    backgrou
+    /* GridView Styling */
+    .table {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e2e8f0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .table th {
+        background: linear-gradient(135deg, #059669, #047857);
+        color: white;
+        font-weight: 600;
+        border: none;
+        padding: 15px;
+        text-align: center;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .table td {
+        padding: 15px;
+        vertical-align: middle;
+        border-color: #e2e8f0;
+        text-align: center;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #f8fafc;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #ecfdf5;
+        transform: translateY(-1px);
+    }
+
+    /* Company Name Column */
+    .table td:first-child {
+        font-weight: 600;
+        color: #059669;
+        text-align: left;
+    }
+
+    /* Job Title Column */
+    .table td:nth-child(2) {
+        font-weight: 600;
+        color: #1f2937;
+        text-align: left;
+        max-width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Custom Button Styling */
+    .btn-custom {
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin: 2px;
+        min-width: 100px;
+    }
+
+    .btn-dark {
+        background: linear-gradient(135deg, #059669, #10b981);
+    }
+
+    .btn-dark:hover {
+        background: linear-gradient(135deg, #047857, #059669);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+    }
+
+    .btn-info {
+        background: linear-gradient(135deg, #2563eb, #3b82f6);
+    }
+
+    .btn-info:hover {
+        background: linear-gradient(135deg, #1d4ed8, #2563eb);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    /* No Data Message */
+    .no-data-message {
+        background: linear-gradient(135deg, #fef3c7, #fef7cd);
+        color: #92400e;
+        padding: 20px;
+        border-radius: 10px;
+        font-weight: 600;
+        border: 1px solid #fcd34d;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .table th,
+        .table td {
+            padding: 10px 8px;
+            font-size: 12px;
+        }
+        
+        .btn-custom {
+            min-width: 80px;
+            padding: 6px 12px;
+            font-size: 12px;
+            display: block;
+            margin: 5px auto;
+        }
+        
+        .table td:first-child,
+        .table td:nth-child(2) {
+            max-width: 120px;
+        }
+    }
+
     </style>
 </head>
 <body>
@@ -171,23 +292,22 @@
             <h2>Vacancy List</h2>
             <asp:Button ID="btnCreate" runat="server" Text="Create New Vacancy" CssClass="btn btn-success" OnClick="btnCreate_Click" />
             <br /><br />
-            <asp:GridView ID="gvVacancies" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered" OnSelectedIndexChanged="gvVacancies_SelectedIndexChanged">
-                <Columns>
-                    <asp:BoundField DataField="JobID" HeaderText="Job ID" />
-                    <asp:BoundField DataField="JobTitle" HeaderText="Job Title" />
-                    <asp:BoundField DataField="EmploymentType" HeaderText="Employment Type" />
-                    <asp:BoundField DataField="ApplicationDeadline" HeaderText="Application Deadline" DataFormatString="{0:dd/MM/yyyy}" />
-                    <asp:BoundField DataField="Views" HeaderText="Views" />
+<asp:GridView ID="gvVacancies" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered" OnSelectedIndexChanged="gvVacancies_SelectedIndexChanged">
+    <Columns>
+        <asp:BoundField DataField="CompanyName" HeaderText="Company Name" />
+        <asp:BoundField DataField="JobTitle" HeaderText="Job Title" />
+        <asp:BoundField DataField="EmploymentType" HeaderText="Employment Type" />
+        <asp:BoundField DataField="ApplicationDeadline" HeaderText="Application Deadline" DataFormatString="{0:dd/MM/yyyy}" />
+        <asp:BoundField DataField="Views" HeaderText="Views" />
 
-                    <asp:TemplateField HeaderText="Actions">
-                        <ItemTemplate>
-                            <asp:Button ID="btnView" runat="server" Text="View" CssClass="btn btn-dark btn-custom" CommandArgument='<%# Eval("jobid") %>' OnClick="btnView_Click" />
-                            <asp:Button ID="btnApplications" runat="server" Text="Applications" CssClass="btn btn-info btn-custom" CommandArgument='<%# Eval("jobid") %>' OnClick="btnApplications_Click" />
-                             
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-            </asp:GridView>
+        <asp:TemplateField HeaderText="Actions">
+            <ItemTemplate>
+                <asp:Button ID="btnView" runat="server" Text="View" CssClass="btn btn-dark btn-custom" CommandArgument='<%# Eval("jobid") %>' OnClick="btnView_Click" />
+                <asp:Button ID="btnApplications" runat="server" Text="Applications" CssClass="btn btn-info btn-custom" CommandArgument='<%# Eval("jobid") %>' OnClick="btnApplications_Click" />
+            </ItemTemplate>
+        </asp:TemplateField>
+    </Columns>
+</asp:GridView>
         </div>   
 
 
