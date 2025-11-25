@@ -84,7 +84,7 @@ namespace job_portal.job_seeker
                     }
                     else
                     {
-                        Response.Write("No jobs applied yet.");
+                        //Response.Write("No jobs applied yet.");
                         //lblMessage.ForeColor = System.Drawing.Color.Gray;
                     }
                 }

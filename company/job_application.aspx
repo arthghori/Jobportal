@@ -219,6 +219,348 @@
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
+/* 🔹 Main Container */
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    gap: 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* 🔹 Job Details Section */
+.job-details {
+    flex: 3;
+    background: #f8fafc;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.job-details h4 {
+    color: #059669;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #059669;
+    padding-bottom: 10px;
+}
+
+/* 🔹 Job Meta Information */
+.job-meta p {
+    font-size: 15px;
+    color: #374151;
+    margin: 15px 0;
+    line-height: 1.6;
+    padding: 12px;
+    background: white;
+    border-radius: 8px;
+    border-left: 4px solid #059669;
+}
+
+.job-meta strong {
+    color: #059669;
+    font-weight: 600;
+    min-width: 160px;
+    display: inline-block;
+}
+
+/* 🔹 Input Box Styling */
+.input-box {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #4a5568;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+}
+
+.input-box:focus {
+    border-color: #059669;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+}
+
+/* 🔹 Skills Section */
+#ddlSkills {
+    width: 200px;
+    padding: 8px 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+#btnAddSkill, #btnRemoveSkill {
+    background: #059669;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px;
+}
+
+#btnAddSkill:hover, #btnRemoveSkill:hover {
+    background: #047857;
+    transform: translateY(-1px);
+}
+
+#lstSelectedSkills {
+    width: 100%;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 8px;
+    margin-top: 10px;
+    background: white;
+}
+
+/* 🔹 Button Styling */
+.apply-button, .update-button, .edit-button {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px 10px 10px 0;
+    box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+}
+
+.apply-button:hover, .update-button:hover, .edit-button:hover {
+    background: linear-gradient(135deg, #047857 0%, #035c3f 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
+}
+
+.apply-button:disabled, .update-button:disabled, .edit-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* 🔹 Company Card */
+.company-card {
+    flex: 1;
+    background: #f8fafc;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.company-logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #059669;
+    padding: 4px;
+    background: white;
+    margin-bottom: 20px;
+}
+
+.company-card h2 {
+    color: #059669;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.company-card p {
+    font-size: 14px;
+    color: #4a5568;
+    margin: 10px 0;
+    text-align: left;
+    padding: 8px;
+    background: white;
+    border-radius: 6px;
+}
+
+.company-card strong {
+    color: #059669;
+}
+
+/* 🔹 Message Label */
+#lblMessage {
+    display: block;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* 🔹 Navigation Styling */
+.nav-link {
+    color: #059669 !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #047857 !important;
+}
+
+/* 🔹 Profile Dropdown */
+.profile-dropdown {
+    position: relative;
+}
+
+.profile-icon {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #059669;
+    padding: 2px;
+    transition: transform 0.3s ease;
+}
+
+.profile-icon:hover {
+    transform: scale(1.05);
+}
+
+.dropdown-menu {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+}
+
+.dropdown-menu li a {
+    padding: 10px 20px;
+    color: #4a5568;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+    background: #059669;
+    color: white;
+}
+
+/* 🔹 Footer Styling */
+footer .row {
+    background: #059669;
+    color: white;
+    margin-top: 60px;
+    padding: 40px 20px 20px 20px;
+}
+
+footer .col {
+    padding: 0 20px;
+}
+
+footer p {
+    color: white;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+footer ul.nav-item {
+    list-style: none;
+    padding: 0;
+}
+
+footer .nav-link {
+    color: white !important;
+    padding: 5px 0;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+footer .nav-link:hover {
+    color: #e2e8f0 !important;
+    text-decoration: underline;
+}
+
+/* 🔹 Contact Form in Footer */
+footer input[type="text"],
+footer input[type="email"] {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    margin-bottom: 8px;
+}
+
+footer input[type="text"]::placeholder,
+footer input[type="email"]::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+footer input[type="button"] {
+    background: white;
+    color: #059669;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+footer input[type="button"]:hover {
+    background: #f8fafc;
+    transform: translateY(-1px);
+}
+
+/* 🔹 Social Icons */
+footer .bi {
+    font-size: 20px;
+    color: white;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+footer .bi:hover {
+    color: #e2e8f0;
+}
+
+/* 🔹 Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 20px;
+        margin: 20px;
+    }
+    
+    .job-details, .company-card {
+        width: 100%;
+    }
+    
+    .job-meta p {
+        font-size: 14px;
+    }
+    
+    .apply-button, .update-button, .edit-button {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+/* 🔹 Focus States */
+.input-box:focus,
+#ddlSkills:focus,
+.apply-button:focus,
+.update-button:focus,
+.edit-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
+}
 
     </style>
 </head>

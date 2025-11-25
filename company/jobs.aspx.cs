@@ -115,13 +115,24 @@ ORDER BY jp.postdate DESC";
             {
                 Image img = (Image)e.Item.FindControl("imgcompanylogo");
                 DataRowView drv = (DataRowView)e.Item.DataItem;
-                string logoFile = drv["companylogo"]?.ToString();
-                string defaultImage = "~/Images/default_company.png";
 
-                if (!string.IsNullOrEmpty(logoFile))
+                string logoFile = drv["companylogo"]?.ToString()?.Trim();
+                string defaultImage = "~/Images/dci.png";
+
+                // If no file name → use default image
+                if (string.IsNullOrEmpty(logoFile))
                 {
-                    string serverPath = Server.MapPath("~/CompanyLogos/" + logoFile);
-                    img.ImageUrl = System.IO.File.Exists(serverPath) ? "~/CompanyLogos/" + logoFile : defaultImage;
+                    img.ImageUrl = defaultImage;
+                    return;
+                }
+
+                string virtualPath = "~/CompanyLogos/" + logoFile;
+                string physicalPath = Server.MapPath(virtualPath);
+
+                // Check if file exists on server
+                if (System.IO.File.Exists(physicalPath))
+                {
+                    img.ImageUrl = virtualPath;
                 }
                 else
                 {

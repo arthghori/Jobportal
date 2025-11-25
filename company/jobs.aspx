@@ -202,7 +202,309 @@ h2 {
     margin-bottom: 15px;
 }
 
+/* 🔹 Main Container */
+.container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 1200px;
+}
 
+/* 🔹 Page Header */
+h2 {
+    color: #059669;
+    font-weight: 700;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 🔹 Main Content Layout */
+.main-content {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* 🔹 Filter Sidebar */
+.filter-box {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 25px;
+    width: 280px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.filter-box h2 {
+    color: #059669;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* 🔹 Filter Titles */
+.filter-title {
+    color: #2d3748;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 20px 0 8px 0;
+    display: block;
+}
+
+/* 🔹 Dropdown Styling */
+.filter-options {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    background: white;
+    font-size: 14px;
+    color: #4a5568;
+    transition: all 0.3s ease;
+}
+
+.filter-options:focus {
+    border-color: #059669;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+}
+
+/* 🔹 Radio Button List Styling */
+.filter-options input[type="radio"] {
+    margin-right: 8px;
+    accent-color: #059669;
+}
+
+.filter-options label {
+    margin: 8px 0;
+    color: #4a5568;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.filter-options label:hover {
+    color: #059669;
+}
+
+/* 🔹 Filter Button */
+.btn-filter {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-filter:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(5, 150, 105, 0.3);
+}
+
+/* 🔹 Job Listings */
+.job-listings {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 🔹 Job Card */
+.job-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f1f5f9;
+    transition: all 0.3s ease;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.job-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    border-color: #059669;
+}
+
+/* 🔹 Company Logo */
+.company-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 2px solid #e2e8f0;
+    padding: 4px;
+    background: white;
+}
+
+/* 🔹 Job Details */
+.job-details {
+    flex: 1;
+}
+
+.job-details h3 {
+    color: #2d3748;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+
+.job-details p {
+    color: #64748b;
+    font-size: 14px;
+    margin: 4px 0;
+    line-height: 1.4;
+}
+
+.job-details strong {
+    color: #374151;
+}
+
+/* 🔹 Job Actions */
+.job-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 120px;
+}
+
+/* 🔹 Buttons */
+.btn-details {
+    background: transparent;
+    color: #059669;
+    border: 2px solid #059669;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-details:hover {
+    background: #059669;
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* 🔹 Footer Styling */
+footer {
+    background: #059669;
+    color: white;
+    margin-top: 80px;
+    padding: 40px 0 20px 0;
+}
+
+footer .col {
+    padding: 0 20px;
+}
+
+footer p {
+    color: white;
+    margin-bottom: 15px;
+}
+
+footer ul.nav-item {
+    list-style: none;
+    padding: 0;
+}
+
+footer .nav-link {
+    color: white !important;
+    padding: 5px 0;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+footer .nav-link:hover {
+    color: #e2e8f0 !important;
+    text-decoration: underline;
+}
+
+footer hr {
+    border-color: rgba(255, 255, 255, 0.2);
+    margin: 30px 0 20px 0;
+}
+
+footer p:last-child {
+    text-align: center;
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* 🔹 Navigation Styling */
+.nav-link {
+    color: #059669 !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #047857 !important;
+}
+
+/* 🔹 Profile Dropdown */
+.profile-dropdown {
+    position: relative;
+}
+
+.profile-icon {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #059669;
+    padding: 2px;
+}
+
+.dropdown-menu {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+}
+
+.dropdown-menu li a {
+    padding: 10px 20px;
+    color: #4a5568;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+    background: #059669;
+    color: white;
+}
+
+/* 🔹 No Jobs Message */
+.no-jobs {
+    text-align: center;
+    padding: 60px 20px;
+    color: #64748b;
+}
+
+.no-jobs h3 {
+    color: #059669;
+    margin-bottom: 10px;
+}
+
+/* 🔹 Loading State */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
     </style>
 </head>
 

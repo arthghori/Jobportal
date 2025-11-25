@@ -394,6 +394,82 @@ td[colspan="2"] {
 }
 
 
+
+
+/* 🔹 Job Seeker Registration Card */
+.container.mt-5 .row .col-md-4.bg-light {
+    background: #f8fafc !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid #e2e8f0 !important;
+    width: 320px !important;
+    height: 485px !important;
+    margin: 50px auto !important;
+    padding: 30px !important;
+    transition: all 0.3s ease !important;
+}
+
+
+/* 🔹 Image Styling */
+.container.mt-5 .row .col-md-4.bg-light img {
+    width: 160px !important;
+    height: 160px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 3px solid #059669 !important;
+    margin-bottom: 25px !important;
+}
+
+/* 🔹 List Styling */
+.container.mt-5 .row .col-md-4.bg-light ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 0 25px 0 !important;
+    text-align: left !important;
+}
+
+.container.mt-5 .row .col-md-4.bg-light li {
+    position: relative !important;
+    padding: 10px 0 10px 30px !important;
+    margin-bottom: 8px !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    color: #475569 !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+.container.mt-5 .row .col-md-4.bg-light li:before {
+  
+    position: absolute !important;
+    left: 0 !important;
+    color: #059669 !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+}
+
+/* 🔹 Link Styling */
+.container.mt-5 .row .col-md-4.bg-light a {
+    display: inline-block !important;
+    color: #059669 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    padding: 12px 25px !important;
+    border: 2px solid #059669 !important;
+    border-radius: 6px !important;
+    transition: all 0.3s ease !important;
+}
+
+
+
+/* 🔹 Center Alignment */
+.container.mt-5 .row .col-md-4.bg-light center {
+    display: block ;
+    text-align: center ;
+}
+
+
     </style>
 </head>
 <body>
@@ -429,7 +505,7 @@ td[colspan="2"] {
             </div> 
                    <table style="box-shadow : 5px 5px 15px grey ;margin-left:auto;background-color:#F3F3F3;margin-right:auto;margin-top:50px;margin-bottom:50px" class="auto-style1">
             <tr>
-                <td  style="font-family:Verdana,Verdana, Geneva, Tahoma, sans-serif; font-size: large; font-weight: bold;" colspan="2">Registration<br />
+                <td  style="font-family:Verdana,Verdana, Geneva, Tahoma, sans-serif; font-size: large; font-weight: bold;" colspan="2">Job Seeker Registration<br />
                 </td>
             </tr>
             <tr>
