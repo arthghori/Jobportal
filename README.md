@@ -25,23 +25,6 @@
 
 ---
 
-## 📂 Project Structure
-
-```bash
-JobPortal/
-├── job_portal.sln           # Solution file
-├── job_portal.csproj        # Project configuration
-├── Global.asax              # Application entry point
-├── Web.config               # Configuration file
-├── /Models                  # Entity classes (if any)
-├── /Views                   # ASPX pages
-├── /Scripts & /Content      # Static files
-├── /App_Code & /App_Data    # Utilities and database
-└── packages.config          # NuGet packages list
-```
-
----
-
 ## 🚀 Getting Started
 
 ### 1️⃣ Clone the Repository
@@ -60,34 +43,6 @@ git clone https://github.com/arthghori/Jobportal.git
 ### 4️⃣ Run the Project
 - Press **F5** in Visual Studio
 - The site will open at `http://localhost:xxxx/`
-
----
-
-## 📸 Screenshots
-
-| Home Page | Job Listing | Admin Panel |
-|----------|-------------|-------------|
-| *(Add screenshot)* | *(Add screenshot)* | *(Add screenshot)* |
-
----
-
-## 📦 Deployment
-
-Deploy on:  
-- **IIS Server** (Windows)  
-- **Azure App Service** (Optional)  
-
-Ensure you set correct connection strings and enable database access.
-
----
-
-## 🤝 Contributing
-
-Pull requests are welcome! Please follow these steps:  
-1. Fork this repo  
-2. Create a feature branch (`git checkout -b feature/new-feature`)  
-3. Commit changes  
-4. Push and open a PR 🎉  
 
 ---
 
