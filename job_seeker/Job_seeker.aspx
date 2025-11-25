@@ -114,6 +114,273 @@
             text-decoration: none;
             color: white;
 }
+         /* GridView Container */
+    .table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 20px 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e2e8f0;
+    }
+
+    /* Header Styling */
+    .table th {
+        background: linear-gradient(135deg, #059669, #047857);
+        color: white;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 18px 12px;
+        border: none;
+        text-align: left;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .table th:hover {
+        background: linear-gradient(135deg, #047857, #059669);
+    }
+
+    /* Data Rows Styling */
+    .table td {
+        padding: 16px 12px;
+        border-bottom: 1px solid #f1f5f9;
+        vertical-align: middle;
+        transition: all 0.3s ease;
+        font-size: 14px;
+        color: #374151;
+    }
+
+    /* Striped Rows */
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #f8fafc;
+    }
+
+    .table-striped tbody tr:nth-of-type(even) {
+        background-color: #ffffff;
+    }
+
+    /* Hover Effect */
+    .table-hover tbody tr:hover {
+        background: linear-gradient(90deg, #f8fafc, #ecfdf5);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(5, 150, 105, 0.1);
+    }
+
+    /* Profile Image Styling */
+    .profile-img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #e2e8f0;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-img:hover {
+        transform: scale(1.1);
+        border-color: #059669;
+        box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+    }
+
+    /* Column Specific Styling */
+    .table td:first-child { /* First Name */
+        font-weight: 600;
+        color: #059669;
+    }
+
+    .table td:nth-child(2) { /* Last Name */
+        font-weight: 600;
+        color: #1f2937;
+    }
+
+    .table td:nth-child(3) { /* Email */
+        color: #2563eb;
+        font-weight: 500;
+    }
+
+    .table td:nth-child(4) { /* Gender */
+        text-transform: capitalize;
+        font-weight: 500;
+    }
+
+    .table td:nth-child(5) { /* Birthdate */
+        color: #6b7280;
+        font-family: 'Courier New', monospace;
+        font-size: 13px;
+    }
+
+    .table td:nth-child(6) { /* Phone Number */
+        color: #374151;
+        font-weight: 500;
+        font-family: 'Courier New', monospace;
+    }
+
+    .table td:nth-child(7) { /* Experience */
+        color: #059669;
+        font-weight: 600;
+        background: #ecfdf5;
+        padding: 4px 8px;
+        border-radius: 20px;
+        display: inline-block;
+        text-align: center;
+        min-width: 60px;
+    }
+
+    .table td:nth-child(8) { /* City */
+        color: #7c3aed;
+        font-weight: 500;
+    }
+
+    .table td:nth-child(9) { /* Address */
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: #6b7280;
+    }
+
+    .table td:nth-child(10) { /* State */
+        color: #dc2626;
+        font-weight: 500;
+    }
+
+    .table td:nth-child(11) { /* Username */
+        color: #059669;
+        font-weight: 600;
+        font-family: 'Courier New', monospace;
+        background: #f8fafc;
+        padding: 4px 8px;
+        border-radius: 6px;
+        display: inline-block;
+    }
+
+    /* Gender Specific Colors */
+    .table td:contains("male") {
+        color: #2563eb;
+        background: #dbeafe;
+        padding: 4px 8px;
+        border-radius: 20px;
+        display: inline-block;
+    }
+
+    .table td:contains("female") {
+        color: #dc2626;
+        background: #fce7f3;
+        padding: 4px 8px;
+        border-radius: 20px;
+        display: inline-block;
+    }
+
+    /* Experience Level Colors */
+    .table td:contains("Fresher"),
+    .table td:contains("0-1 years"),
+    .table td:contains("1-2 years") {
+        background: #fef3c7;
+        color: #92400e;
+    }
+
+    .table td:contains("2-5 years"),
+    .table td:contains("3-5 years") {
+        background: #d1fae5;
+        color: #065f46;
+    }
+
+    .table td:contains("5+ years"),
+    .table td:contains("Senior") {
+        background: #fce7f3;
+        color: #be185d;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+        .table {
+            font-size: 13px;
+        }
+        
+        .table th,
+        .table td {
+            padding: 12px 8px;
+        }
+        
+        .profile-img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .table-container {
+            overflow-x: auto;
+        }
+        
+        .table {
+            min-width: 1200px;
+            font-size: 12px;
+        }
+        
+        .table th,
+        .table td {
+            padding: 10px 6px;
+        }
+        
+        .profile-img {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .table td:nth-child(9) { /* Address */
+            max-width: 120px;
+        }
+    }
+
+    /* Animation */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .table tbody tr {
+        animation: fadeInUp 0.5s ease forwards;
+        opacity: 0;
+    }
+
+    /* Stagger animation for rows */
+    .table tbody tr:nth-child(1) { animation-delay: 0.1s; }
+    .table tbody tr:nth-child(2) { animation-delay: 0.2s; }
+    .table tbody tr:nth-child(3) { animation-delay: 0.3s; }
+    .table tbody tr:nth-child(4) { animation-delay: 0.4s; }
+    .table tbody tr:nth-child(5) { animation-delay: 0.5s; }
+
+    /* Empty state styling */
+    .table td[colspan] {
+        text-align: center;
+        padding: 60px 20px;
+        background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+        color: #6b7280;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    /* Focus states for accessibility */
+    .table tbody tr:focus-within {
+        background: #ecfdf5;
+        outline: 2px solid #059669;
+        outline-offset: -2px;
+    }
     </style>
 </head>
 <body>

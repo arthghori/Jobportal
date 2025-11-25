@@ -127,21 +127,21 @@
    /* 🔹 Job Post Container */
 div[style*="border:1px solid black;border-radius:4px; width:550px;height:1050px;box-shadow:5px 5px 15px grey;"] {
     background: white;
-    border: 1px solid black !important;
-    border-radius: 10px !important;
-    box-shadow: 5px 5px 15px grey !important;
+    border: 1px solid black  ;
+    border-radius: 10px  ;
+    box-shadow: 5px 5px 15px grey  ;
     padding: 20px;
     margin: 20px auto;
-    width: 550px !important;
-    height: auto !important;
+    width: 550px  ;
+    height: auto  ;
     min-height: 1050px;
 }
 
 /* 🔹 Table Styling */
 .auto-style1 {
-    width: 100% !important;
+    width: 100%  ;
     border-collapse: collapse;
-    background-color: #F3F3F3 !important;
+    background-color: #F3F3F3  ;
 }
 
 .auto-style1 tr {
@@ -461,8 +461,8 @@ input[type="date"]:focus,
 </header>
   
                <div class="row" style="margin-left:300px">
-            <div class="col" style="margin-top:100px;">
-                <div style="border:1px solid black;border-radius:4px; width:550px;height:1050px;box-shadow:5px 5px 15px grey;">
+            <div class="col" style="margin-top:100px; height: 1901px;">
+                <div style="border:1px solid black;border-radius:4px; width:575px;height:1965px; box-shadow:5px 5px 15px grey;">
                     <table class="auto-style1" style="background-color:#F3F3F3">
                         <tr>
                             <td style="font-family:Verdana,Verdana, Geneva, Tahoma, sans-serif; font-size: large; font-weight: bold;">&nbsp; Job Post</td>
@@ -550,7 +550,7 @@ input[type="date"]:focus,
 </tr>
 <tr>
     <td class="auto-style2">
-        <asp:DropDownList ID="ddlExperience" runat="server" Height="26px" Width="555px" CssClass="Textbox">
+        <asp:DropDownList ID="ddlExperience" runat="server" Height="42px" Width="555px" CssClass="Textbox">
             <asp:ListItem Text="Select Experience" Value=""></asp:ListItem>
             <asp:ListItem Text="Fresher" Value="Fresher"></asp:ListItem>
             <asp:ListItem Text="1-3 Years" Value="1-3 Years"></asp:ListItem>
@@ -570,7 +570,7 @@ input[type="date"]:focus,
                         </tr>
                         <tr>
                             <td class="auto-style2">
-                                <asp:DropDownList ID="ddlJobpost" runat="server" Height="30px" Width="525px" CssClass="Textbox">
+                                <asp:DropDownList ID="ddlJobpost" runat="server" Height="44px" Width="525px" CssClass="Textbox">
                                     <asp:ListItem>---Select job---</asp:ListItem>
                                     <asp:ListItem Text="Full-Time" Value="Full Time"></asp:ListItem>
                                     <asp:ListItem Text="Part-Time" Value="Part Time"></asp:ListItem>
@@ -586,7 +586,7 @@ input[type="date"]:focus,
                         </tr>
                         <tr>
                             <td class="auto-style2">
-                                <asp:TextBox ID="txtPostdate" runat="server" Height="26px" Width="523px" TextMode="Date" CssClass="Textbox"></asp:TextBox>
+                                <asp:TextBox ID="txtPostdate" runat="server" Height="33px" Width="523px" TextMode="Date" CssClass="Textbox"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Post date is required" ControlToValidate="txtPostdate" ForeColor="Red"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
@@ -595,7 +595,7 @@ input[type="date"]:focus,
                         </tr>
                         <tr>
                             <td class="auto-style3">
-                                <asp:TextBox ID="txtDate" runat="server" Height="26px" Width="523px" TextMode="Date" CssClass="Textbox"></asp:TextBox>
+                                <asp:TextBox ID="txtDate" runat="server" Height="33px" Width="523px" TextMode="Date" CssClass="Textbox"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="Application deadline is required" ControlToValidate="txtDate" ForeColor="Red"></asp:RequiredFieldValidator>
                                 <asp:CompareValidator ID="cvDate" runat="server" ControlToValidate="txtDate" ControlToCompare="txtPostdate" Operator="GreaterThan" ErrorMessage="Deadline must be after the post date." ForeColor="Red"/>
                             </td>
